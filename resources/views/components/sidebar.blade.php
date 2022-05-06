@@ -62,11 +62,7 @@
     </h3>
     <ul class="mt-3">
       {{-- Dashboard --}}
-      <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-slate-900">
-        <a
-          href=""
-          class="block text-slate-200 truncate transition duration-150 hover:text-slate-200"
-        >
+       <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
           <div class="flex items-center">
             <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
               <path
@@ -82,18 +78,16 @@
                 d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z"
               ></path>
             </svg>
-            <span
-              class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200"
-              >Dashboard</span
-            >
+            <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
+              {{ __('Dashboard') }}
+            </span>
           </div>
-        </a>
-      </li>
+        </x-nav-link>
       {{-- Analytics --}}
-      <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
+      {{-- <li class="">
         <a
           href=""
-          class="block text-slate-200 truncate transition duration-150 hover:text-slate-200"
+          class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 block text-slate-200 truncate transition duration-150 hover:text-slate-200"
         >
           <div class="flex items-center">
             <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -112,7 +106,7 @@
             >
           </div>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </nav>
