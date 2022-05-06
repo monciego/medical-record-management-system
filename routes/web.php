@@ -14,9 +14,10 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+// Login route
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->middleware('guest');
 
 // ** Route for both (admin and user)
 Route::group(['middleware' => ['auth']], function() {
