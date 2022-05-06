@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -22,6 +23,12 @@ Route::get('/', function () {
 // ** Route for both (admin and user)
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+// ** Route for admin
+Route::group(['middleware' => ['auth', 'role:administrator']], function() {
+    // Analytics
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
 });
 
 
