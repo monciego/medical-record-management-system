@@ -1,6 +1,6 @@
 <x-app-layout>
     @include('pages.admin.dashboard.welcome-banner')
-    <div className="grid grid-cols-12 gap-6">
-        {{-- card goes here... --}}
+    <div class="grid grid-cols-12 gap-6">
+        @include('pages.admin.dashboard.stat-cards')
     </div>
 </x-app-layout>

@@ -639,6 +639,9 @@ select {
 .z-30 {
   z-index: 30;
 }
+.col-span-full {
+  grid-column: 1 / -1;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -711,6 +714,9 @@ select {
 }
 .-mr-2 {
   margin-right: -0.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 .block {
   display: block;
@@ -840,8 +846,17 @@ select {
 .grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
+}
+.items-start {
+  align-items: flex-start;
 }
 .items-center {
   align-items: center;
@@ -901,6 +916,9 @@ select {
 }
 .rounded-sm {
   border-radius: 0.125rem;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .rounded-l-md {
   border-top-left-radius: 0.375rem;
@@ -988,6 +1006,14 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1036,6 +1062,22 @@ select {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.px-1\.5 {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1062,6 +1104,9 @@ select {
 }
 .pb-1 {
   padding-bottom: 0.25rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
 }
 .text-center {
   text-align: center;
@@ -1096,6 +1141,11 @@ select {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1.5;
+}
+.text-3xl {
+  font-size: 1.88rem;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
 }
 .font-medium {
   font-weight: 500;
@@ -1451,6 +1501,14 @@ select {
 }
 @media (min-width: 640px) {
 
+  .sm\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .sm\:-my-px {
     margin-top: -1px;
     margin-bottom: -1px;
@@ -1603,6 +1661,10 @@ select {
   }
 }
 @media (min-width: 1280px) {
+
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
 
   .xl\:block {
     display: block;
