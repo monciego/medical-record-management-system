@@ -103,6 +103,21 @@
             </span>
           </div>
         </x-nav-link>
+        {{-- Analytics --}}
+       <x-nav-link :href="route('medicine')" :active="request()->routeIs('medicine')">
+          <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-medicine-syrup" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#94A3B8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M8 21h8a1 1 0 0 0 1 -1v-10a3 3 0 0 0 -3 -3h-4a3 3 0 0 0 -3 3v10a1 1 0 0 0 1 1z" />
+            <path d="M10 14h4" />
+            <path d="M12 12v4" />
+            <path d="M10 7v-3a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v3" />
+          </svg>
+            <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
+              {{ __('Medicines') }}
+            </span>
+          </div>
+        </x-nav-link>
         @endif
     </ul>
   </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MedicineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Analytics
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
+    // Medicines
+    Route::get('/medicine', [MedicineController::class, 'index'])->name('medicine');
 });
 
 
