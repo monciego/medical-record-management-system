@@ -8,8 +8,8 @@
         </svg>
         Delete
     </button>
-    <div x-show="open" x-cloak x-on:click="open = false" class="fixed top-0 bottom-0 right-0 left-0"
-        style="background-color: rgba(0, 0, 0, 0.473); z-index: 500">
+    <div x-show="open" x-cloak x-on:click="open = false"
+        class="bg-black/40 z-[500] fixed top-0 bottom-0 right-0 left-0">
     </div>
     {{-- delete modal --}}
     <div x-show="open" x-cloak>
