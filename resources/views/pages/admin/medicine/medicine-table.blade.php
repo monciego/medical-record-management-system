@@ -28,7 +28,7 @@
             @foreach ($medicines as $medicine)
             <tr>
                 <td class="p-2">
-                    <div class="text-slate-800">{{ $medicine->medicine_name }}</div>
+                    <div class="text-slate-800 capitalize">{{ $medicine->medicine_name }}</div>
                 </td>
                 <td class="p-2 ">
                     <div>{{ $medicine->medicine_quantity }}</div>
