@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Medicines
     Route::get('/medicine', [MedicineController::class, 'index'])->name('medicine');
     Route::post('/medicine-create', [MedicineController::class, 'store'])->name('medicine-create');
+    Route::delete('/medicine/{medicine}', [MedicineController::class, 'destroy'])
+    ;
 });
 
 
