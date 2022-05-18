@@ -84,6 +84,16 @@ class MedicineController extends Controller
     public function update(UpdateMedicineRequest $request, Medicine $medicine)
     {
         //
+          $formFields = $request->validate([
+            'medicine_name' => 'required',
+            'medicine_quantity' => ['required'],
+            'medicine_cost' => 'required',
+            'date_of_acquisition' => 'required',
+        ]);
+
+        $medicine->update($formFields);
+
+        return redirect('/medicine')->with('message', 'Medicine Updated Successfully!');
     }
 
     /**
