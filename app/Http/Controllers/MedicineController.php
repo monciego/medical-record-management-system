@@ -37,6 +37,15 @@ class MedicineController extends Controller
     public function store(StoreMedicineRequest $request)
     {
         //
+        $formFields = $request->validate([
+            'medicine_name' => 'required',
+            'medicine_quantity' => ['required'],
+            'medicine_cost' => 'required',
+            'date_of_acquisition' => 'required',
+        ]);
+         Medicine::create($formFields);
+
+        return redirect('/medicine')->with('message', 'Listing Created Successfully!');
     }
 
     /**

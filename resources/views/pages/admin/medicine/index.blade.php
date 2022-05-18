@@ -16,4 +16,32 @@
         </div>
     </div>
 
+    <form class="mt-4" action="/medicine-create" method="POST">
+        @csrf
+        <div>
+            <x-label for="medicine_name" :value="__('Medicine Name')" />
+            <x-input id="medicine_name" class="block mt-1 w-2/4" type="text" name="medicine_name"
+                :value="old('medicine_name')" required autofocus />
+        </div>
+        <div class="mt-4">
+            <x-label for="medicine_quantity" :value="__('Medicine Quantity')" />
+            <x-input id="medicine_quantity" class="block mt-1 w-2/4" type="number" name="medicine_quantity"
+                :value="old('medicine_quantity')" required autofocus />
+        </div>
+        <div class="mt-4">
+            <x-label for="medicine_cost" :value="__('Medicine Cost')" />
+            <x-input id="medicine_cost" class="block mt-1 w-2/4" type="number" name="medicine_cost"
+                :value="old('medicine_cost')" required autofocus />
+        </div>
+        <div class="mt-4">
+            <x-label for="date_of_acquisition" :value="__('Date of Acquisition')" />
+            <x-input id="date_of_acquisition" class="block mt-1 w-2/4" type="text" name="date_of_acquisition"
+                :value="old('date_of_acquisition')" required autofocus />
+        </div>
+
+        <x-button class="mt-4">
+            {{ __('Add') }}
+        </x-button>
+    </form>
+
 </x-app-layout>
