@@ -15,7 +15,11 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.medicine.index');
+                 return view('pages.admin.medicine.index', [
+            'medicines' => Medicine::all()
+
+        ]);
+        // return view('pages.admin.medicine.index');
     }
 
     /**
