@@ -8,11 +8,11 @@
         </svg>
         Delete
     </button>
-    <div x-show="open" x-on:click="open = false" class="fixed top-0 bottom-0 right-0 left-0"
+    <div x-show="open" x-cloak x-on:click="open = false" class="fixed top-0 bottom-0 right-0 left-0"
         style="background-color: rgba(0, 0, 0, 0.473); z-index: 500">
     </div>
     {{-- delete modal --}}
-    <div x-show="open">
+    <div x-show="open" x-cloak>
         <div class="div absolute top-2/4 left-2/4" style="z-index: 501; transform: translate(-50%, -50%)">
             <div class="p-4 text-left bg-white shadow-lg rounded-lg" style="width: 28rem">
                 <header class="text-sm text-gray-800 font-bold mb-2">
