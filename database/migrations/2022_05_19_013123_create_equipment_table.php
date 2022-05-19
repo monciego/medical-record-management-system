@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
+            $table->string('equipment_name');
+            $table->bigInteger('equipment_quantity');
+            $table->bigInteger('equipment_cost');
+            $table->longText('equipment_date_of_acquisition');
             $table->timestamps();
         });
     }

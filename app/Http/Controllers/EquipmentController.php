@@ -38,6 +38,15 @@ class EquipmentController extends Controller
     public function store(StoreEquipmentRequest $request)
     {
         //
+             $formFields = $request->validate([
+            'equipment_name' => 'required',
+            'equipment_quantity' => ['required'],
+            'equipment_cost' => 'required',
+            'equipment_date_of_acquisition' => 'required',
+        ]);
+         Equipment::create($formFields);
+
+        return redirect('/equipment')->with('message', 'Equipment Created Successfully!');
     }
 
     /**
