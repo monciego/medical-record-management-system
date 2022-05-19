@@ -83,6 +83,16 @@ class EquipmentController extends Controller
     public function update(UpdateEquipmentRequest $request, Equipment $equipment)
     {
         //
+         $formFields = $request->validate([
+            'equipment_name' => 'required',
+            'equipment_quantity' => ['required'],
+            'equipment_cost' => 'required',
+            'equipment_date_of_acquisition' => 'required',
+        ]);
+
+        $equipment->update($formFields);
+
+        return redirect('/equipment')->with('message', 'Equipment Updated Successfully!');
     }
 
     /**
