@@ -24,20 +24,20 @@
         {{-- table body --}}
         <tbody class="text-sm font-medium divide-y divide-slate-100">
             {{-- row --}}
-            {{-- @unless ($medicines->isEmpty())
-            @foreach ($medicines as $medicine) --}}
+            @unless ($equipments->isEmpty())
+            @foreach ($equipments as $equipment)
             <tr>
                 <td class="p-2">
-                    <div class="text-slate-800 capitalize">Defibrillators</div>
+                    <div class="text-slate-800 capitalize">{{ $equipment->equipment_name }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>20</div>
+                    <div>{{ $equipment->equipment_quantity }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>8124</div>
+                    <div>{{ $equipment->equipment_cost }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>January 15, 2022</div>
+                    <div>{{ $equipment->equipment_date_of_acquisition }}</div>
                 </td>
                 <td class="p-2 ">
                     <div>
@@ -47,14 +47,14 @@
                     </div>
                 </td>
             </tr>
-            {{-- @endforeach
-            @else --}}
-            {{-- <tr class="border-gray-300">
+            @endforeach
+            @else
+            <tr class="border-gray-300">
                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                     <p class="text-center">No Medicines Found</p>
                 </td>
-            </tr> --}}
-            {{-- @endunless --}}
+            </tr>
+            @endunless
         </tbody>
     </table>
 </div>
