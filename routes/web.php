@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Equipment
     Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment');
     Route::post('/equipment-create', [EquipmentController::class, 'store'])->name('equipment-create');
+    Route::delete('/equipment/{equipment}', [EquipmentController::class, 'destroy']);
     ;
 });
 
