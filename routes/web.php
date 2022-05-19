@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\MedicineController;
 
 /*
@@ -34,7 +35,9 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('/medicine', [MedicineController::class, 'index'])->name('medicine');
     Route::post('/medicine-create', [MedicineController::class, 'store'])->name('medicine-create');
     Route::put('/medicine/{medicine}', [MedicineController::class, 'update']);
-    Route::delete('/medicine/{medicine}', [MedicineController::class, 'destroy'])
+    Route::delete('/medicine/{medicine}', [MedicineController::class, 'destroy']);
+    // Equipment
+    Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment');
     ;
 });
 
