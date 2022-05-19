@@ -19,7 +19,8 @@
                     Are you sure?
                 </header>
                 <p class="text-xs">
-                    This action will permanently delete {{ $medicine->medicine_name }}. This cannot be undone.
+                    This action will permanently delete <span class="font-bold">{{ $medicine->medicine_name }}</span>.
+                    This cannot be undone.
                 </p>
                 {{-- delete medicine --}}
                 <div class="flex justify-end gap-2 mt-4">
