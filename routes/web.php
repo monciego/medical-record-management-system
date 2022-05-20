@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::post('/equipment-create', [EquipmentController::class, 'store'])->name('equipment-create');
     Route::put('/equipment/{equipment}', [EquipmentController::class, 'update']);
     Route::delete('/equipment/{equipment}', [EquipmentController::class, 'destroy']);
+    // Patients
+    Route::get('/patient', [PatientController::class, 'index'])->name('patient');
     ;
 });
 
