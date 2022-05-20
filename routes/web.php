@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::delete('/equipment/{equipment}', [EquipmentController::class, 'destroy']);
     // Patients
     Route::get('/patient', [PatientController::class, 'index'])->name('patient');
+    Route::get('/patient/create', [PatientController::class, 'create']);
     ;
 });
 
