@@ -68,7 +68,7 @@
                                 </div>
 
                                 {{-- Patient Phone Number --}}
-                                <div class="col-span-2">
+                                <div class="col-span-6 sm:col-span-2">
                                     <label for="patient_phone_number"
                                         class="block text-sm font-medium text-gray-700">Contact
                                         Number</label>
@@ -79,7 +79,7 @@
 
 
                                 {{-- Patient Consult Date --}}
-                                <div class="col-span-2">
+                                <div class="col-span-6 sm:col-span-2">
                                     <label for="patient_consult_date"
                                         class="block text-sm font-medium text-gray-700">Consult
                                         Date</label>
@@ -89,7 +89,7 @@
                                 </div>
 
                                 {{-- Patient Consult Time --}}
-                                <div class="col-span-2">
+                                <div class="col-span-6 sm:col-span-2">
                                     <label for="patient_consult_time"
                                         class="block text-sm font-medium text-gray-700">Consult
                                         Time</label>
