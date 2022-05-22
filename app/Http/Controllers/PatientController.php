@@ -27,7 +27,8 @@ class PatientController extends Controller
     public function create()
     {
         //
-        return view('pages.admin.patient.create');
+        $todayDate = date('Y-m-d', strtotime('today'));
+        return view('pages.admin.patient.create', compact('todayDate'));
     }
 
     /**

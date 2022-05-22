@@ -83,8 +83,8 @@
                                     <label for="patient_consult_date"
                                         class="block text-sm font-medium text-gray-700">Consult
                                         Date</label>
-                                    <input type="date" name="patient_consult_date" id=" patient_consult_date"
-                                        autocomplete="consult-date"
+                                    <input value="{{ $todayDate  }}" type="date" name="patient_consult_date"
+                                        id=" patient_consult_date" autocomplete="consult-date"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
 
