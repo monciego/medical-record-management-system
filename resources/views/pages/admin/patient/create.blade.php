@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="mt-10 sm:mt-0">
+    <div class="sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
-            <div class="mt-5 md:mt-0 md:col-span-6">
+            <div class="md:mt-0 md:col-span-6">
                 <form action="#" method="POST">
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
