@@ -10,11 +10,14 @@
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="patient_role" class="block text-sm font-medium text-gray-700">Patient
                                         Role</label>
-                                    <select id="patient_role" name="patient_role" autocomplete="patient-role"
+                                    <select onChange="update(this);" id="patient_role" name="patient_role"
+                                        autocomplete="patient-role"
                                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        <option>Student</option>
-                                        <option>Teaching Staff</option>
-                                        <option>Non-Teaching Staff</option>
+                                        <option selected disabled hidden>Patient Role</option>
+                                        <option id="student" value="student">Student</option>
+                                        <option id="teaching_staff" value="teaching_staff">Teaching Staff</option>
+                                        <option value="non_teaching_staff">Non-Teaching Staff
+                                        </option>
                                     </select>
                                 </div>
 
@@ -36,7 +39,7 @@
                                 </div>
 
                                 {{-- Patient Year & Section --}}
-                                <div class="col-span-6 sm:col-span-2">
+                                <div id="yearSection" class="col-span-6 sm:col-span-2 hidden">
                                     <label for="patient_year" class="block text-sm font-medium text-gray-700">Year &
                                         Section
                                     </label>
@@ -45,11 +48,11 @@
                                 </div>
 
                                 {{-- Patient Department --}}
-                                <div class="col-span-6 sm:col-span-2">
-                                    <label for=patient_department"
+                                <div id="department" class="col-span-6 sm:col-span-2 hidden">
+                                    <label for="patient_department"
                                         class="block text-sm font-medium text-gray-700">Department
                                     </label>
-                                    <input type="text" name=patient_department" id=patient_department"
+                                    <input type="text" name="patient_department" id="patient_department"
                                         autocomplete="patient-department]"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                 </div>
@@ -119,3 +122,27 @@
         </div>
     </div>
 </x-app-layout>
+
+
+<script>
+    function update(that) {
+        if(that) {
+            const student = document.getElementById('student').value;
+            const teaching_staff = document.getElementById('teaching_staff').value;
+            const yearSection = document.getElementById('yearSection');
+            const department = document.getElementById('department');
+
+            if(student === that.value) {
+                yearSection.style.display = "block"
+            } else {
+             yearSection.style.display = "none"
+            }
+
+            if(teaching_staff === that.value) {
+                department.style.display = "block"
+            } else {
+             department.style.display = "none"
+            }
+        }
+}
+</script>
