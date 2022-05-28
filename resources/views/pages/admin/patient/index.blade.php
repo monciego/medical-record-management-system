@@ -15,4 +15,8 @@
             @include('pages.admin.patient.patient-table')
         </div>
     </div>
+
+    <div class="mt-4">
+        {{ $patients->links() }}
+    </div>
 </x-app-layout>
