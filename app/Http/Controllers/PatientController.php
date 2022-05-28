@@ -50,7 +50,7 @@ class PatientController extends Controller
             'patient_phone_number' => 'required',
             'patient_consult_date' => 'required',
             'patient_consult_time' => 'required',
-            'patient_medical_comments' => 'required',
+            'patient_medical_comments' => 'nullable',
         ]);
          Patient::create($formFields);
 

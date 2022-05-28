@@ -24,7 +24,7 @@ return new class extends Migration
             $table->bigInteger('patient_phone_number');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');
-            $table->string('patient_medical_comments');
+            $table->string('patient_medical_comments')->nullable();
             $table->timestamps();
         });
     }
