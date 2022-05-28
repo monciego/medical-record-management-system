@@ -40,6 +40,21 @@ class PatientController extends Controller
     public function store(StorePatientRequest $request)
     {
         //
+         $formFields = $request->validate([
+            'patient_id' => 'required',
+            'patient_full_name' => 'required',
+            'patient_gender' => 'required',
+            'patient_role' => 'required',
+            'patient_year' => 'nullable',
+            'patient_department' => 'nullable',
+            'patient_phone_number' => 'required',
+            'patient_consult_date' => 'required',
+            'patient_consult_time' => 'required',
+            'patient_medical_comments' => 'required',
+        ]);
+         Patient::create($formFields);
+
+        return redirect('/patient')->with('message', 'Patient Added Successfully!');
     }
 
     /**

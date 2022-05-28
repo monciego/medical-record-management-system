@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Patients
     Route::get('/patient', [PatientController::class, 'index'])->name('patient');
     Route::get('/patient/create', [PatientController::class, 'create'])->name('patient/create');
+    Route::post('/patient-create', [PatientController::class, 'store'])->name('patient-create');
     ;
 });
 

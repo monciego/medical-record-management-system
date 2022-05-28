@@ -2,7 +2,8 @@
     <div class="sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:mt-0 md:col-span-6">
-                <form action="#" method="POST">
+                <form action="/patient-create" method="POST">
+                    @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
