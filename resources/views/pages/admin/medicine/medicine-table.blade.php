@@ -37,7 +37,8 @@
                     <div>{{ $medicine->medicine_cost }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $medicine->date_of_acquisition }}</div>
+                    {{-- <div>{{ $medicine->date_of_acquisition }}</div> --}}
+                    {{ \Carbon\Carbon::parse($medicine->date_of_acquisition)->isoFormat('MMM D YYYY')}}
                 </td>
                 <td class="p-2 ">
                     <div>
