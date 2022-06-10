@@ -52,7 +52,8 @@
                     <div>{{ \Carbon\Carbon::parse($patient->patient_consult_date)->isoFormat('MMM D YYYY')}}</div>
                 </td>
                 <td class="p-2 ">
-                    <a class="text-indigo-700 underline cursor-pointer" href="">More Details</a>
+                    <a class="text-indigo-700 underline cursor-pointer" href="/patient/{{ $patient->id }}">More
+                        Details</a>
                 </td>
             </tr>
             @endforeach

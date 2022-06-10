@@ -68,6 +68,7 @@ class PatientController extends Controller
     public function show(Patient $patient)
     {
         //
+             return view('pages.admin.patient.show', ['patient' => $patient ]);
     }
 
     /**
