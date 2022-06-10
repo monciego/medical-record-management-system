@@ -48,7 +48,7 @@
                 </div>
                 <div class="mt-4">
                     <x-label for="equipment_date_of_acquisition" :value="__('Date of Acquisition')" />
-                    <x-input id="equipment_date_of_acquisition" class="block mt-1 w-full" type="text"
+                    <x-input id="equipment_date_of_acquisition" class="block mt-1 w-full" type="date"
                         name="equipment_date_of_acquisition" :value="old('equipment_date_of_acquisition')"
                         value="{{$equipment->equipment_date_of_acquisition}}" required autofocus />
                 </div>
