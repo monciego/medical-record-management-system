@@ -105,6 +105,6 @@ class EquipmentController extends Controller
     {
         //
         $equipment->delete();
-        return redirect('/equipment');
+        return redirect('/equipment')->with('danger-message', 'Deleted Successfully');
     }
 }

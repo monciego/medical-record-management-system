@@ -104,6 +104,6 @@ class MedicineController extends Controller
     {
         //
              $medicine->delete();
-        return redirect('/medicine');
+        return redirect('/medicine')->with('danger-message', 'Deleted Successfully');
     }
 }
