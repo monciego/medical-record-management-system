@@ -40,11 +40,11 @@
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->medicine_cost }}</div> --}}
-                    <div>{{ $patient->patient_role }}</div>
+                    <div>@include('utils.convert-patient-role')</div>
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->date_of_acquisition }}</div> --}}
-                    <div>{{ $patient->patient_department }} {{ $patient->patient_year }}</div>
+                    <div>@include('utils.department-year')</div>
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->date_of_acquisition }}</div> --}}
