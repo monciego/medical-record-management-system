@@ -31,7 +31,7 @@
                     <div class="text-slate-800 capitalize">{{ $equipment->equipment_name }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $equipment->equipment_quantity }}</div>
+                    <div>{{ number_format($equipment->equipment_quantity) }}</div>
                 </td>
                 <td class="p-2 ">
                     <div>@money($equipment->equipment_cost)</div>
