@@ -48,7 +48,7 @@ class EquipmentController extends Controller
         ]);
          Equipment::create($formFields);
 
-        return redirect('/equipment')->with('message', 'Equipment Created Successfully!');
+        return redirect('/equipment')->with('success-message', 'Equipment Created Successfully!');
     }
 
     /**
@@ -92,7 +92,7 @@ class EquipmentController extends Controller
 
         $equipment->update($formFields);
 
-        return redirect('/equipment')->with('message', 'Equipment Updated Successfully!');
+        return redirect('/equipment')->with('success-message', 'Equipment Updated Successfully!');
     }
 
     /**

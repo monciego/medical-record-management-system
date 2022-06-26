@@ -47,7 +47,7 @@ class MedicineController extends Controller
         ]);
          Medicine::create($formFields);
 
-        return redirect('/medicine')->with('message', 'Listing Created Successfully!');
+        return redirect('/medicine')->with('success-message', 'Medicine Created Successfully!');
     }
 
     /**
@@ -91,7 +91,7 @@ class MedicineController extends Controller
 
         $medicine->update($formFields);
 
-        return redirect('/medicine')->with('message', 'Medicine Updated Successfully!');
+        return redirect('/medicine')->with('success-message', 'Medicine Updated Successfully!');
     }
 
     /**

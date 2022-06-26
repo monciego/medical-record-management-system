@@ -56,7 +56,7 @@ class PatientController extends Controller
         ]);
          Patient::create($formFields);
 
-        return redirect('/patient')->with('message', 'Patient Added Successfully!');
+        return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
     }
 
     /**
