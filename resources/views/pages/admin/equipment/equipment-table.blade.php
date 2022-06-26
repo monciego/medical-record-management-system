@@ -34,7 +34,7 @@
                     <div>{{ $equipment->equipment_quantity }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $equipment->equipment_cost }}</div>
+                    <div>@money($equipment->equipment_cost)</div>
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $equipment->equipment_date_of_acquisition }}</div> --}}
