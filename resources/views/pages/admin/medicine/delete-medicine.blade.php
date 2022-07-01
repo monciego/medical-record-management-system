@@ -19,7 +19,8 @@
                     Are you sure?
                 </header>
                 <p class="text-xs">
-                    This action will permanently delete <span class="font-bold">{{ $medicine->medicine_name }}</span>.
+                    This action will permanently delete <span class="font-bold capitalize">{{ $medicine->medicine_name
+                        }}</span>.
                     This cannot be undone.
                 </p>
                 {{-- delete medicine --}}
