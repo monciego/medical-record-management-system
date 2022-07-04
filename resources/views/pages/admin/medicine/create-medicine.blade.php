@@ -24,7 +24,7 @@
                     </path>
                 </svg>
             </header>
-            <form class=" p-4" action="/medicine-create" method="POST">
+            <form class=" p-4" action="{{ route('medicine.store') }}" method="POST">
                 @csrf
                 <div>
                     <x-label for="medicine_name" :value="__('Medicine Name')" />
