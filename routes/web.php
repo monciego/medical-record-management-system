@@ -35,10 +35,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Medicines
     Route::resource('medicine', MedicineController::class);
     // Equipment
-    Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment');
-    Route::post('/equipment-create', [EquipmentController::class, 'store'])->name('equipment-create');
-    Route::put('/equipment/{equipment}', [EquipmentController::class, 'update']);
-    Route::delete('/equipment/{equipment}', [EquipmentController::class, 'destroy']);
+    Route::resource('equipment', EquipmentController::class);
     // Patients
     Route::get('/patient', [PatientController::class, 'index'])->name('patient');
     Route::get('/patient/create', [PatientController::class, 'create'])->name('patient/create');

@@ -25,7 +25,7 @@
                     </path>
                 </svg>
             </header>
-            <form class=" p-4" action="/equipment-create" method="POST">
+            <form class="p-4" action="{{ route('equipment.store') }}" method="POST">
                 @csrf
                 <div>
                     <x-label for="equipment_name" :value="__('Equipment Name')" />
