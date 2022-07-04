@@ -86,7 +86,7 @@
                 </div>
             </x-nav-link>
             {{-- Patient --}}
-            <x-nav-link :href="route('patient')" :active="request()->routeIs('patient*')">
+            <x-nav-link :href="route('patient.index')" :active="request()->routeIs('patient.index*')">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="24"
                         height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#94A3B8" fill="none"
