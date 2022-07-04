@@ -54,7 +54,7 @@
                     </span>
                 </div>
             </x-nav-link>
-            {{-- Analytics --}}
+            {{-- Medicine --}}
             <x-nav-link :href="route('medicine.index')" :active="request()->routeIs('medicine.index')">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-medicine-syrup"
