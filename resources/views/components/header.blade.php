@@ -72,6 +72,20 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->hasRole('administrator'))
+            <x-responsive-nav-link :href="route('analytics')" :active="request()->routeIs('analytics')">
+                {{ __('Analytics') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('medicine.index')" :active="request()->routeIs('medicine.index')">
+                {{ __('Medicine') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('equipment.index')" :active="request()->routeIs('equipment.index')">
+                {{ __('Equipment') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('patient.index')" :active="request()->routeIs('patient.index')">
+                {{ __('Patient') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
