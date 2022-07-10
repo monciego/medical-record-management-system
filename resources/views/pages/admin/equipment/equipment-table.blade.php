@@ -1,4 +1,5 @@
 {{-- Table --}}
+@unless ($equipments->isEmpty())
 <div class="overflow-x-auto">
     <table class="table-auto w-full">
         {{-- table header --}}
@@ -24,7 +25,6 @@
         {{-- table body --}}
         <tbody class="text-sm font-medium divide-y divide-slate-100">
             {{-- row --}}
-            @unless ($equipments->isEmpty())
             @foreach ($equipments as $equipment)
             <tr>
                 <td class="p-2">
@@ -48,13 +48,19 @@
                 </td>
             </tr>
             @endforeach
-            @else
-            <tr class="border-gray-300">
-                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                    <p class="text-center">No Medicines Found</p>
-                </td>
-            </tr>
-            @endunless
         </tbody>
     </table>
 </div>
+@else
+<div class="flex-col flex items-center justify-center">
+    <div>
+        <img src="{{ asset('images/empty-illustrations/empty-equipment-table.svg') }}"
+            alt="There are currently no equipments patients.">
+    </div>
+    <div>
+        <h1 class="text-center font-bold text-xl mt-8 uppercase">
+            There are currently no listed equipments.
+        </h1>
+    </div>
+</div>
+@endunless
