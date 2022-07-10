@@ -61,7 +61,7 @@
 @else
 <div class="flex-col flex items-center justify-center">
     <div>
-        <img src="{{ asset('images/empty-illustrations/empty-patient-table.svg') }}"
+        <img src="{{ asset('images/empty-illustrations/empty-user-table.svg') }}"
             alt="There are currently no registered.">
     </div>
     <div>
