@@ -26,7 +26,7 @@
         </header>
         <h2 class="text-lg font-semibold text-slate-800 mb-2">Teaching Staffs</h2>
         <div class="flex items-start">
-            <div class="text-3xl font-bold text-slate-800 mr-2">43</div>
+            <div class="text-3xl font-bold text-slate-800 mr-2">{{ $teaching_staffs_count }}</div>
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
         </header>
         <h2 class="text-lg font-semibold text-slate-800 mb-2">Non-teaching staff</h2>
         <div class="flex items-start">
-            <div class="text-3xl font-bold text-slate-800 mr-2">20</div>
+            <div class="text-3xl font-bold text-slate-800 mr-2">{{ $non_teaching_staffs_count }}</div>
         </div>
     </div>
 </div>
@@ -92,7 +92,7 @@
         </header>
         <h2 class="text-lg font-semibold text-slate-800 mb-2">Students</h2>
         <div class="flex items-start">
-            <div class="text-3xl font-bold text-slate-800 mr-2">954</div>
+            <div class="text-3xl font-bold text-slate-800 mr-2">{{ $students_count }}</div>
         </div>
     </div>
 </div>
