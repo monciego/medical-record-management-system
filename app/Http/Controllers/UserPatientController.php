@@ -62,7 +62,9 @@ class UserPatientController extends Controller
      */
     public function show($id)
     {
-        //
+          return view('pages.admin.users.show', [
+            'user' => UserPatient::findOrFail($id)
+          ]);
     }
 
     /**

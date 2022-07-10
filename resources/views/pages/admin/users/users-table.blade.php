@@ -50,7 +50,7 @@
                     @endif
                 </td>
                 <td class="p-2 ">
-                    <a class="text-indigo-700 underline cursor-pointer" href="">More
+                    <a class="text-indigo-700 hover:underline cursor-pointer" href="users/{{ $user->id }}">More
                         Details</a>
                 </td>
             </tr>
