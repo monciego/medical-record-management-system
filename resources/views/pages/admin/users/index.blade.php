@@ -12,7 +12,7 @@
             </a>
         </header>
         <div class="p-3">
-            {{-- @include('pages.admin.patient.patient-table') --}}
+            @include('pages.admin.users.users-table')
         </div>
     </div>
 

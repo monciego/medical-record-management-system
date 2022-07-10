@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserPatient;
 use Illuminate\Http\Request;
 
 class UserPatientController extends Controller
@@ -13,7 +14,9 @@ class UserPatientController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.users.index');
+        return view('pages.admin.users.index', [
+            'users' => UserPatient::latest()->paginate(6)
+        ]);
     }
 
     /**
@@ -34,7 +37,21 @@ class UserPatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'user_patient_id'  => 'required',
+            'user_patient_role'  => 'required',
+            'user_patient_full_name'=> 'required',
+            'user_patient_gender' => 'required',
+            'user_patient_birthday' => 'required',
+            'user_patient_blood_type'=> 'nullable',
+            'user_patient_medical_history'=> 'nullable',
+            'user_patient_year'=> 'nullable',
+            'user_patient_department'=> 'nullable',
+            'patient_phone_number' => 'required',
+        ]);
+         UserPatient::create($formFields);
+
+        return redirect('/users')->with('success-message', 'User Added Successfully!');
     }
 
     /**
