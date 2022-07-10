@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\UserPatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('equipment', EquipmentController::class);
     // Patients
     Route::resource('patient', PatientController::class);
+    // Users
+    Route::resource('users', UserPatientController::class);
 });
 
 
