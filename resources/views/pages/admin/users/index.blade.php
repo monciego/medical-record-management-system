@@ -15,8 +15,7 @@
             @include('pages.admin.users.users-table')
         </div>
     </div>
-
-    {{-- <div class="mt-4">
-        {{ $patients->links() }}
-    </div> --}}
+    <div class="mt-4">
+        {{ $users->links() }}
+    </div>
 </x-app-layout>
