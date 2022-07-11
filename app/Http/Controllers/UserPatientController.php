@@ -115,6 +115,7 @@ class UserPatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        UserPatient::findOrFail($id)->delete();
+        return redirect()->route('users.index')->with('danger-message', 'User Deleted Successfully!');
     }
 }
