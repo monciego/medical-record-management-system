@@ -38,7 +38,7 @@
                     <div>@include('utils.user-patient-role')</div>
                 </td>
                 <td class="p-2 ">
-                    <div>@include('utils.user-department-year')</div>
+                    <div>{{ $user->user_year_department_role }}</div>
                 </td>
                 <td class="p-2 ">
                     <a class="text-indigo-700 hover:underline cursor-pointer" href="users/{{ $user->id }}">More

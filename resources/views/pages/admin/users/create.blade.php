@@ -18,7 +18,7 @@
                                         <option selected disabled hidden>Patient Role</option>
                                         <option id="student" value="student">Student</option>
                                         <option id="teaching_staff" value="teaching_staff">Teaching Staff</option>
-                                        <option value="non_teaching_staff">Non-Teaching Staff
+                                        <option id="non_teaching_staff" value="non_teaching_staff">Non-Teaching Staff
                                         </option>
                                     </select>
                                 </div>
@@ -42,24 +42,13 @@
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                 </div>
 
-                                {{-- Patient Year & Section --}}
-                                <div id="yearSection" class="col-span-6 sm:col-span-2 hidden">
-                                    <label for="user_patient_year" class="block text-sm font-medium text-gray-700 ">Year
-                                        &
-                                        Section
+                                {{-- Patient Department/Year/Role --}}
+                                <div id="department_year_role" class="col-span-6 sm:col-span-2 hidden">
+                                    <label id="label" for="user_year_department_role"
+                                        class="block text-sm font-medium text-gray-700">
                                     </label>
-                                    <input type="text" disabled name="user_patient_year" id="user_patient_year"
-                                        autocomplete="patient-year"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
-                                </div>
-
-                                {{-- Patient Department --}}
-                                <div id="department" class="col-span-6 sm:col-span-2 hidden">
-                                    <label for="user_patient_department"
-                                        class="block text-sm font-medium text-gray-700">Department
-                                    </label>
-                                    <input type="text" disabled name="user_patient_department"
-                                        id="user_patient_department" autocomplete="patient-department]"
+                                    <input type="text" disabled name="user_year_department_role"
+                                        id="user_year_department_role" autocomplete="patient-department-year-role"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                 </div>
 
@@ -129,45 +118,43 @@
     </div>
 </x-app-layout>
 
-
 <script>
     // This script tells what to do if you select a patient role
     // will hide some inputs or enable inputs
-    const patient_role = document.getElementById('patient_role').value;
+    const patient_role = document.getElementById("patient_role").value;
 
     function update(that) {
-        const inputs = document.querySelectorAll('.inputs');
-        if(that) {
-            const student = document.getElementById('student').value;
-            const teaching_staff = document.getElementById('teaching_staff').value;
-            const yearSection = document.getElementById('yearSection');
-            const department = document.getElementById('department');
+        const inputs = document.querySelectorAll(".inputs");
+        if (that) {
+            const student = document.getElementById("student").value;
+            const teaching_staff =
+                document.getElementById("teaching_staff").value;
+            const non_teaching_staff =
+                document.getElementById("non_teaching_staff").value;
+            const label = document.getElementById("label");
+            const department_year_role = document.getElementById(
+                "department_year_role"
+            );
 
-            if(student === that.value) {
-                yearSection.style.display = "block"
+            if (teaching_staff === that.value) {
+                label.textContent = "Department";
+                department_year_role.style.display = "block";
+            } else if (student === that.value) {
+                label.textContent = "Year & Section";
+                department_year_role.style.display = "block";
+            } else if (non_teaching_staff === that.value) {
+                label.textContent = "Role";
+                department_year_role.style.display = "block";
             } else {
-             yearSection.style.display = "none"
-            }
-
-            if(teaching_staff === that.value) {
-                department.style.display = "block"
-            } else {
-             department.style.display = "none"
+                department_year_role.style.display = "none";
             }
         }
 
-        inputs.forEach(input => {
-            if(that.value !== 'Patient Role') {
-                input.disabled = false
-                input.style.cursor = 'default'
+        inputs.forEach((input) => {
+            if (that.value !== "Patient Role") {
+                input.disabled = false;
+                input.style.cursor = "default";
             }
         });
-}
-
-
-
-
-
-
-
+    }
 </script>

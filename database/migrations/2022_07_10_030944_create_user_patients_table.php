@@ -20,10 +20,9 @@ return new class extends Migration
             $table->string('user_patient_full_name');
             $table->string('user_patient_gender');
             $table->string('user_patient_birthday');
+            $table->string('user_year_department_role');
             $table->string('user_patient_blood_type')->nullable();
             $table->string('user_patient_medical_history')->nullable();
-            $table->string('user_patient_year')->nullable();
-            $table->string('user_patient_department')->nullable();
             $table->bigInteger('patient_phone_number');
             $table->timestamps();
         });

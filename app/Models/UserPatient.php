@@ -17,8 +17,7 @@ class UserPatient extends Model
         'user_patient_birthday',
         'user_patient_blood_type',
         'user_patient_medical_history',
-        'user_patient_year',
-        'user_patient_department',
+        'user_year_department_role',
         'patient_phone_number',
     ];
 }

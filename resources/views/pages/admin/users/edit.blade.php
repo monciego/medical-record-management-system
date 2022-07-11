@@ -34,13 +34,14 @@
                 <div class="col-span-6 sm:col-span-2">
                     <label for="user_patient_role" class="block text-sm font-medium text-gray-700">Patient
                         Role</label>
-                    <select onChange="update(this);" id="user_patient_role" name="user_patient_role"
+                    <select onChange="update(this);" id="patient_role" name="user_patient_role"
                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         <option {{ $user->user_patient_role == 'student' ? 'selected' : '' }} id="student"
                             value="student">Student</option>
                         <option {{ $user->user_patient_role == 'teaching_staff' ? 'selected' : '' }} id="teaching_staff"
                             value="teaching_staff">Teaching Staff</option>
-                        <option {{ $user->user_patient_role == 'non_teaching_staff' ? 'selected' : '' }}
+                        <option id="non_teaching_staff" {{ $user->user_patient_role == 'non_teaching_staff' ? 'selected'
+                            : '' }}
                             value="non_teaching_staff">Non-Teaching Staff
                         </option>
                     </select>
@@ -67,21 +68,11 @@
                             Female</option>
                     </select>
                 </div>
-                {{-- Patient Year & Section --}}
-                <div id="yearSection" class="col-span-6 sm:col-span-2 hidden">
-                    <label for="user_patient_year" class="block text-sm font-medium text-gray-700">Year &
-                        Section
+                <div id="department_year_role" class="col-span-6 sm:col-span-2 hidden">
+                    <label for="user_year_department_role" class="text-sm text-gray-800 mb-1 block" id="label">
                     </label>
-                    <input type="text" name="user_patient_year" id="user_patient_year"
-                        value="{{ $user->user_patient_year }}" autocomplete="patient-year"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                {{-- Patient Department --}}
-                <div id="department" class="col-span-6 sm:col-span-2 hidden">
-                    <label for="user_patient_department" class="block text-sm font-medium text-gray-700">Department
-                    </label>
-                    <input type="text" name="user_patient_department" id="user_patient_department"
-                        autocomplete="patient-department" value="{{ $user->user_patient_department }}"
+                    <input type="text" name="user_year_department_role" id="user_year_department_role"
+                        autocomplete="patient-department" value="{{ $user->user_year_department_role }}"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-6 sm:col-span-2">
@@ -120,35 +111,42 @@
 </x-app-layout>
 
 <script>
-    const select = document.getElementById('user_patient_role').value
-    console.log(select);
-
-    if (select === 'student') {
-        document.getElementById('yearSection').style.display = "block"
-    } else if (select === 'teaching_staff') {
-        document.getElementById('department').style.display = "block"
-    }
+    // This script tells what to do if you select a patient role
+    // will hide some inputs or enable inputs
+    const patient_role = document.getElementById("patient_role").value;
 
     function update(that) {
-        if(that) {
-            const select = document.getElementById('user_patient_role').value
-            const student = document.getElementById('student').value;
-            const teaching_staff = document.getElementById('teaching_staff').value;
-            const yearSection = document.getElementById('yearSection');
-            const department = document.getElementById('department');
+        const inputs = document.querySelectorAll(".inputs");
+        if (that) {
+            const student = document.getElementById("student").value;
+            const teaching_staff =
+                document.getElementById("teaching_staff").value;
+            const non_teaching_staff =
+                document.getElementById("non_teaching_staff").value;
+            const label = document.getElementById("label");
+            const department_year_role = document.getElementById(
+                "department_year_role"
+            );
 
-            console.log(select);
-            if(student === that.value) {
-                yearSection.style.display = "block"
+            if (teaching_staff === that.value) {
+                label.textContent = "Department";
+                department_year_role.style.display = "block";
+            } else if (student === that.value) {
+                label.textContent = "Year & Section";
+                department_year_role.style.display = "block";
+            } else if (non_teaching_staff === that.value) {
+                label.textContent = "Role";
+                department_year_role.style.display = "block";
             } else {
-             yearSection.style.display = "none"
-            }
-
-            if(teaching_staff === that.value) {
-                department.style.display = "block"
-            } else {
-             department.style.display = "none"
+                department_year_role.style.display = "none";
             }
         }
-}
+
+        inputs.forEach((input) => {
+            if (that.value !== "Patient Role") {
+                input.disabled = false;
+                input.style.cursor = "default";
+            }
+        });
+    }
 </script>

@@ -81,7 +81,7 @@
                 </h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    @include('utils.user-department-year')
+                    {{ $user->user_year_department_role }}
                 </p>
             </div>
             <div class="col-span-6 sm:col-span-2">

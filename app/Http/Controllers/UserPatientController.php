@@ -45,8 +45,7 @@ class UserPatientController extends Controller
             'user_patient_birthday' => 'required',
             'user_patient_blood_type'=> 'nullable',
             'user_patient_medical_history'=> 'nullable',
-            'user_patient_year'=> 'nullable',
-            'user_patient_department'=> 'nullable',
+            'user_year_department_role'=> 'nullable',
             'patient_phone_number' => 'required',
         ]);
          UserPatient::create($formFields);
@@ -99,8 +98,7 @@ class UserPatientController extends Controller
             'user_patient_birthday' => 'required',
             'user_patient_blood_type'=> 'nullable',
             'user_patient_medical_history'=> 'nullable',
-            'user_patient_year'=> 'nullable',
-            'user_patient_department'=> 'nullable',
+            'user_year_department_role'=> 'nullable',
             'patient_phone_number' => 'required',
         ]);
 
