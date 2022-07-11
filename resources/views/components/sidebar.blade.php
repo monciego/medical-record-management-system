@@ -81,7 +81,7 @@
                         <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" />
                     </svg>
                     <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Equipment') }}
+                        {{ __('Equipments') }}
                     </span>
                 </div>
             </x-nav-link>
@@ -97,7 +97,7 @@
                         <path d="M16 11h6m-3 -3v6" />
                     </svg>
                     <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Patient') }}
+                        {{ __('Patients') }}
                     </span>
                 </div>
             </x-nav-link>
