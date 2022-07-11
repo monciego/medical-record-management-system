@@ -75,7 +75,9 @@ class UserPatientController extends Controller
      */
     public function edit($id)
     {
-        //
+       return view('pages.admin.users.edit', [
+            'user' => UserPatient::findOrFail($id)
+       ]);
     }
 
     /**
@@ -87,7 +89,24 @@ class UserPatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = UserPatient::findOrFail($id);
+
+        $formFields = $request->validate([
+            'user_patient_id'  => 'required',
+            'user_patient_role'  => 'required',
+            'user_patient_full_name'=> 'required',
+            'user_patient_gender' => 'required',
+            'user_patient_birthday' => 'required',
+            'user_patient_blood_type'=> 'nullable',
+            'user_patient_medical_history'=> 'nullable',
+            'user_patient_year'=> 'nullable',
+            'user_patient_department'=> 'nullable',
+            'patient_phone_number' => 'required',
+        ]);
+
+         $user->update($formFields);
+
+        return redirect()->route('users.show', $id)->with('success-message', 'User Updated Successfully!');
     }
 
     /**

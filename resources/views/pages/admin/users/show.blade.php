@@ -25,7 +25,7 @@
                 </p>
             </div>
             <div class="py-5 md:p-0 flex items-start gap-2">
-                <a href=""
+                <a href="{{ route('users.edit', $user->id) }}"
                     class="px-4 py-2 font-medium text-xs inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="h-4 w-4" viewBox="0 0 16 16" fill="#f6f6f6">
                         <path
