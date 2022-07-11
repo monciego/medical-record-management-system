@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($user) ? $user->user_patient_full_name : 'User')
     <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="flex-col flex md:flex-row justify-between">
             <div class="sm:pb-0 md:pb-5 ">
