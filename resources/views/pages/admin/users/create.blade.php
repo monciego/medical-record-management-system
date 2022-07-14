@@ -15,7 +15,7 @@
                                         Role</label>
                                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
                                         autocomplete="patient-role" class="{{($errors->first('user_patient_role') ? "
-                                        border-red-400" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
+                                        border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
                                         border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
                                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled hidden>Patient Role</option>
@@ -28,7 +28,17 @@
                                         </option>
                                     </select>
                                     @error('user_patient_role')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -38,11 +48,21 @@
                                         Patient ID</label>
                                     <input type="text" disabled name="user_patient_id" id="user_patient_id"
                                         autocomplete="patient-id" value="{{ old('user_patient_id') }}"
-                                        class="{{($errors->first('user_patient_id') ? " border-red-400"
+                                        class="{{($errors->first('user_patient_id') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm rounded-md inputs cursor-no-drop">
                                     @error('user_patient_id')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -54,11 +74,21 @@
                                     <input type="text" disabled name="user_patient_full_name"
                                         id="user_patient_full_name" autocomplete="full-name"
                                         value="{{ old('user_patient_full_name') }}"
-                                        class="{{($errors->first('user_patient_full_name') ? " border-red-400"
+                                        class="{{($errors->first('user_patient_full_name') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                     @error('user_patient_full_name')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -72,11 +102,21 @@
                                     <input value="{{ old('user_year_department_role') }}" type="text" disabled
                                         name="user_year_department_role" id="user_year_department_role"
                                         autocomplete="patient-department-year-role"
-                                        class="{{($errors->first('user_year_department_role') ? " border-red-400"
+                                        class="{{($errors->first('user_year_department_role') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                     @error('user_year_department_role')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -86,7 +126,7 @@
                                         text-gray-700">Sex/Gender</label>
                                     <select id="user_patient_gender" disabled name="user_patient_gender"
                                         autocomplete="gender" class="{{($errors->first('user_patient_gender') ? "
-                                        border-red-400" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
+                                        border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
                                         border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
                                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
                                         <option selected disabled hidden>Sex/Gender</option>
@@ -97,7 +137,17 @@
                                         </option>
                                     </select>
                                     @error('user_patient_gender')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
@@ -108,18 +158,28 @@
                                     </label>
                                     <input type="date" disabled name="user_patient_birthday" id="user_patient_birthday"
                                         autocomplete="patient-birthday" value="{{ old('user_patient_birthday') }}"
-                                        class="{{($errors->first('user_patient_birthday') ? " border-red-400"
+                                        class="{{($errors->first('user_patient_birthday') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                     @error('user_patient_birthday')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
                                 {{-- Patient Blood Type --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_blood_type	"
-                                        class="block text-sm font-medium text-gray-700 ">Blood Type
+                                        class="block text-sm font-medium text-gray-700">Blood Type
                                     </label>
                                     <input type="text" disabled name="user_patient_blood_type"
                                         value="{{ old('user_patient_blood_type') }}" id="user_patient_blood_type"
@@ -134,11 +194,21 @@
                                         Number</label>
                                     <input type="number" disabled name="patient_phone_number" id="contact-number"
                                         autocomplete="contact-number" value="{{ old('patient_phone_number') }}"
-                                        class="{{($errors->first('patient_phone_number') ? " border-red-400"
+                                        class="{{($errors->first('patient_phone_number') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                     @error('patient_phone_number')
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
                                     @enderror
                                 </div>
 
