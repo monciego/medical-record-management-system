@@ -10,8 +10,7 @@
                             <div class="grid grid-cols-6 gap-6">
                                 {{-- Patient Role --}}
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_role"
-                                        class="block text-sm font-medium text-gray-700">Patient
+                                    <label for="user_patient_role" class="block text-sm font-medium text-gray-700">User
                                         Role</label>
                                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
                                         autocomplete="patient-role" class="{{($errors->first('user_patient_role') ? "
@@ -45,7 +44,7 @@
                                 {{-- Patient ID --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_id" class="block text-sm font-medium text-gray-700">
-                                        Patient ID</label>
+                                        User ID</label>
                                     <input type="text" disabled name="user_patient_id" id="user_patient_id"
                                         autocomplete="patient-id" value="{{ old('user_patient_id') }}"
                                         class="{{($errors->first('user_patient_id') ? " border-red-600"
