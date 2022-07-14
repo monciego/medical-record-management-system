@@ -14,14 +14,22 @@
                                         class="block text-sm font-medium text-gray-700">Patient
                                         Role</label>
                                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
-                                        autocomplete="patient-role"
-                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        autocomplete="patient-role" class="{{($errors->first('user_patient_role') ? "
+                                        border-red-400" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
+                                        border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
+                                        focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                         <option selected disabled hidden>Patient Role</option>
-                                        <option id="student" value="student">Student</option>
-                                        <option id="teaching_staff" value="teaching_staff">Teaching Staff</option>
-                                        <option id="non_teaching_staff" value="non_teaching_staff">Non-Teaching Staff
+                                        <option {{ old('user_patient_role')==='student' ? 'selected' : '' }}
+                                            id="student" value="student">Student</option>
+                                        <option {{ old('user_patient_role')==='teaching_staff' ? 'selected' : '' }}
+                                            id="teaching_staff" value="teaching_staff">Teaching Staff</option>
+                                        <option {{ old('user_patient_role')==='non_teaching_staff' ? 'selected' : '' }}
+                                            id="non_teaching_staff" value="non_teaching_staff">Non-Teaching Staff
                                         </option>
                                     </select>
+                                    @error('user_patient_role')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient ID --}}
@@ -29,8 +37,13 @@
                                     <label for="user_patient_id" class="block text-sm font-medium text-gray-700">
                                         Patient ID</label>
                                     <input type="text" disabled name="user_patient_id" id="user_patient_id"
-                                        autocomplete="patient-id"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                        autocomplete="patient-id" value="{{ old('user_patient_id') }}"
+                                        class="{{($errors->first('user_patient_id') ? " border-red-400"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm rounded-md inputs cursor-no-drop">
+                                    @error('user_patient_id')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient Fullname --}}
@@ -40,31 +53,52 @@
                                         Name</label>
                                     <input type="text" disabled name="user_patient_full_name"
                                         id="user_patient_full_name" autocomplete="full-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                        value="{{ old('user_patient_full_name') }}"
+                                        class="{{($errors->first('user_patient_full_name') ? " border-red-400"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('user_patient_full_name')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient Department/Year/Role --}}
-                                <div id="department_year_role" class="col-span-6 sm:col-span-2 hidden">
+                                <div id="department_year_role"
+                                    class="col-span-6 sm:col-span-2  {{($errors->first('user_year_department_role') ? "
+                                    border-red-400 block" : "border-gray-300" )}}">
                                     <label id="label" for="user_year_department_role"
                                         class="block text-sm font-medium text-gray-700">
                                     </label>
-                                    <input type="text" disabled name="user_year_department_role"
-                                        id="user_year_department_role" autocomplete="patient-department-year-role"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    <input value="{{ old('user_year_department_role') }}" type="text" disabled
+                                        name="user_year_department_role" id="user_year_department_role"
+                                        autocomplete="patient-department-year-role"
+                                        class="{{($errors->first('user_year_department_role') ? " border-red-400"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('user_year_department_role')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient Gender --}}
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_gender"
-                                        class="block text-sm font-medium text-gray-700">Sex/Gender</label>
+                                    <label for="user_patient_gender" class="block text-sm font-medium
+                                        text-gray-700">Sex/Gender</label>
                                     <select id="user_patient_gender" disabled name="user_patient_gender"
-                                        autocomplete="gender"
-                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
+                                        autocomplete="gender" class="{{($errors->first('user_patient_gender') ? "
+                                        border-red-400" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
+                                        border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
+                                        focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
                                         <option selected disabled hidden>Sex/Gender</option>
-                                        <option {{ old('gender')=='male' ? 'selected' : '' }} value="male">Male</option>
-                                        <option {{ old('gender')=='female' ? 'selected' : '' }} value="female">Female
+                                        <option {{ old('user_patient_gender')=='male' ? 'selected' : '' }} value="male">
+                                            Male</option>
+                                        <option {{ old('user_patient_gender')=='female' ? 'selected' : '' }}
+                                            value="female">Female
                                         </option>
                                     </select>
+                                    @error('user_patient_gender')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient Birthday --}}
@@ -73,8 +107,13 @@
                                         class="block text-sm font-medium text-gray-700 ">Birth Date
                                     </label>
                                     <input type="date" disabled name="user_patient_birthday" id="user_patient_birthday"
-                                        autocomplete="patient-birthday"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                        autocomplete="patient-birthday" value="{{ old('user_patient_birthday') }}"
+                                        class="{{($errors->first('user_patient_birthday') ? " border-red-400"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('user_patient_birthday')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Patient Blood Type --}}
@@ -83,7 +122,8 @@
                                         class="block text-sm font-medium text-gray-700 ">Blood Type
                                     </label>
                                     <input type="text" disabled name="user_patient_blood_type"
-                                        id="user_patient_blood_type" autocomplete="patient-blood-type"
+                                        value="{{ old('user_patient_blood_type') }}" id="user_patient_blood_type"
+                                        autocomplete="patient-blood-type"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                 </div>
 
@@ -93,8 +133,13 @@
                                         class="block text-sm font-medium text-gray-700">Contact
                                         Number</label>
                                     <input type="number" disabled name="patient_phone_number" id="contact-number"
-                                        autocomplete="contact-number"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                        autocomplete="contact-number" value="{{ old('patient_phone_number') }}"
+                                        class="{{($errors->first('patient_phone_number') ? " border-red-400"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('patient_phone_number')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Medical History --}}
@@ -103,7 +148,7 @@
                                         class="block text-sm font-medium text-gray-700">Medical History</label>
                                     <textarea disabled name="user_patient_medical_history"
                                         id="user_patient_medical_history" autocomplete="medical-history"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop"></textarea>
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('user_patient_medical_history') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -123,34 +168,62 @@
     // This script tells what to do if you select a patient role
     // will hide some inputs or enable inputs
     const patient_role = document.getElementById("patient_role").value;
+    const student = document.getElementById("student").value;
+    const teaching_staff = document.getElementById("teaching_staff").value;
+    const non_teaching_staff = document.getElementById("non_teaching_staff").value;
+    const department_year_role_value = document.getElementById("department_year_role").value;
+    const label = document.getElementById("label");
+    const department_year_role = document.getElementById("department_year_role");
+    const inputs = document.querySelectorAll(".inputs");
+    const form = document.getElementById('form')
 
+    // get the labels in local storage if the conditions are met
+    if (teaching_staff === teaching_staff) {
+            label.textContent = localStorage.getItem("r0l3");
+        } else if (student === student) {
+            label.textContent = localStorage.getItem("r0l3");
+            // label.textContent = "Year & Section";
+        } else if (non_teaching_staff === non_teaching_staff) {
+            label.textContent = localStorage.getItem("r0l3");
+        }
+
+        // if the user role selected enable the input
+        inputs.forEach((input) => {
+            if (patient_role !== "Patient Role") {
+                input.disabled = false;
+                input.style.cursor = "default";
+            }
+        });
+
+        if (patient_role === "Patient Role") {
+                department_year_role.style.display = "none"
+        }
+
+     // that is the selected value
     function update(that) {
-        const inputs = document.querySelectorAll(".inputs");
         if (that) {
-            const student = document.getElementById("student").value;
-            const teaching_staff =
-                document.getElementById("teaching_staff").value;
-            const non_teaching_staff =
-                document.getElementById("non_teaching_staff").value;
-            const label = document.getElementById("label");
-            const department_year_role = document.getElementById(
-                "department_year_role"
-            );
-
             if (teaching_staff === that.value) {
-                label.textContent = "Department";
+                localStorage.setItem('r0l3', 'Department')
+                label.textContent = localStorage.getItem("r0l3");
                 department_year_role.style.display = "block";
             } else if (student === that.value) {
-                label.textContent = "Year & Section";
+                localStorage.setItem('r0l3', 'Year & Section')
+                label.textContent = localStorage.getItem("r0l3");
+                // label.textContent = "Year & Section";
                 department_year_role.style.display = "block";
             } else if (non_teaching_staff === that.value) {
-                label.textContent = "Role";
+                localStorage.setItem('r0l3', 'Role')
+                label.textContent = localStorage.getItem("r0l3");
+                // label.textContent = "Role";
                 department_year_role.style.display = "block";
             } else {
+                localStorage.setItem('r0l3', 'Department / Year & Section / Role')
+                label.textContent = localStorage.getItem("r0l3");
                 department_year_role.style.display = "none";
             }
         }
 
+        // if the user role is not selected disable the inputs
         inputs.forEach((input) => {
             if (that.value !== "Patient Role") {
                 input.disabled = false;
