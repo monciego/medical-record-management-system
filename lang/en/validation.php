@@ -148,8 +148,26 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'user_patient_role' => [
+            'required' => 'Please select a role',
+        ],
+        'user_patient_id' => [
+            'required' => 'Please enter your user id or student id',
+        ],
+        'user_patient_full_name' => [
+            'required' => 'Please enter your full name',
+        ],
+        'user_patient_gender' => [
+            'required' => 'Please select a gender',
+        ],
+        'user_patient_birthday' => [
+            'required' => 'Please enter your birthday',
+        ],
+        'user_year_department_role' => [
+            'required' => 'This field is required',
+        ],
+        'patient_phone_number' => [
+            'required' => 'Please enter your phone number',
         ],
     ],
 
