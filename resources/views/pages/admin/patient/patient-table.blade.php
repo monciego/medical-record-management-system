@@ -37,7 +37,7 @@
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->medicine_quantity }}</div> --}}
-                    <div>{{ $patient->patient_full_name }}</div>
+                    <div>{{ $patient->user->user_patient_full_name }}</div>
                 </td>
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->medicine_cost }}</div> --}}

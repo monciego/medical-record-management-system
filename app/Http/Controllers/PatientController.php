@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use App\Models\Medicine;
+use App\Models\UserPatient;
 
 class PatientController extends Controller
 {
@@ -15,9 +17,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $user = UserPatient::latest()->with('patient_information')->paginate(6);
         return view('pages.admin.patient.index', [
-            'patients' => Patient::latest()->paginate(6)
+            'patients' => $user
         ]);
     }
 
@@ -39,7 +41,7 @@ class PatientController extends Controller
      * @param  \App\Http\Requests\StorePatientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePatientRequest $request)
+ /*    public function store(StorePatientRequest $request)
     {
         //
          $formFields = $request->validate([
@@ -58,7 +60,7 @@ class PatientController extends Controller
 
         return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
     }
-
+ */
     /**
      * Display the specified resource.
      *
@@ -104,4 +106,41 @@ class PatientController extends Controller
     {
         //
     }
+
+    /**
+     * consult a user
+     *
+     * @param  \App\Models\UserPatient $user
+     * @return \Illuminate\Http\Response
+     */
+    public function consult(UserPatient $user)
+    {
+
+
+          $user = UserPatient::findOrFail($user->id);
+        //   dd($user);
+           $todayDate = date('Y-m-d', strtotime('today'));
+           $medicines = Medicine::all();
+        //   dd($user);
+          return view('pages.admin.users.consult', compact('user', 'todayDate', 'medicines'));
+    }
+
+    public function store(StorePatientRequest $request)
+    {
+
+
+         $formFields = $request->validate([
+            'patient_consult_date' => 'required',
+            'patient_consult_time' => 'required',
+            'patient_medical_comments' => 'nullable', // make this nullable in migration
+            'patient_prescribed_medicine' => 'nullable', // make this nullable in migration
+            'patient_prescribed_medicine_quantity' => 'nullable', // make this nullable in migration
+
+        ]);
+         Patient::create($formFields);
+
+        return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
+    }
+
+
 }
