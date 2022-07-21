@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('equipment', EquipmentController::class);
     // Patients
     Route::resource('patient', PatientController::class);
+    Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
     // Users
     Route::resource('users', UserPatientController::class);
 });

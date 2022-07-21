@@ -9,6 +9,10 @@ class UserPatient extends Model
 {
     use HasFactory;
 
+    public function patient_information () {
+        return $this->hasOne(Patient::class);
+    }
+
     protected $fillable = [
         'user_patient_id',
         'user_patient_role',
@@ -20,4 +24,5 @@ class UserPatient extends Model
         'user_year_department_role',
         'patient_phone_number',
     ];
+
 }

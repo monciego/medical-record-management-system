@@ -61,8 +61,11 @@ class UserPatientController extends Controller
      */
     public function show($id)
     {
-          return view('pages.admin.users.show', [
-            'user' => UserPatient::findOrFail($id)
+        $user = UserPatient::with('patient_information')->findOrFail($id);
+
+
+        return view('pages.admin.users.show', [
+            'user' => $user
           ]);
     }
 
