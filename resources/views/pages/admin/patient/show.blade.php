@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($patient) ? $patient->user_patient_full_name : 'Patient')
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium capitalize text-gray-900">Patient Information
