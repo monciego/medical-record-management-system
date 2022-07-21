@@ -8,14 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class UserPatient extends Model
 {
     use HasFactory;
-     protected $primaryKey='user_p_id';
 
-    public function patient() {
+    public function patient_information () {
         return $this->hasOne(Patient::class);
     }
 
     protected $fillable = [
-        'id',
         'user_patient_id',
         'user_patient_role',
         'user_patient_full_name',

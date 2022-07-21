@@ -15,32 +15,17 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_patient_id')->nullable();
-          $table->unsignedBigInteger('user_p_id');
-/*                 $table->foreignId('user_patient_id')
-                ->nullable()
+            $table->foreignId('user_patient_id')
                 ->constrained('user_patients')
                 ->onUpdate('cascade')
-                ->onDelete('cascade'); */
+                ->onDelete('cascade');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');
             $table->string('patient_medical_comments')->nullable();
             $table->string('patient_prescribed_medicine')->nullable();
             $table->string('patient_prescribed_medicine_quantity')->nullable();
-            // $table->foreign('user_patient_id')->references('id')->on('user_patients')
-            //  ->onDelete('cascade');
-            // $table->foreign('user_patient_id')->references('id')->on('user_patients')->onDelete('cascade');
             $table->timestamps();
         });
-
-          Schema::table('patients', function ($table) {
-              $table
-            ->foreign('user_p_id')
-            ->references('id')
-            ->on('user_patients')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-          });
     }
 
 

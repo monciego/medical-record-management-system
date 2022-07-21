@@ -1,11 +1,5 @@
 <x-app-layout>
-
-    @foreach ($patients as $item)
-    {{ $item->patient_information->patient_consult_date }}
-    @endforeach
-
-
-    {{-- @section('title','Patients')
+    @section('title','Patients')
     <div class="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
         <header class="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
             <h2 class="font-semibold text-slate-800">Patients</h2>
@@ -25,5 +19,5 @@
 
     <div class="mt-4">
         {{ $patients->links() }}
-    </div> --}}
+    </div>
 </x-app-layout>

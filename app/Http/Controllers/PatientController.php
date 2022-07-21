@@ -7,6 +7,7 @@ use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Models\Medicine;
 use App\Models\UserPatient;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -17,7 +18,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $user = UserPatient::latest()->with('patient_information')->paginate(6);
+        $user = UserPatient::latest()->with('patient_information')->has('patient_information')->paginate(6);
+        // dd($user);
         return view('pages.admin.patient.index', [
             'patients' => $user
         ]);
@@ -67,10 +69,11 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show($patient)
     {
         //
-             return view('pages.admin.patient.show', ['patient' => $patient ]);
+         $patient = UserPatient::with('patient_information')->has('patient_information')->findOrFail($patient);
+        return view('pages.admin.patient.show', ['patient' => $patient ]);
     }
 
     /**
@@ -128,17 +131,18 @@ class PatientController extends Controller
     public function store(StorePatientRequest $request)
     {
 
-
          $formFields = $request->validate([
+            'user_patient_id' => 'required',
             'patient_consult_date' => 'required',
             'patient_consult_time' => 'required',
             'patient_medical_comments' => 'nullable', // make this nullable in migration
             'patient_prescribed_medicine' => 'nullable', // make this nullable in migration
             'patient_prescribed_medicine_quantity' => 'nullable', // make this nullable in migration
-
         ]);
-         Patient::create($formFields);
 
+        Patient::create($formFields);
+        DB::table('medicines')->where('medicine_name', $request->input('patient_prescribed_medicine'))
+                 ->decrement('medicine_quantity', $request->input('patient_prescribed_medicine_quantity'));
         return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
     }
 
