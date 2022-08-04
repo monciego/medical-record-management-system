@@ -71,20 +71,6 @@
                     </span>
                 </div>
             </x-nav-link>
-            {{-- Equipment --}}
-            <x-nav-link :href="route('equipment.index')" :active="request()->routeIs('equipment.index')">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tool" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#94A3B8" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" />
-                    </svg>
-                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Equipments') }}
-                    </span>
-                </div>
-            </x-nav-link>
             {{-- Patient --}}
             <x-nav-link :href="route('patient.index')" :active="request()->routeIs('patient.index*')">
                 <div class="flex items-center">

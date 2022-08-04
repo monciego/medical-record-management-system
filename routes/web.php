@@ -35,8 +35,6 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
     // Medicines
     Route::resource('medicine', MedicineController::class);
-    // Equipment
-    Route::resource('equipment', EquipmentController::class);
     // Patients
     Route::resource('patient', PatientController::class);
     Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');

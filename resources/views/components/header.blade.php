@@ -79,9 +79,6 @@
             <x-responsive-nav-link :href="route('medicine.index')" :active="request()->routeIs('medicine.index')">
                 {{ __('Medicine') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('equipment.index')" :active="request()->routeIs('equipment.index')">
-                {{ __('Equipment') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('patient.index')" :active="request()->routeIs('patient.index')">
                 {{ __('Patient') }}
             </x-responsive-nav-link>
