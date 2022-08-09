@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title','Create User')
+    @section('title','Medical Record')
     <div class="sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:mt-0 md:col-span-6">
@@ -10,7 +10,7 @@
                             <div class="grid grid-cols-6 gap-6">
                                 {{-- Patient Role --}}
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_role" class="block text-sm font-medium text-gray-700">User
+                                    <label for="user_patient_role" class="block text-sm font-medium text-gray-700">
                                         Role</label>
                                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
                                         autocomplete="patient-role" class="{{($errors->first('user_patient_role') ? "
@@ -44,7 +44,7 @@
                                 {{-- Patient ID --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_id" class="block text-sm font-medium text-gray-700">
-                                        User ID</label>
+                                        ID</label>
                                     <input type="text" disabled name="user_patient_id" id="user_patient_id"
                                         autocomplete="patient-id" value="{{ old('user_patient_id') }}"
                                         class="{{($errors->first('user_patient_id') ? " border-red-600"
@@ -186,6 +186,102 @@
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                 </div>
 
+                                {{-- Civil status --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="civil_status" class="block text-sm font-medium text-gray-700">Civil
+                                        Status</label>
+                                    <input type="text" disabled name="civil_status" id="civil_status"
+                                        autocomplete="civil-status" value="{{ old('civil_status') }}"
+                                        class="{{($errors->first('civil_status') ? " border-red-600" : "border-gray-300"
+                                        )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm
+                                        sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('civil_status')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Nationality --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="nationality"
+                                        class="block text-sm font-medium text-gray-700">Nationality</label>
+                                    <input type="text" disabled name="nationality" id="nationality"
+                                        autocomplete="nationality" value="{{ old('nationality') }}"
+                                        class="{{($errors->first('nationality') ? " border-red-600" : "border-gray-300"
+                                        )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm
+                                        sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('nationality')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Religion --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="religion"
+                                        class="block text-sm font-medium text-gray-700">Religion</label>
+                                    <input type="text" disabled name="religion" id="religion" autocomplete="religion"
+                                        value="{{ old('religion') }}" class="{{($errors->first('religion') ? "
+                                        border-red-600" : "border-gray-300" )}} mt-1 focus:ring-indigo-500
+                                        focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300
+                                        rounded-md inputs cursor-no-drop">
+                                    @error('religion')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Contact Person --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="contact_person" class="block text-sm font-medium text-gray-700">Contact
+                                        Person</label>
+                                    <input type="text" disabled name="contact_person" id="contact_person"
+                                        autocomplete="contact-person" value="{{ old('contact_person') }}"
+                                        class="{{($errors->first('contact_person') ? " border-red-600"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('contact_person')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
                                 {{-- Patient Phone Number --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="patient_phone_number"
@@ -213,20 +309,242 @@
 
                                 {{-- Medical History --}}
                                 <div class="col-span-6">
-                                    <label for="user_patient_medical_history"
-                                        class="block text-sm font-medium text-gray-700">Medical History</label>
-                                    <textarea disabled name="user_patient_medical_history"
-                                        id="user_patient_medical_history" autocomplete="medical-history"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('user_patient_medical_history') }}</textarea>
+                                    <h2 class="font-medium">Medical History</h2>
+                                </div>
+
+                                {{-- History of past illness --}}
+                                <div class="col-span-6">
+                                    <label for="history_of_past_illness"
+                                        class="block text-sm font-medium text-gray-700">I. History of Past Illness <span
+                                            class="text-xs">(if
+                                            any)</span></label>
+                                    <textarea disabled name="history_of_past_illness" id="history_of_past_illness"
+                                        autocomplete="history_of_past_illness"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('history_of_past_illness') }}</textarea>
+                                </div>
+
+                                {{-- past illness --}}
+                                <div class="col-span-6">
+                                    <label for="past_illness" class="block text-sm font-medium text-gray-700">II. Past
+                                        Illness</label>
+                                    <textarea disabled name="past_illness" id="past_illness" autocomplete="past_illness"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('past_illness') }}</textarea>
+                                </div>
+
+                                {{-- operations and hospitalizations --}}
+                                <div class="col-span-6">
+                                    <label for="operations_and_hospitalizations"
+                                        class="block text-sm font-medium text-gray-700">III. Operations and
+                                        Hospitalizations</label>
+                                    <textarea disabled name="operations_and_hospitalizations"
+                                        id="operations_and_hospitalizations"
+                                        autocomplete="operations_and_hospitalizations"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('operations_and_hospitalizations') }}</textarea>
+                                </div>
+
+                                {{-- immunization history --}}
+                                <div class="col-span-6">
+                                    <label for="immunization_history"
+                                        class="block text-sm font-medium text-gray-700">IV. Immunization History</label>
+                                    <textarea disabled name="immunization_history" id="immunization_history"
+                                        autocomplete="immunization_history"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('immunization_history') }}</textarea>
+                                </div>
+
+                                {{-- social and environmental history --}}
+                                <div class="col-span-6">
+                                    <label for="social_and_environmental_history"
+                                        class="block text-sm font-medium text-gray-700">V. Social and Environmental
+                                        History</label>
+                                    <textarea disabled name="social_and_environmental_history"
+                                        id="social_and_environmental_history"
+                                        autocomplete="social_and_environmental_history"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('social_and_environmental_history') }}</textarea>
+                                </div>
+
+                                {{-- obstetrics gynecological history --}}
+                                <div class="col-span-6">
+                                    <label for="obstetrics_gynecological_history"
+                                        class="block text-sm font-medium text-gray-700">VI. Obstetrics Gynecological
+                                        History <span class="text-xs">(for female only)</span></label>
+                                    <textarea disabled name="obstetrics_gynecological_history"
+                                        id="obstetrics_gynecological_history"
+                                        autocomplete="obstetrics_gynecological_history"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('obstetrics_gynecological_history') }}</textarea>
+                                </div>
+
+                                {{-- Physical Examination --}}
+                                <div class="col-span-6">
+                                    <h2 class="font-medium">Physical Examination <span class="text-xs">(Check all that
+                                            apply)</span></h2>
+                                </div>
+
+                                {{-- general survey --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="general_survey" name="general_survey" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="general_survey" class="font-medium text-gray-700">General
+                                                Survey</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- skin --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="skin" name="skin" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="skin" class="font-medium text-gray-700">Skin</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- heent --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="heent" name="heent" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="heent" class="font-medium text-gray-700">Heent</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- chest and lungs --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="chest_and_lungs" name="chest_and_lungs" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="chest_and_lungs" class="font-medium text-gray-700">Chest and
+                                                Lungs</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- heart --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="heart" name="heart" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="heart" class="font-medium text-gray-700">Heart</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- abdomen --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="abdomen" name="abdomen" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="abdomen" class="font-medium text-gray-700">Abdomen</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- genitourinary --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="genitourinary" name="genitourinary" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="genitourinary"
+                                                class="font-medium text-gray-700">Genitourinary</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- musculoskeletal --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="musculoskeletal" name="musculoskeletal" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="musculoskeletal"
+                                                class="font-medium text-gray-700">Musculoskeletal</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- neurological_examination --}}
+                                <div class="col-span-6">
+                                    <label for="neurological_examination"
+                                        class="block text-sm font-medium text-gray-700">Neurological Examination</label>
+                                    <textarea disabled name="neurological_examination" id="neurological_examination"
+                                        autocomplete="neurological_examination"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('neurological_examination') }}</textarea>
+                                </div>
+
+                                {{-- laboratory_results --}}
+                                <div class="col-span-6">
+                                    <label for="laboratory_results"
+                                        class="block text-sm font-medium text-gray-700">Laboratory Results</label>
+                                    <textarea disabled name="laboratory_results" id="laboratory_results"
+                                        autocomplete="laboratory_results"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('laboratory_results') }}</textarea>
+                                </div>
+
+                                {{-- assestment --}}
+                                <div class="col-span-6">
+                                    <label for="assestment"
+                                        class="block text-sm font-medium text-gray-700">Assestment</label>
+                                    <textarea disabled name="assestment" id="assestment" autocomplete="assestment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('assestment') }}</textarea>
+                                </div>
+
+                                {{-- University Physician --}}
+                                <div class="col-span-6 sm:col-span-2"></div>
+                                <div class="col-span-6 sm:col-span-2">
+                                    <input type="text" disabled name="university_physician" id="university_physician"
+                                        autocomplete="university-physician" value="{{ old('university_physician') }}"
+                                        class="{{($errors->first('university_physician') ? " border-red-600"
+                                        : "border-gray-300" )}} mb-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    <label for="university_physician"
+                                        class="block text-sm font-medium text-gray-700 text-center">University
+                                        Physician</label>
+                                    @error('university_physician')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
+                            <div class="px-4 mt-4 py-3 bg-gray-50 w-full sm:px-6">
+                                <button type="submit"
+                                    class="inline-flex w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
+                                    Record</button>
+                            </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                            <button type="submit"
-                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
-                                User</button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>

@@ -15,7 +15,7 @@ class UserPatientSeeder extends Seeder
      */
     public function run()
     {
-        UserPatient::create([
+        /* UserPatient::create([
             'id' => 1,
             'user_patient_id' => '18-AC-0327',
             'user_patient_role' => 'student',
@@ -109,6 +109,6 @@ class UserPatientSeeder extends Seeder
             'user_patient_blood_type' => 'O RhD positive (O+)',
             'user_patient_medical_history' => 'Asthma',
             'patient_phone_number' => 9154032552,
-        ]);
+        ]); */
     }
 }

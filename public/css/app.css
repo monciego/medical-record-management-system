@@ -668,6 +668,10 @@ select {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -743,6 +747,9 @@ select {
 .-mr-2 {
   margin-right: -0.5rem;
 }
+.mt-0 {
+  margin-top: 0px;
+}
 .block {
   display: block;
 }
@@ -793,6 +800,9 @@ select {
 }
 .h-12 {
   height: 3rem;
+}
+.h-\[10rem\] {
+  height: 10rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -975,6 +985,9 @@ select {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -984,8 +997,14 @@ select {
 .overflow-x-hidden {
   overflow-x: hidden;
 }
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+.scroll-auto {
+  scroll-behavior: auto;
 }
 .truncate {
   overflow: hidden;
@@ -1707,6 +1726,10 @@ select {
     grid-column: span 2 / span 2;
   }
 
+  .sm\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
   .sm\:mx-4 {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -1739,6 +1762,10 @@ select {
 
   .sm\:mt-0 {
     margin-top: 0px;
+  }
+
+  .sm\:mt-4 {
+    margin-top: 1rem;
   }
 
   .sm\:block {
