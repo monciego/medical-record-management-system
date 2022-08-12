@@ -31,6 +31,32 @@
             <div class="pb-5 pt-5 grid grid-cols-6 gap-6">
 
                 <div class="col-span-6 sm:col-span-2">
+                    <label for="clinic" class="block text-sm font-medium text-gray-700">
+                        Clinic</label>
+                    <select name="clinic" autocomplete="clinic" class="{{($errors->first('clinic') ? " border-red-600"
+                        : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md
+                        shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option selected disabled hidden>Select Clinic</option>
+                        <option {{ old('clinic')==='medical' ? 'selected' : '' }} id="medical" value="medical">Medical
+                        </option>
+                        <option {{ old('clinic')==='dental' ? 'selected' : '' }} id="dental" value="dental">Dental
+                        </option>
+                    </select>
+                    @error('clinic')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
                     <h5 class="text-sm text-gray-800 mb-1">Name of Patient</h5>
                     <p
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
@@ -205,6 +231,27 @@
                     @enderror
                 </div>
                 @endforeach
+
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="physician_name" class="block text-sm font-medium text-gray-700">Physician</label>
+                    <input type="text" name="physician_name" id="physician_name" autocomplete="physician_name"
+                        value="{{ old('physician_name') }}" class="{{($errors->first('physician_name') ? "
+                        border-red-600" : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    @error('physician_name')
+                    <div class=" flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+
                 <div class="col-span-6">
                     <label for="patient_medical_comments"
                         class="block text-sm font-medium text-gray-700">Comments</label>

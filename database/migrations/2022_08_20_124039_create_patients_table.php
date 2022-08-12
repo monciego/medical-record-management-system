@@ -19,6 +19,7 @@ return new class extends Migration
                 ->constrained('user_patients')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('clinic');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');
             $table->longText('complaints');
@@ -26,6 +27,7 @@ return new class extends Migration
             $table->string('patient_medical_comments')->nullable();
             $table->string('patient_prescribed_medicine')->nullable();
             $table->string('patient_prescribed_medicine_quantity')->nullable();
+            $table->string('physician_name');
             $table->timestamps();
         });
     }

@@ -136,9 +136,14 @@
         <div class="flex items-center my-4">
             <img class="h-16" src="{{ asset('gifs/document.gif') }}" alt="document image" />
             <div>
-                <h2 class="font-semibold">Visit: Dental</h2>
-                <h4 class="text-sm"><span class="font-medium">Physician:</span> Dra. Christia Marie J. Posadas - Flores,
-                    M.D.</h4>
+                <h2 class="font-semibold capitalize">Visit: {{ $patientInformation->clinic }}</h2>
+                <h4 class="text-sm"><span class="font-medium">
+                        @if ($patientInformation->clinic === 'dental')
+                        Dentist
+                        @else
+                        Phyisican
+                        @endif:</span> {{ $patientInformation->physician_name
+                    }}</h4>
             </div>
         </div>
         <p class="mb-4">

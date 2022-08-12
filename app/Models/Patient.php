@@ -11,6 +11,7 @@ class Patient extends Model
 
      protected $fillable = [
         'user_patient_id',
+        'clinic',
         'patient_consult_date',
         'patient_consult_time',
         'complaints',
@@ -18,5 +19,6 @@ class Patient extends Model
         'patient_prescribed_medicine',
         'patient_prescribed_medicine_quantity',
         'patient_medical_comments',
+        'physician_name',
      ];
 }

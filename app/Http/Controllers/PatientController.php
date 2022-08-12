@@ -48,6 +48,7 @@ class PatientController extends Controller
     {
          $formFields = $request->validate([
             'user_patient_id' => 'required',
+            'clinic' => 'required',
             'patient_consult_date' => 'required',
             'patient_consult_time' => 'required',
             'complaints' => 'required',
@@ -55,12 +56,14 @@ class PatientController extends Controller
             'patient_prescribed_medicine' => 'nullable',
             'patient_prescribed_medicine_quantity' => 'nullable',
             'patient_medical_comments' => 'nullable',
+            'physician_name' => 'required',
         ]);
 
           $patient_prescribed_medicine = $request->input('patient_prescribed_medicine');
           $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity');
         Patient::create([
             'user_patient_id' => $request->user_patient_id,
+            'clinic' => $request->clinic,
             'patient_consult_date' =>  $request->patient_consult_date,
             'patient_consult_time' =>  $request->patient_consult_time,
             'complaints' =>  $request->complaints,
@@ -68,6 +71,7 @@ class PatientController extends Controller
             'patient_prescribed_medicine' =>  implode('|', $patient_prescribed_medicine),
             'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
             'patient_medical_comments' =>  $request->patient_medical_comments,
+            'physician_name' => $request->physician_name,
         ]);
 
     $patient_prescribed_medicines = $request->input('patient_prescribed_medicine');
@@ -140,8 +144,6 @@ class PatientController extends Controller
      */
     public function consult(UserPatient $user)
     {
-
-
           $user = UserPatient::findOrFail($user->id);
         //   dd($user);
            $todayDate = date('Y-m-d', strtotime('today'));
