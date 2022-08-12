@@ -18,10 +18,10 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $user = UserPatient::latest()->with('patient_information')->has('patient_information')->paginate(6);
-        // dd($user);
+        $patients = UserPatient::latest()->with('patient_information')->has('patient_information')->paginate(6);
+        // dd($patients);
         return view('pages.admin.patient.index', [
-            'patients' => $user
+            'patients' => $patients
         ]);
     }
 
@@ -39,30 +39,48 @@ class PatientController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * Consult function
      * @param  \App\Http\Requests\StorePatientRequest  $request
      * @return \Illuminate\Http\Response
      */
- /*    public function store(StorePatientRequest $request)
+
+    public function store(StorePatientRequest $request)
     {
-        //
          $formFields = $request->validate([
-            'patient_id' => 'required',
-            'patient_full_name' => 'required',
-            'patient_gender' => 'required',
-            'patient_role' => 'required',
-            'patient_year' => 'nullable',
-            'patient_department' => 'nullable',
-            'patient_phone_number' => 'required',
+            'user_patient_id' => 'required',
             'patient_consult_date' => 'required',
             'patient_consult_time' => 'required',
+            'complaints' => 'required',
+            'diagnosis' => 'required',
+            'patient_prescribed_medicine' => 'nullable',
+            'patient_prescribed_medicine_quantity' => 'nullable',
             'patient_medical_comments' => 'nullable',
         ]);
-         Patient::create($formFields);
+
+          $patient_prescribed_medicine = $request->input('patient_prescribed_medicine');
+          $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity');
+        Patient::create([
+            'user_patient_id' => $request->user_patient_id,
+            'patient_consult_date' =>  $request->patient_consult_date,
+            'patient_consult_time' =>  $request->patient_consult_time,
+            'complaints' =>  $request->complaints,
+            'diagnosis' =>  $request->diagnosis,
+            'patient_prescribed_medicine' =>  implode('|', $patient_prescribed_medicine),
+            'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
+            'patient_medical_comments' =>  $request->patient_medical_comments,
+        ]);
+
+    $patient_prescribed_medicines = $request->input('patient_prescribed_medicine');
+
+    $num_i = 0;
+    foreach($patient_prescribed_medicines as $given_medicine){
+        DB::table('medicines')->where('medicine_name', $given_medicine)->decrement('medicine_quantity',   array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i]);
+        $num_i = $num_i + 1;
+    }
 
         return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
     }
- */
+
     /**
      * Display the specified resource.
      *
@@ -73,7 +91,11 @@ class PatientController extends Controller
     {
         //
          $patient = UserPatient::with('patient_information')->has('patient_information')->findOrFail($patient);
-        return view('pages.admin.patient.show', ['patient' => $patient ]);
+        //  $patientInfo = UserPatient::with('patient_information')->has('patient_information')->get();
+        $PATIENT_CONSULTATION_INFORMATION = Patient::where('user_patient_id', $patient->id)->get();
+        return view('pages.admin.patient.show', compact('patient', 'PATIENT_CONSULTATION_INFORMATION'));
+    /*      $patient = UserPatient::with('patient_information')->has('patient_information')->findOrFail($patient);
+        return view('pages.admin.patient.show', ['patient' => $patient ]); */
     }
 
     /**
@@ -127,24 +149,4 @@ class PatientController extends Controller
         //   dd($user);
           return view('pages.admin.users.consult', compact('user', 'todayDate', 'medicines'));
     }
-
-    public function store(StorePatientRequest $request)
-    {
-
-         $formFields = $request->validate([
-            'user_patient_id' => 'required',
-            'patient_consult_date' => 'required',
-            'patient_consult_time' => 'required',
-            'patient_medical_comments' => 'nullable', // make this nullable in migration
-            'patient_prescribed_medicine' => 'nullable', // make this nullable in migration
-            'patient_prescribed_medicine_quantity' => 'nullable', // make this nullable in migration
-        ]);
-
-        Patient::create($formFields);
-        DB::table('medicines')->where('medicine_name', $request->input('patient_prescribed_medicine'))
-                 ->decrement('medicine_quantity', $request->input('patient_prescribed_medicine_quantity'));
-        return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
-    }
-
-
 }

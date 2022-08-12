@@ -13,8 +13,10 @@ class Patient extends Model
         'user_patient_id',
         'patient_consult_date',
         'patient_consult_time',
-        'patient_medical_comments',
+        'complaints',
+        'diagnosis',
         'patient_prescribed_medicine',
-        'patient_prescribed_medicine_quantity'
+        'patient_prescribed_medicine_quantity',
+        'patient_medical_comments',
      ];
 }

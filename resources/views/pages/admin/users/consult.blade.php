@@ -25,77 +25,26 @@
         </div>
         <hr>
 
-        <form action="{{ route('patient.store') }}" method="POST">
+        <form action="{{ route('patient.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{ $user->id }}" name="user_patient_id">
-            <div class=" pb-5 pt-5 grid grid-cols-6 gap-6">
-                {{-- roles --}}
-                {{-- <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_role" class="block text-sm font-medium text-gray-700">Patient
-                        Role</label>
-                    <select onChange="update(this);" id="patient_role" name="patient_role"
-                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option {{ $user->user_patient_role == 'student' ? 'selected' : '' }} id="student"
-                            value="student">Student</option>
-                        <option {{ $user->user_patient_role == 'teaching_staff' ? 'selected' : '' }} id="teaching_staff"
-                            value="teaching_staff">Teaching Staff</option>
-                        <option id="non_teaching_staff" {{ $user->user_patient_role == 'non_teaching_staff' ? 'selected'
-                            : '' }}
-                            value="non_teaching_staff">Non-Teaching Staff
-                        </option>
-                    </select>
-                </div> --}}
-                {{-- id --}}
-                {{-- <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_id" class="text-sm text-gray-800 mb-1 block">User ID</label>
-                    <input type="text" name="patient_id" id="patient_id" :value="old('patient_id')"
-                        value="{{$user->user_patient_id}}" class="{{($errors->first('user_patient_id') ? "
-                        border-red-600" : "border-gray-300" )}} text-sm dark-text font-medium capitalize w-full border
-                        border-gray-300 shadow rounded-md px-4 py-2">
-                    @error('patient_id')
-                    <div class="flex items-center gap-1 mt-1 ml-1">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
-                    </div>
-                    @enderror
-                </div> --}}
+            <div class="pb-5 pt-5 grid grid-cols-6 gap-6">
 
                 <div class="col-span-6 sm:col-span-2">
-                    <h5 class="text-sm text-gray-800 mb-1">Full name</h5>
+                    <h5 class="text-sm text-gray-800 mb-1">Name of Patient</h5>
                     <p
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                         {{ $user->user_patient_full_name }}
                     </p>
                 </div>
 
-                {{-- gender --}}
-                {{--
-                <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_gender" class="text-sm text-gray-800 mb-1 block">Sex/Gender</label>
-                    <select id="patient_gender" name="patient_gender"
-                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                        <option {{ $user->user_patient_gender == 'male' ? 'selected' : '' }} value="male">Male
-                        </option>
-                        <option {{ $user->user_patient_gender == 'female' ? 'selected' : '' }} value="female">
-                            Female</option>
-                    </select>
-                </div> --}}
-
-
                 <div class="col-span-6 sm:col-span-2">
                     <h5 class="text-sm text-gray-800 mb-1">
                         @if ($user->user_patient_role === 'student')
-                        Year and Section
-                        @elseif($user->user_patient_role === 'teaching_staff')
+                        Course / Year & Section
+                        @elseif($user->user_patient_role === 'teaching_staff' || $user->user_patient_role ===
+                        'non_teaching_staff')
                         Department
-                        @elseif($user->user_patient_role === 'non_teaching_staff')
-                        Role
                         @endif
                     </h5>
                     <p
@@ -131,15 +80,24 @@
                     </p>
                 </div>
 
-                {{-- <div class="col-span-6 sm:col-span-2">
-                    <label for="user_patient_birthday" class="text-sm text-gray-800 mb-1 block">Birth Date</label>
-                    <input type="date" name="user_patient_birthday" id="user_patient_birthday"
-                        :value="old('user_patient_birthday')" value="{{ $user->user_patient_birthday }}"
-                        class="{{($errors->first('user_patient_birthday') ? " border-red-600" : "border-gray-300" )}}
-                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
-                        py-2">
-                    @error('user_patient_birthday')
-                    <div class="flex items-center gap-1 mt-1 ml-1">
+                {{-- consult date --}}
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="patient_consult_date" class="block text-sm font-medium text-gray-700">Consult
+                        Date</label>
+                    <input value="{{ $todayDate  }}" type="date" name="patient_consult_date" id=" patient_consult_date"
+                        autocomplete="consult-date"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="patient_consult_time" class="block text-sm font-medium text-gray-700">Consult
+                        Time</label>
+                    <input type="time" name="patient_consult_time" id="patient_consult_time" autocomplete="consult-time"
+                        value="{{ old('patient_consult_time') }}" class="{{($errors->first('patient_consult_time') ? "
+                        border-red-600" : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    @error('patient_consult_time')
+                    <div class=" flex items-center gap-1 mt-1 ml-1">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
                                 <path fill-rule="evenodd"
@@ -150,43 +108,86 @@
                         <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
                     </div>
                     @enderror
-                </div> --}}
-
-                {{-- --}}
-
-                <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_consult_date" class="block text-sm font-medium text-gray-700">Consult
-                        Date</label>
-                    <input value="{{ $todayDate  }}" type="date" name="patient_consult_date" id=" patient_consult_date"
-                        autocomplete="consult-date"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-
-                {{-- Patient Consult Time --}}
-                <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_consult_time" class="block text-sm font-medium text-gray-700">Consult
-                        Time</label>
-                    <input type="time" name="patient_consult_time" id="patient_consult_time" autocomplete="consult-time"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
+                    <label for="complaints" class="block text-sm font-medium text-gray-700">Complaints</label>
+                    <input type="text" name="complaints" id="complaints" autocomplete="complaints"
+                        value="{{ old('complaints') }}" class="{{($errors->first('complaints') ? " border-red-600"
+                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full
+                        shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    @error('complaints')
+                    <div class=" flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="diagnosis" class="block text-sm font-medium text-gray-700">Diagnosis</label>
+                    <input type="text" name="diagnosis" id="diagnosis" autocomplete="diagnosis"
+                        value="{{ old('diagnosis') }}" class="{{($errors->first('diagnosis') ? " border-red-600"
+                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full
+                        shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    @error('diagnosis')
+                    <div class=" flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+
+                {{-- !! WORK ON DESIGN OF THESE OR THE PATIENT INFORMATION THEN FIX SOME BUGS AND THE EXAMINE
+                FUNCTIONALITY --}}
+
+                <div class="w-full relative col-span-6 sm:col-span-2 cursor-pointer" id="someElementID">
                     <label for="patient_prescribed_medicine" class="text-sm text-gray-800 mb-1 block">Prescribed
                         Medicine</label>
-                    <select id="patient_prescribed_medicine" name="patient_prescribed_medicine"
-                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                        @foreach ($medicines as $medicine )
-                        <option value="{{ $medicine->medicine_name }}">{{ $medicine->medicine_name }}
-                        </option>
+                    <div class="select-field flex items-center text-sm dark-text   font-medium capitalize w-full border border-gray-300
+                        shadow rounded-md px-4 py-2">
+                        <input type="text" name="patient_prescribed_medicine" placeholder="Medicines Given" disabled
+                            class="cursor-pointer text-sm input-selector border-none py-0 px-0 outline-none">
+                        <span id="arrow-down" class="absolute right-4 transform duration-300 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </div>
+                    {{-- options --}}
+                    <div id="list"
+                        class="w-full bg-white max-h-44 overflow-y-scroll p-2 hidden absolute shadow-lg border rounded-bl-md rounded-br-md border-1">
+                        @foreach ($medicines as $medicine)
+                        <label for="{{ $medicine->medicine_name }}" class="w-full hover:bg-indigo-50 bg-wite p-1 block">
+                            <input class="rounded text-indigo-600" type="checkbox" name="patient_prescribed_medicine[]"
+                                onclick="myFunction(this.id)" id="{{ $medicine->medicine_name }}"
+                                value="{{ $medicine->medicine_name }}">
+                            <span class="text-sm ml-2">{{ $medicine->medicine_name }}</span>
+                        </label>
                         @endforeach
-                    </select>
+                    </div>
                 </div>
 
-                <div class="col-span-6 sm:col-span-2">
-                    <label for="patient_prescribed_medicine_quantity" class="text-sm text-gray-800 mb-1 block">Medicine
+                @foreach ($medicines as $medicine)
+                <div class="col-span-6 sm:col-span-2" style="display: none" id="{{ $medicine->medicine_name }}_text">
+                    <label for="patient_prescribed_medicine_quantity" class="text-sm text-gray-800 mb-1 block">{{
+                        $medicine->medicine_name }}
                         Quantity</label>
-                    <input type="number" name="patient_prescribed_medicine_quantity"
-                        id="patient_prescribed_medicine_quantity" :value="old('patient_prescribed_medicine_quantity')"
+                    <input type="number" name="patient_prescribed_medicine_quantity[]"
+                        id="{{ $medicine->medicine_name }}" :value="old('patient_prescribed_medicine_quantity')"
                         class="{{($errors->first('patient_prescribed_medicine_quantity') ? " border-red-600"
                         : "border-gray-300" )}} text-sm dark-text font-medium capitalize w-full border border-gray-300
                         shadow rounded-md px-4 py-2">
@@ -202,23 +203,8 @@
                         <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
                     </div>
                     @enderror
-
-                    {{-- <input type="text" name="user_patient_id" value={{ $user->id }}> --}}
                 </div>
-
-                {{-- --}}
-
-                <div class="col-span-6">
-                    <h5 class="text-sm text-gray-800 mb-1">Medical History</h5>
-                    <p
-                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                        {{ $user->user_patient_medical_history }}
-                        @if ($user->user_patient_medical_history == null)
-                        N/A
-                        @endif
-                    </p>
-                </div>
-
+                @endforeach
                 <div class="col-span-6">
                     <label for="patient_medical_comments"
                         class="block text-sm font-medium text-gray-700">Comments</label>
@@ -239,23 +225,30 @@
     </form>
 </x-app-layout>
 
-<script>
-    // This script tells what to do if you select a patient role
-    // will hide some inputs or enable inputs
-    const student = document.getElementById("student").value;
-    const teaching_staff = document.getElementById("teaching_staff").value;
-    const non_teaching_staff = document.getElementById("non_teaching_staff").value;
-    const label = document.getElementById("label");
 
-    function update(that) {
-        if (that) {
-            if (teaching_staff === that.value) {
-                label.textContent = "Department";
-            } else if (student === that.value) {
-                label.textContent = "Year & Section";
-            } else if (non_teaching_staff === that.value) {
-                label.textContent = "Role";
-            }
-        }
+<script>
+    document.querySelector(".select-field").addEventListener("click", () => {
+    document.getElementById("list").classList.toggle("show");
+    document.getElementById("arrow-down").classList.toggle("-rotate-180");
+});
+
+function myFunction(id) {
+    let checkBox = document.getElementById(id);
+    let text = document.getElementById(id + "_text");
+    if (checkBox.checked == true) {
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
     }
+}
+
+let ignoreClickOnMeElement = document.getElementById("someElementID");
+
+document.addEventListener("click", function (event) {
+    let isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+    if (!isClickInsideElement) {
+        //Do something click is outside specified element
+        document.getElementById("list").classList.remove("show");
+    }
+});
 </script>

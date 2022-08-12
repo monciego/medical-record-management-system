@@ -18,6 +18,10 @@
         [x-cloak] {
             display: none;
         }
+
+        .show {
+            display: block;
+        }
     </style>
 
     <!-- Scripts -->

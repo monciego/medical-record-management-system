@@ -21,6 +21,8 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');
+            $table->longText('complaints');
+            $table->longText('diagnosis');
             $table->string('patient_medical_comments')->nullable();
             $table->string('patient_prescribed_medicine')->nullable();
             $table->string('patient_prescribed_medicine_quantity')->nullable();
