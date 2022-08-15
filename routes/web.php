@@ -4,6 +4,7 @@ use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\ExaminationReportController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserPatientController;
@@ -40,6 +41,9 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
     // Users
     Route::resource('users', UserPatientController::class);
+    // Examination Report
+    Route::resource('medical-examination-report', ExaminationReportController::class);
+    Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
 });
 
 

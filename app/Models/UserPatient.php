@@ -13,6 +13,10 @@ class UserPatient extends Model
         return $this->hasOne(Patient::class);
     }
 
+    public function examination_reports () {
+        return $this->hasOne(ExaminationReport::class);
+    }
+
     protected $fillable = [
         // basic information
         'user_patient_id',

@@ -169,6 +169,32 @@ return [
         'patient_phone_number' => [
             'required' => 'Please enter your phone number',
         ],
+
+        // examination report
+        'obo_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'urinalysis_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'fecalysis_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'hbs_ag_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'pregnancy_test_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'drug_test_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'chest_xray_findings' => [
+            'required_if' => 'Findings input is required',
+        ],
+        'ecg_findings' => [
+            'required_if' => 'Findings input is required',
+        ]
     ],
 
     /*
