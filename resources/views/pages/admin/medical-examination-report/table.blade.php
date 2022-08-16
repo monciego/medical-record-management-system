@@ -1,5 +1,5 @@
 {{-- Table --}}
-{{-- @unless ($users->isEmpty()) --}}
+@unless ($examine_records->isEmpty())
 <div class="overflow-x-auto">
     <table class="table-auto w-full">
         {{-- table header --}}
@@ -74,16 +74,16 @@
         </tbody>
     </table>
 </div>
-{{-- @else --}}
-{{-- <div class="flex-col flex items-center justify-center">
+@else
+<div class="flex-col flex items-center justify-center">
     <div>
         <img src="{{ asset('images/empty-illustrations/empty-examination-report.svg') }}"
             alt="There are currently no registered.">
     </div>
     <div>
         <h1 class="text-center font-bold text-xl mt-8 uppercase">
-            There are currently medical examination reports.
+            There are currently no medical examination reports.
         </h1>
     </div>
-</div> --}}
-{{-- @endunless --}}
+</div>
+@endunless
