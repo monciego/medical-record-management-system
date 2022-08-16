@@ -64,8 +64,9 @@
 
                 </td>
                 <td class="p-2 ">
-                    <a class="text-indigo-700 hover:underline cursor-pointer" href="">
-                        View
+                    <a class="text-indigo-700 hover:underline cursor-pointer"
+                        href="{{ route('medical-examination-report.show', $examine_record) }}">
+                        View more
                     </a>
                 </td>
             </tr>

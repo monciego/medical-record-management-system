@@ -794,10 +794,10 @@
 
                                                                     <hr class="col-span-6 my-4">
 
-                                                                    {{-- classification --}}
+                                                                    {{-- remarks --}}
                                                                     <div class="col-span-6">
                                                                         <label for="remarks" class="font-medium">Remarks
-                                                                            </h2>
+                                                                        </label>
                                                                     </div>
 
                                                                     <div class="col-span-6">

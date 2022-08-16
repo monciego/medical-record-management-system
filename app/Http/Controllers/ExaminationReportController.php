@@ -155,12 +155,12 @@ class ExaminationReportController extends Controller
                 'ecg_findings' => $request->ecg_findings,
                 'others' => $request->others,
                 // classification
-                'class_a' => $request->class_a,
-                'class_b' => $request->class_b,
-                'class_c' => $request->class_c,
-                'pending' => $request->pending,
+                'class_a' => $request->class_a === 'on',
+                'class_b' => $request->class_b === 'on',
+                'class_c' => $request->class_c === 'on',
+                'pending' => $request->pending === 'on',
                 'pending_text' => $request->pending_text,
-                'unfit' => $request->unfit,
+                'unfit' => $request->unfit === 'on',
                 'unfit_text' => $request->unfit_text,
                 //remarks
                 'remarks' => $request->remarks,
@@ -179,9 +179,11 @@ class ExaminationReportController extends Controller
      * @param  \App\Models\ExaminationReport  $examinationReport
      * @return \Illuminate\Http\Response
      */
-    public function show(ExaminationReport $examinationReport)
+    public function show($examinationReport)
     {
-        //
+        $examination_report_data = UserPatient::with('examination_reports')->has('examination_reports')->findOrFail($examinationReport);
+        $todayDate = date('Y-m-d', strtotime('today'));
+        return view('pages.admin.medical-examination-report.show', compact('examination_report_data', 'todayDate'));
     }
 
     /**
