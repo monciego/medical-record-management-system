@@ -9,6 +9,11 @@ class ExaminationReport extends Model
 {
     use HasFactory;
 
+    public function user_data () {
+        return $this->belongsTo(UserPatient::class, 'user_patient_id');
+    }
+
+
     protected $fillable = [
         'user_patient_id',
         // checkbox

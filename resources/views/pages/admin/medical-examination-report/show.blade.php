@@ -1,25 +1,13 @@
 <x-app-layout>
-    @section('title', isset($examination_report_data) ? $examination_report_data->user_patient_full_name : 'Examination
-    Report')
-    <p>{{ $examination_report_data->pre_employment }}</p>
+    @section('title', isset($data) ? $data->user_patient_full_name : 'Examination Report')
 
-    <div class="text-right">
-        <a href="{{ route('export-document', $examination_report_data) }}"
-            class="px-4 py-2 mb-4 font-medium text-xs inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
-            </svg>
-            <span class="xs:block text-xs ml-2">Export to word</span>
-        </a>
-    </div>
+    @foreach ($examination_report_datas as $examination_report_data)
 
 
-    <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg">
-        <div class="flex-col flex md:flex-row items-center justify-center">
-            <div class="sm:pb-0 md:pb-5 ">
+    <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg my-4">
+        <div class="flex-col flex md:flex-row items-center justify-between">
+            <div></div>
+            <div>
                 <div class="flex items-center gap-2">
                     <div>
                         <h3 class="text-lg leading-6 font-medium capitalize text-gray-900">
@@ -31,15 +19,27 @@
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
                 </p>
             </div>
-
+            <div>
+                <a href="{{ route('export-document', $examination_report_data) }}"
+                    class="px-4 py-2  font-medium text-xs inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-indigo-500 hover:bg-indigo-600 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" />
+                    </svg>
+                    <span class="xs:block text-xs ml-2">Export to word</span>
+                </a>
+            </div>
         </div>
-        <hr />
+        <hr class="my-4" />
+
         <div class="pb-5 pt-5 grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-2">
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
                         <input id="pre_employment" name="pre_employment" type="checkbox" {{
-                            $examination_report_data->examination_reports->pre_employment == true ? 'checked'
+                            $examination_report_data->pre_employment == true ? 'checked'
                         :
                         '' }} readonly disabled="disabled"
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
@@ -49,13 +49,12 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-span-6 sm:col-span-2">
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="annual" name="annual" type="checkbox" {{
-                            $examination_report_data->examination_reports->annual == true ? 'checked'
-                        :
-                        '' }} readonly disabled="disabled"
+                        <input id="annual" name="annual" type="checkbox" {{ $examination_report_data->annual==true
+                        ? 'checked' : '' }} readonly disabled="disabled"
                         class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                     </div>
                     <div class="ml-3 text-sm">
@@ -63,10 +62,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-span-6 sm:col-span-2">
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="ojt" name="ojt" type="checkbox" {{ $examination_report_data->examination_reports->ojt
+                        <input id="ojt" name="ojt" type="checkbox" {{ $examination_report_data->ojt
                         == true ? 'checked'
                         :
                         '' }} readonly disabled="disabled"
@@ -84,7 +84,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Name</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->user_patient_full_name }}
+                    {{ $examination_report_data->user_data->user_patient_full_name }}
                 </p>
             </div>
 
@@ -92,7 +92,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Age</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ \Carbon\Carbon::parse($examination_report_data->user_patient_birthday)->age }}
+                    {{ \Carbon\Carbon::parse($examination_report_data->user_data->user_patient_birthday)->age }}
                 </p>
             </div>
 
@@ -100,7 +100,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Sex</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->user_patient_gender }}
+                    {{ $examination_report_data->user_data->user_patient_gender }}
                 </p>
             </div>
 
@@ -108,7 +108,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Civil Status</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->civil_status }}
+                    {{ $examination_report_data->user_data->civil_status }}
                 </p>
             </div>
 
@@ -116,7 +116,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Address</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->address }}
+                    {{ $examination_report_data->address }}
                 </p>
             </div>
 
@@ -124,7 +124,8 @@
                 <h5 class="text-sm text-gray-800 mb-1">Date of Examination</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ \Carbon\Carbon::parse($examination_report_data->date_of_examination)->isoFormat('MMM D YYYY')}}
+                    {{ \Carbon\Carbon::parse($examination_report_data->date_of_examination)->isoFormat('MMM D
+                    YYYY')}}
                 </p>
             </div>
 
@@ -134,7 +135,7 @@
                 </h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->user_year_department_role }}
+                    {{ $examination_report_data->user_data->user_year_department_role }}
                 </p>
             </div>
 
@@ -148,9 +149,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">A. Present Symptoms</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->present_symptoms == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->present_symptoms }}
-                    @if ( $examination_report_data->examination_reports->present_symptoms == null)
+                    class="{{  $examination_report_data->present_symptoms == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->present_symptoms }}
+                    @if ( $examination_report_data->present_symptoms == null)
                     N/A
                     @endif
                 </p>
@@ -159,9 +160,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">B. Past Medical History</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->past_medical_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->past_medical_history }}
-                    @if ( $examination_report_data->examination_reports->past_medical_history == null)
+                    class="{{  $examination_report_data->past_medical_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->past_medical_history }}
+                    @if ( $examination_report_data->past_medical_history == null)
                     N/A
                     @endif
                 </p>
@@ -170,9 +171,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">C. Family Medical History</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->family_medical_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->family_medical_history }}
-                    @if ( $examination_report_data->examination_reports->family_medical_history == null)
+                    class="{{  $examination_report_data->family_medical_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->family_medical_history }}
+                    @if ( $examination_report_data->family_medical_history == null)
                     N/A
                     @endif
                 </p>
@@ -181,9 +182,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">D. History of Operations</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->history_of_operations == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->history_of_operations }}
-                    @if ( $examination_report_data->examination_reports->history_of_operations == null)
+                    class="{{  $examination_report_data->history_of_operations == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->history_of_operations }}
+                    @if ( $examination_report_data->history_of_operations == null)
                     N/A
                     @endif
                 </p>
@@ -192,9 +193,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">E. Allergies</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->allergies == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->allergies }}
-                    @if ( $examination_report_data->examination_reports->allergies == null)
+                    class="{{  $examination_report_data->allergies == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->allergies }}
+                    @if ( $examination_report_data->allergies == null)
                     N/A
                     @endif
                 </p>
@@ -203,9 +204,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">F. Gynecological/Obstetrics History</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->gynecological_obstetrics_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->gynecological_obstetrics_history }}
-                    @if ( $examination_report_data->examination_reports->gynecological_obstetrics_history == null)
+                    class="{{  $examination_report_data->gynecological_obstetrics_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->gynecological_obstetrics_history }}
+                    @if ( $examination_report_data->gynecological_obstetrics_history == null)
                     N/A
                     @endif
                 </p>
@@ -214,9 +215,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">G. Personal/Social History</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->gynecological_obstetrics_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->gynecological_obstetrics_history }}
-                    @if ( $examination_report_data->examination_reports->gynecological_obstetrics_history == null)
+                    class="{{  $examination_report_data->gynecological_obstetrics_history == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->gynecological_obstetrics_history }}
+                    @if ( $examination_report_data->gynecological_obstetrics_history == null)
                     N/A
                     @endif
                 </p>
@@ -232,9 +233,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">A. General Survey</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->general_survey == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->general_survey }}
-                    @if ( $examination_report_data->examination_reports->general_survey == null)
+                    class="{{  $examination_report_data->general_survey == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->general_survey }}
+                    @if ( $examination_report_data->general_survey == null)
                     N/A
                     @endif
                 </p>
@@ -250,7 +251,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Height</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->height }}
+                    {{ $examination_report_data->height }}
                 </p>
             </div>
 
@@ -258,7 +259,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Weight</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->weight }}
+                    {{ $examination_report_data->weight }}
                 </p>
             </div>
 
@@ -266,7 +267,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Blood Pressure</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->blood_pressure }}
+                    {{ $examination_report_data->blood_pressure }}
                 </p>
             </div>
 
@@ -274,7 +275,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Heart Rate</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->heart_rate }}
+                    {{ $examination_report_data->heart_rate }}
                 </p>
             </div>
 
@@ -282,7 +283,7 @@
                 <h5 class="text-sm text-gray-800 mb-1">Respiratory Rate</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->respiratory_rate }}
+                    {{ $examination_report_data->respiratory_rate }}
                 </p>
             </div>
 
@@ -290,16 +291,16 @@
                 <h5 class="text-sm text-gray-800 mb-1">Temperature</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->examination_reports->temperature }}
+                    {{ $examination_report_data->temperature }}
                 </p>
             </div>
 
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">C. Skin</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->skin == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->skin }}
-                    @if ( $examination_report_data->examination_reports->skin == null)
+                    class="{{  $examination_report_data->skin == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->skin }}
+                    @if ( $examination_report_data->skin == null)
                     N/A
                     @endif
                 </p>
@@ -308,9 +309,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">D. Heent</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->heent == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->heent }}
-                    @if ( $examination_report_data->examination_reports->heent == null)
+                    class="{{  $examination_report_data->heent == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->heent }}
+                    @if ( $examination_report_data->heent == null)
                     N/A
                     @endif
                 </p>
@@ -319,9 +320,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">E. Chest and Lungs</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->chest_and_lungs == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->chest_and_lungs }}
-                    @if ( $examination_report_data->examination_reports->chest_and_lungs == null)
+                    class="{{  $examination_report_data->chest_and_lungs == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->chest_and_lungs }}
+                    @if ( $examination_report_data->chest_and_lungs == null)
                     N/A
                     @endif
                 </p>
@@ -330,9 +331,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">F. Heart</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->heart == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->heart }}
-                    @if ( $examination_report_data->examination_reports->heart == null)
+                    class="{{  $examination_report_data->heart == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->heart }}
+                    @if ( $examination_report_data->heart == null)
                     N/A
                     @endif
                 </p>
@@ -341,9 +342,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">G. Abdomen</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->abdomen == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->abdomen }}
-                    @if ( $examination_report_data->examination_reports->abdomen == null)
+                    class="{{  $examination_report_data->abdomen == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->abdomen }}
+                    @if ( $examination_report_data->abdomen == null)
                     N/A
                     @endif
                 </p>
@@ -352,9 +353,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">H. Genitourinary</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->genitourinary == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->genitourinary }}
-                    @if ( $examination_report_data->examination_reports->genitourinary == null)
+                    class="{{  $examination_report_data->genitourinary == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->genitourinary }}
+                    @if ( $examination_report_data->genitourinary == null)
                     N/A
                     @endif
                 </p>
@@ -363,9 +364,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">I. Extremities</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->extremities == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->extremities }}
-                    @if ( $examination_report_data->examination_reports->extremities == null)
+                    class="{{  $examination_report_data->extremities == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->extremities }}
+                    @if ( $examination_report_data->extremities == null)
                     N/A
                     @endif
                 </p>
@@ -374,9 +375,9 @@
             <div class="col-span-6">
                 <h5 class="text-sm text-gray-800 mb-1">J. Neurological</h5>
                 <p
-                    class="{{  $examination_report_data->examination_reports->neurological == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                    {{ $examination_report_data->examination_reports->neurological }}
-                    @if ( $examination_report_data->examination_reports->neurological == null)
+                    class="{{  $examination_report_data->neurological == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                    {{ $examination_report_data->neurological }}
+                    @if ( $examination_report_data->neurological == null)
                     N/A
                     @endif
                 </p>
@@ -388,6 +389,7 @@
             <div class="col-span-6">
                 <h2 class="font-medium">Laboratory Results</h2>
             </div>
+
             {{-- --}}
         </div>
 
@@ -400,8 +402,8 @@
             <div class="col-span-2 sm:col-span-1 ">
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
-                        <input id="obo_normal" name="obo" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->obo == 'normal' ? 'checked' : '' }}
+                        <input id="obo_normal" name="obo" type="radio" value="normal" {{ $examination_report_data->obo
+                        == 'normal' ? 'checked' : '' }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
                     </div>
@@ -413,8 +415,8 @@
             <div class="col-span-6 sm:col-span-5">
                 <div class="flex items-center h-5">
                     <div>
-                        <input id="obo_not_normal" name="obo" type="radio" {{
-                            $examination_report_data->examination_reports->obo !== 'normal' ? 'checked' : ''
+                        <input id="obo_not_normal" name="obo" type="radio" {{ $examination_report_data->obo
+                        !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -425,9 +427,9 @@
                     </div>
 
                     <input type="text" name="obo_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->obo_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->obo_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -442,7 +444,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="urinalysis_normal" name="urinalysis" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->urinalysis == 'normal' ? 'checked' : '' }}
+                            $examination_report_data->urinalysis == 'normal' ? 'checked' : '' }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
                     </div>
@@ -455,7 +457,7 @@
                 <div class="flex items-center h-5">
                     <div>
                         <input id="urinalysis_not_normal" name="urinalysis" type="radio" {{
-                            $examination_report_data->examination_reports->urinalysis !== 'normal' ? 'checked' : ''
+                            $examination_report_data->urinalysis !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -466,9 +468,9 @@
                     </div>
 
                     <input type="text" name="urinalysis_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->urinalysis_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->urinalysis_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -483,7 +485,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="fecalysis_normal" name="fecalysis" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->fecalysis == 'normal' ? 'checked' : '' }}
+                            $examination_report_data->fecalysis == 'normal' ? 'checked' : '' }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
                     </div>
@@ -496,7 +498,7 @@
                 <div class="flex items-center h-5">
                     <div>
                         <input id="fecalysis_not_normal" name="fecalysis" type="radio" {{
-                            $examination_report_data->examination_reports->fecalysis !== 'normal' ? 'checked' : ''
+                            $examination_report_data->fecalysis !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -507,9 +509,9 @@
                     </div>
 
                     <input type="text" name="fecalysis_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->fecalysis_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->fecalysis_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -524,7 +526,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="hbs_ag_normal" name="hbs_ag" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->hbs_ag == 'normal' ? 'checked' : '' }}
+                            $examination_report_data->hbs_ag == 'normal' ? 'checked' : '' }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
                     </div>
@@ -536,8 +538,8 @@
             <div class="col-span-6 sm:col-span-5">
                 <div class="flex items-center h-5">
                     <div>
-                        <input id="hbs_ag_not_normal" name="hbs_ag" type="radio" {{
-                            $examination_report_data->examination_reports->hbs_ag !== 'normal' ? 'checked' : ''
+                        <input id="hbs_ag_not_normal" name="hbs_ag" type="radio" {{ $examination_report_data->hbs_ag !==
+                        'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -548,9 +550,9 @@
                     </div>
 
                     <input type="text" name="hbs_ag_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->hbs_ag_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->hbs_ag_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -565,7 +567,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="pregnancy_test_normal" name="pregnancy_test" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->pregnancy_test == 'normal' ? 'checked' : ''
+                            $examination_report_data->pregnancy_test == 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
@@ -579,7 +581,7 @@
                 <div class="flex items-center h-5">
                     <div>
                         <input id="pregnancy_test_not_normal" name="pregnancy_test" type="radio" {{
-                            $examination_report_data->examination_reports->pregnancy_test !== 'normal' ? 'checked' : ''
+                            $examination_report_data->pregnancy_test !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -590,9 +592,9 @@
                     </div>
 
                     <input type="text" name="pregnancy_test_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->pregnancy_test_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->pregnancy_test_findings }}" class="
+                                    border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                    focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -607,7 +609,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="drug_test_normal" name="drug_test" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->drug_test == 'normal' ? 'checked' : ''
+                            $examination_report_data->drug_test == 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
@@ -621,7 +623,7 @@
                 <div class="flex items-center h-5">
                     <div>
                         <input id="drug_test_not_normal" name="drug_test" type="radio" {{
-                            $examination_report_data->examination_reports->drug_test !== 'normal' ? 'checked' : ''
+                            $examination_report_data->drug_test !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -632,9 +634,9 @@
                     </div>
 
                     <input type="text" name="drug_test_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->drug_test_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->drug_test_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -649,7 +651,7 @@
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
                         <input id="chest_xray_normal" name="chest_xray" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->chest_xray == 'normal' ? 'checked' : ''
+                            $examination_report_data->chest_xray == 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
@@ -663,7 +665,7 @@
                 <div class="flex items-center h-5">
                     <div>
                         <input id="chest_xray_not_normal" name="chest_xray" type="radio" {{
-                            $examination_report_data->examination_reports->chest_xray !== 'normal' ? 'checked' : ''
+                            $examination_report_data->chest_xray !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -674,9 +676,9 @@
                     </div>
 
                     <input type="text" name="chest_xray_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->chest_xray_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->chest_xray_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -690,8 +692,8 @@
             <div class="col-span-2 sm:col-span-1 ">
                 <div class="flex items-end">
                     <div class="flex items-center h-5">
-                        <input id="ecg_normal" name="ecg" type="radio" value="normal" {{
-                            $examination_report_data->examination_reports->ecg == 'normal' ? 'checked' : ''
+                        <input id="ecg_normal" name="ecg" type="radio" value="normal" {{ $examination_report_data->ecg
+                        == 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         class="radio focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full">
@@ -704,8 +706,8 @@
             <div class="col-span-6 sm:col-span-5">
                 <div class="flex items-center h-5">
                     <div>
-                        <input id="ecg_not_normal" name="ecg" type="radio" {{
-                            $examination_report_data->examination_reports->ecg !== 'normal' ? 'checked' : ''
+                        <input id="ecg_not_normal" name="ecg" type="radio" {{ $examination_report_data->ecg
+                        !== 'normal' ? 'checked' : ''
                         }}
                         disabled="disabled" readonly
                         value="not_normal"
@@ -716,9 +718,9 @@
                     </div>
 
                     <input type="text" name="ecg_findings" readonly disabled="disabled"
-                        value="{{ $examination_report_data->examination_reports->ecg_findings }}" class="
-                        border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
-                        focus:ring-0 border-t-0 border-r-0 border-l-0 ">
+                        value="{{ $examination_report_data->ecg_findings }}" class="
+                                border-slate-600 ml-2 p-0 px-1 block w-full shadow-sm sm:text-sm focus:outline-none !outline-none
+                                focus:ring-0 border-t-0 border-r-0 border-l-0 ">
                 </div>
             </div>
         </form>
@@ -726,15 +728,15 @@
         <div class="col-span-6">
             <h5 class="text-sm font-medium text-gray-700 mb-1">I. Others</h5>
             <p
-                class="{{  $examination_report_data->examination_reports->others == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                {{ $examination_report_data->examination_reports->others }}
-                @if ( $examination_report_data->examination_reports->others == null)
+                class="{{  $examination_report_data->others == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                {{ $examination_report_data->others }}
+                @if ( $examination_report_data->others == null)
                 N/A
                 @endif
             </p>
         </div>
 
-        <hr class="col-span-6 my-4">
+        <hr class="col-span-6 my-4" />
 
         {{-- classification --}}
         <div class="col-span-6">
@@ -742,75 +744,62 @@
         </div>
 
         <form class="col-span-6 mt-4">
-            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->examination_reports->class_a
-            == true ? 'checked'
-            :
-            '' }}
+            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->class_a == true ? 'checked'
+            : '' }}
             readonly disabled="disabled"
             class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
             <label for="class_a" class="uppercase ml-2 text-sm font-medium text-gray-700">
                 Class a
             </label>
-            <span class="text-sm"> - Physically fit for all
-                types of work.
-                No pertinent findings noted.</span>
+            <span class="text-sm"> - Physically fit for all types of work. No pertinent findings noted.</span>
         </form>
 
         <form class="col-span-6 mt-4">
-            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->examination_reports->class_b
-            == true ? 'checked'
-            :
-            '' }}
+            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->class_b == true ? 'checked'
+            : '' }}
             readonly disabled="disabled"
             class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
             <label for="class_b" class="uppercase ml-2 text-sm font-medium text-gray-700">
                 Class b
             </label>
-            <span class="text-sm"> - Physically fit for all
-                types of work.
-                Has minor ailment that is easily curable and
-                offers not handicap to work or to job
-                applied for.</span>
+            <span class="text-sm"> - Physically fit for all types of work. Has minor ailment that is easily curable and
+                offers not handicap to work or to job applied for.</span>
         </form>
 
         <form class="col-span-6 mt-4">
-            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->examination_reports->class_c
-            == true ? 'checked'
-            :
-            '' }}
+            <input id="class_a" name="class_a" type="checkbox" {{ $examination_report_data->class_c == true ? 'checked'
+            : '' }}
             readonly disabled="disabled"
             class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
             <label for="class_c" class="uppercase ml-2 text-sm font-medium text-gray-700">
                 Class C
             </label>
-            <span class="text-sm"> - Employment at the risk
-                and discretion of the management.</span>
+            <span class="text-sm"> - Employment at the risk and discretion of the management.</span>
         </form>
 
         <div class="col-span-6 mt-4">
-            <input id="pending" name="pending" type="checkbox" {{ $examination_report_data->examination_reports->pending
+            <input id="pending" name="pending" type="checkbox" {{ $examination_report_data->pending
             == true ? 'checked' : '' }} readonly disabled="disabled"
             class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
             <label for="pending" class="uppercase ml-2 text-sm font-medium text-gray-700">
                 Pending
             </label>
             <span class="text-sm"> - <input type="text" name="pending_text" id="pending_text"
-                    autocomplete="pending_text"
-                    value="{{ $examination_report_data->examination_reports->pending_text }}" readonly
+                    autocomplete="pending_text" value="{{ $examination_report_data->pending_text }}" readonly
                     disabled="disabled"
                     class="border-slate-700 ml-2 p-0 px-1 w-3/4 shadow-sm sm:text-sm focus:outline-none !outline-none focus:ring-0 border-t-0 border-r-0 border-l-0 ">
             </span>
         </div>
 
         <div class="col-span-6 mt-4">
-            <input id="unfit" name="unfit" type="checkbox" {{ $examination_report_data->examination_reports->unfit
+            <input id="unfit" name="unfit" type="checkbox" {{ $examination_report_data->unfit
             == true ? 'checked' : '' }} readonly disabled="disabled"
             class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
             <label for="unfit" class="uppercase ml-2 text-sm font-medium text-gray-700">
                 unfit
             </label>
             <span class="text-sm"> - <input type="text" name="unfit_text" id="unfit_text" autocomplete="unfit_text"
-                    value="{{ $examination_report_data->examination_reports->unfit_text }}" readonly disabled="disabled"
+                    value="{{ $examination_report_data->unfit_text }}" readonly disabled="disabled"
                     class="border-slate-700 ml-2 p-0 px-1 w-3/4 shadow-sm sm:text-sm focus:outline-none !outline-none focus:ring-0 border-t-0 border-r-0 border-l-0 ">
             </span>
         </div>
@@ -825,9 +814,9 @@
 
         <div class="col-span-6">
             <p
-                class="{{  $examination_report_data->examination_reports->remarks == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
-                {{ $examination_report_data->examination_reports->remarks }}
-                @if ( $examination_report_data->examination_reports->remarks == null)
+                class="{{  $examination_report_data->remarks == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
+                {{ $examination_report_data->remarks }}
+                @if ( $examination_report_data->remarks == null)
                 N/A
                 @endif
             </p>
@@ -838,17 +827,17 @@
         <div class="col-span-6 sm:col-span-2"></div>
         <div class="mt-4 col-span-6 sm:col-span-2">
             <p class="border-gray-200 mb-1 py-2 text-center border block w-full shadow-sm sm:text-sm rounded-md">
-                {{ $examination_report_data->examination_reports->university_physician_examine }}
+                {{ $examination_report_data->university_physician_examine }}
             </p>
             <label for="university_physician_examine"
                 class="block text-sm font-medium text-gray-700 text-center">University
                 Physician</label>
 
         </div>
-
-
-
-
+        {{-- --}}
     </div>
+
+
+    @endforeach
 
 </x-app-layout>
