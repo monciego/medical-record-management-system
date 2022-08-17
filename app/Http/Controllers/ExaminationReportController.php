@@ -6,7 +6,9 @@ use App\Models\ExaminationReport;
 use App\Http\Requests\StoreExaminationReportRequest;
 use App\Http\Requests\UpdateExaminationReportRequest;
 use App\Models\UserPatient;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class ExaminationReportController extends Controller
 {
@@ -232,5 +234,38 @@ class ExaminationReportController extends Controller
           $user = UserPatient::findOrFail($user->id);
            $todayDate = date('Y-m-d', strtotime('today'));
           return view('pages.admin.users.examine', compact('user', 'todayDate'));
+    }
+
+    public function exportDocument($examinationReport) {
+        $data = UserPatient::with('examination_reports')->has('examination_reports')->findOrFail($examinationReport);
+        $pr = $data->examination_reports->pre_employment === 1 ? '✓' : ' ';
+        $an = $data->examination_reports->annual === 1 ? '✓' : ' ';
+        $ojt = $data->examination_reports->ojt === 1 ? '✓' : ' ';
+        $examinationDate = \Carbon\Carbon::parse($data->examination_reports->date_of_examination)->isoFormat('MMM D YYYY');
+        $age = \Carbon\Carbon::parse($data->user_patient_birthday)->age;
+
+        $templateProcessor = new TemplateProcessor('documents/document.docx');
+        // basic information
+        $templateProcessor->setValue('name', $data->user_patient_full_name);
+        $templateProcessor->setValue('age', $age);
+        $templateProcessor->setValue('sex', $data->user_patient_gender);
+        $templateProcessor->setValue('civil_status', $data->civil_status);
+        $templateProcessor->setValue('course_department', $data->user_year_department_role);
+        $templateProcessor->setValue('pr', $pr);
+        $templateProcessor->setValue('an', $an);
+        $templateProcessor->setValue('ojt', $ojt);
+        $templateProcessor->setValue('address', $data->examination_reports->address);
+        $templateProcessor->setValue('date_of_examination', $examinationDate);
+        // medical history
+        $templateProcessor->setValue('present_symptoms', $data->examination_reports->present_symptoms);
+        $templateProcessor->setValue('past_medical_history', $data->examination_reports->past_medical_history);
+        $templateProcessor->setValue('family_medical_history', $data->examination_reports->family_medical_history);
+        $templateProcessor->setValue('present_symptoms', $data->examination_reports->present_symptoms);
+
+
+        // naming and saving file
+        $fileName = $data->user_patient_full_name;
+        $templateProcessor->saveAs($fileName . ' Medical Examination Report' . '.docx');
+        return response()->download($fileName . ' Medical Examination Report' . '.docx')->deleteFileAfterSend(true);
     }
 }

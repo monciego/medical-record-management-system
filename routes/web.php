@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Examination Report
     Route::resource('medical-examination-report', ExaminationReportController::class);
     Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
+    // export document
+    Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
 });
 
 
