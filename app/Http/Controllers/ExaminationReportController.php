@@ -240,16 +240,15 @@ class ExaminationReportController extends Controller
     }
 
     public function exportDocument($examinationReport) {
-        // $data = UserPatient::with('examination_reports')->has('examination_reports')->findOrFail($examinationReport);
         $data = ExaminationReport::with('user_data')->findOrFail($examinationReport);
         $pr = $data->pre_employment === 1 ? '✓' : ' ';
         $an = $data->annual === 1 ? '✓' : ' ';
         $ojt = $data->ojt === 1 ? '✓' : ' ';
-/*         $pr = $data->examination_reports->pre_employment === 1 ? '✓' : ' ';
-        $an = $data->examination_reports->annual === 1 ? '✓' : ' ';
-        $ojt = $data->examination_reports->ojt === 1 ? '✓' : ' ';
-        $examinationDate = \Carbon\Carbon::parse($data->examination_reports->date_of_examination)->isoFormat('MMM D YYYY');
-        $age = \Carbon\Carbon::parse($data->user_patient_birthday)->age; */
+        $examinationDate = \Carbon\Carbon::parse($data->date_of_examination)->isoFormat('MMM D YYYY');
+        $age = \Carbon\Carbon::parse($data->user_data->user_patient_birthday)->age;
+        // lab results
+         $obo_n = $data->obo === 'normal' ? '✓' : ' ';
+         $obo_nn = $data->obo === 'not_normal' ? '✓' : ' ';
 
         $templateProcessor = new TemplateProcessor('documents/document.docx');
         // purpose
@@ -258,23 +257,39 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('ojt', $ojt);
         // basic information
          $templateProcessor->setValue('name', $data->user_data->user_patient_full_name);
+         $templateProcessor->setValue('age', $age);
          $templateProcessor->setValue('address', $data->address);
-/*         $templateProcessor->setValue('name', $data->user_patient_full_name);
-        $templateProcessor->setValue('age', $age);
-        $templateProcessor->setValue('sex', $data->user_patient_gender);
-        $templateProcessor->setValue('civil_status', $data->civil_status);
-        $templateProcessor->setValue('course_department', $data->user_year_department_role);
-        $templateProcessor->setValue('pr', $pr);
-        $templateProcessor->setValue('an', $an);
-        $templateProcessor->setValue('ojt', $ojt);
-        $templateProcessor->setValue('address', $data->examination_reports->address);
-        $templateProcessor->setValue('date_of_examination', $examinationDate); */
-        // medical history
-      /*   $templateProcessor->setValue('present_symptoms', $data->examination_reports->present_symptoms);
-        $templateProcessor->setValue('past_medical_history', $data->examination_reports->past_medical_history);
-        $templateProcessor->setValue('family_medical_history', $data->examination_reports->family_medical_history);
-        $templateProcessor->setValue('present_symptoms', $data->examination_reports->present_symptoms); */
-
+         $templateProcessor->setValue('sex', $data->user_data->user_patient_gender);
+         $templateProcessor->setValue('civil_status', $data->user_data->civil_status);
+         $templateProcessor->setValue('date_of_examination', $examinationDate);
+         $templateProcessor->setValue('course_department', $data->user_data->user_year_department_role);
+         // medical history
+        $templateProcessor->setValue('present_symptoms', $data->present_symptoms);
+        $templateProcessor->setValue('past_medical_history', $data->past_medical_history);
+        $templateProcessor->setValue('family_medical_history', $data->family_medical_history);
+        $templateProcessor->setValue('history_of_operations', $data->history_of_operations);
+        $templateProcessor->setValue('gynecological_obstetrics_history', $data->gynecological_obstetrics_history);
+        $templateProcessor->setValue('personal_social_history', $data->personal_social_history);
+        // physical examination
+        $templateProcessor->setValue('general_survey', $data->general_survey);
+        $templateProcessor->setValue('height', $data->height);
+        $templateProcessor->setValue('weight', $data->weight);
+        $templateProcessor->setValue('blood_pressure', $data->blood_pressure);
+        $templateProcessor->setValue('heart_rate', $data->heart_rate);
+        $templateProcessor->setValue('respiratory_rate', $data->respiratory_rate);
+        $templateProcessor->setValue('temperature', $data->temperature);
+        $templateProcessor->setValue('skin', $data->skin);
+        $templateProcessor->setValue('heent', $data->heent);
+        $templateProcessor->setValue('chest_and_lungs', $data->chest_and_lungs);
+        $templateProcessor->setValue('heart', $data->heart);
+        $templateProcessor->setValue('abdomen', $data->abdomen);
+        $templateProcessor->setValue('genitourinary', $data->genitourinary);
+        $templateProcessor->setValue('extremities', $data->extremities);
+        $templateProcessor->setValue('neurological', $data->neurological);
+        // laboratory results
+        $templateProcessor->setValue('obo_n', $obo_n);
+        $templateProcessor->setValue('obo_nn', $obo_nn);
+        $templateProcessor->setValue('obo_findings', $data->obo_findings);
 
         // naming and saving file
         $fileName = $data->user_data->user_patient_full_name;
