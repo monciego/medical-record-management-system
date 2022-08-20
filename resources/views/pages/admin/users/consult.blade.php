@@ -182,7 +182,7 @@
                 <div class="w-full relative col-span-6 sm:col-span-2 cursor-pointer" id="someElementID">
                     <label for="patient_prescribed_medicine" class="text-sm text-gray-800 mb-1 block">Prescribed
                         Medicine</label>
-                    <div class="select-field flex items-center text-sm dark-text   font-medium capitalize w-full border border-gray-300
+                    <div class="select-field flex items-center text-sm dark-text  font-medium capitalize w-full border border-gray-300
                         shadow rounded-md px-4 py-2">
                         <input type="text" name="patient_prescribed_medicine" placeholder="Medicines Given" disabled
                             class="cursor-pointer text-sm input-selector border-none py-0 px-0 outline-none">
@@ -195,7 +195,7 @@
                     </div>
                     {{-- options --}}
                     <div id="list"
-                        class="w-full bg-white max-h-44 overflow-y-scroll p-2 hidden absolute shadow-lg border rounded-bl-md rounded-br-md border-1">
+                        class="w-full bg-white max-h-44 overflow-y-scroll p-2  absolute shadow-lg border rounded-bl-md rounded-br-md border-1">
                         @foreach ($medicines as $medicine)
                         <label for="{{ $medicine->medicine_name }}" class="w-full hover:bg-indigo-50 bg-wite p-1 block">
                             <input class="rounded text-indigo-600" type="checkbox" name="patient_prescribed_medicine[]"
@@ -273,9 +273,16 @@
 </x-app-layout>
 
 
+<style>
+    #list {
+        display: none;
+    }
+</style>
+
+
 <script>
     document.querySelector(".select-field").addEventListener("click", () => {
-    document.getElementById("list").classList.toggle("show");
+    document.getElementById("list").classList.toggle("block");
     document.getElementById("arrow-down").classList.toggle("-rotate-180");
 });
 
@@ -295,7 +302,7 @@ document.addEventListener("click", function (event) {
     let isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
     if (!isClickInsideElement) {
         //Do something click is outside specified element
-        document.getElementById("list").classList.remove("show");
+        document.getElementById("list").classList.remove("block");
     }
 });
 </script>
