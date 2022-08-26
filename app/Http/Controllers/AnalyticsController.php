@@ -30,10 +30,14 @@ class AnalyticsController extends Controller
     $october = Patient::whereMonth('patient_consult_date', '10')->count();
     $november = Patient::whereMonth('patient_consult_date', '11')->count();
     $december = Patient::whereMonth('patient_consult_date', '12')->count();
-
+    // number of patient in medical and dental
+    $medicalCount = Patient::where('clinic', 'medical')->count();
+    $dentalCount = Patient::where('clinic', 'dental')->count();
 
     return view('pages.admin.analytics.index', compact(
-        'january','february','march','april','may','june','july','august','september','october','november','december',
+        'january', 'february', 'march', 'april', 'may', 'june', 'july',
+        'august','september','october', 'november','december', 'medicalCount',
+        'dentalCount'
         ));
     }
 
