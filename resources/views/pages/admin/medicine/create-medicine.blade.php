@@ -33,12 +33,12 @@
                 </div>
                 <div class="mt-4">
                     <x-label for="medicine_quantity" :value="__('Medicine Quantity')" />
-                    <x-input id="medicine_quantity" class="block mt-1 w-full" type="number" name="medicine_quantity"
-                        :value="old('medicine_quantity')" required autofocus />
+                    <x-input id="medicine_quantity" class="block mt-1 w-full" type="number" min="0"
+                        name="medicine_quantity" :value="old('medicine_quantity')" required autofocus />
                 </div>
                 <div class="mt-4">
                     <x-label for="medicine_cost" :value="__('Medicine Cost')" />
-                    <x-input id="medicine_cost" class="block mt-1 w-full" type="number" name="medicine_cost"
+                    <x-input id="medicine_cost" class="block mt-1 w-full" type="number" min="0" name="medicine_cost"
                         :value="old('medicine_cost')" required autofocus />
                 </div>
                 <div class="mt-4">
