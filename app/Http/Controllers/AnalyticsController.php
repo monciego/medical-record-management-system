@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Analytics;
 use App\Http\Requests\StoreAnalyticsRequest;
 use App\Http\Requests\UpdateAnalyticsRequest;
+use App\Models\ExaminationReport;
 use App\Models\Patient;
+use App\Models\UserPatient;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -33,11 +35,16 @@ class AnalyticsController extends Controller
     // number of patient in medical and dental
     $medicalCount = Patient::where('clinic', 'medical')->count();
     $dentalCount = Patient::where('clinic', 'dental')->count();
+    // number of patient requested examination report ()
+    $examinationReportPreEmployment =  ExaminationReport::where('pre_employment', 1)->count();
+    $examinationReportAnnual =  ExaminationReport::where('annual', 1)->count();
+    $examinationReportOJT =  ExaminationReport::where('ojt', 1)->count();
 
     return view('pages.admin.analytics.index', compact(
         'january', 'february', 'march', 'april', 'may', 'june', 'july',
         'august','september','october', 'november','december', 'medicalCount',
-        'dentalCount'
+        'dentalCount', 'examinationReportPreEmployment', 'examinationReportAnnual',
+        'examinationReportOJT'
         ));
     }
 

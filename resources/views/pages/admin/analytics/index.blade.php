@@ -10,6 +10,9 @@
         <div class="mt-8">
             <canvas id="chartClinic" width="400" height="100"></canvas>
         </div>
+        <div class="mt-8">
+            <canvas id="chartExaminationReport" width="400" height="100"></canvas>
+        </div>
     </div>
 </x-app-layout>
 
@@ -78,5 +81,31 @@
                     beginAtZero: true
                 }
             }
+        }});
+
+        // Examination Report
+        const examinationReportCTX = document.getElementById('chartExaminationReport');
+        const chartExaminationReport = new Chart(examinationReportCTX, {
+        type: 'bar',
+        data: {
+            labels: ['Pre-Employment', 'Annual', 'OJT'],
+            datasets: [{
+                label: 'Number of Patients Requested Examination Report',
+                data: [{{ $examinationReportPreEmployment }}, {{ $examinationReportAnnual }}, {{ $examinationReportOJT }}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]},
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+        }}
         }});
 </script>
