@@ -21,4 +21,11 @@ class Patient extends Model
         'patient_medical_comments',
         'physician_name',
      ];
+
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['role'] ?? false) {
+              $query->where('user_patient_role',  request('role'));
+        }
+    }
 }

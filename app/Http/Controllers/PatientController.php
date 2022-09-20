@@ -18,7 +18,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = UserPatient::latest()->with('patient_information')->has('patient_information')->paginate(6);
+        $patients = UserPatient::latest()->with('patient_information')->has('patient_information')->filter(request(['role']))->paginate(6);
         // dd($patients);
         return view('pages.admin.patient.index', [
             'patients' => $patients
