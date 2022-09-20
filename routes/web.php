@@ -28,6 +28,8 @@ Route::get('/', function () {
 // ** Route for both (admin and user)
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Examination Report
+    Route::resource('medical-examination-report', ExaminationReportController::class);
 });
 
 // ** Route for admin
@@ -42,7 +44,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Users
     Route::resource('users', UserPatientController::class);
     // Examination Report
-    Route::resource('medical-examination-report', ExaminationReportController::class);
+    // Route::resource('medical-examination-report', ExaminationReportController::class);
     Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
     // export document
     Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');

@@ -100,6 +100,7 @@
                     </span>
                 </div>
             </x-nav-link>
+            @endif
             {{-- Medical Examination Report --}}
             <x-nav-link :href="route('medical-examination-report.index')"
                 :active="request()->routeIs('medical-examination-report.index*')">
@@ -118,7 +119,6 @@
                     </span>
                 </div>
             </x-nav-link>
-            @endif
         </ul>
     </div>
 </nav>
