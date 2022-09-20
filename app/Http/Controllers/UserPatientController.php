@@ -15,7 +15,7 @@ class UserPatientController extends Controller
     public function index()
     {
         return view('pages.admin.users.index', [
-            'users' => UserPatient::latest()->paginate(7)
+            'users' =>  UserPatient::latest()->filter(request(['role']))->paginate(7)
         ]);
     }
 
