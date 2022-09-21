@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
@@ -30,6 +31,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Examination Report
     Route::resource('medical-examination-report', ExaminationReportController::class);
+    Route::resource('change-password', ChangePasswordController::class);
+    Route::post('/password/update', [ChangePasswordController::class, 'changePassword'])
+    ->name('change.password');
 });
 
 // ** Route for admin

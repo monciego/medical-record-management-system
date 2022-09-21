@@ -37,10 +37,11 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- Change Password -->
+                        @include('auth.change-password.change-password')
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
