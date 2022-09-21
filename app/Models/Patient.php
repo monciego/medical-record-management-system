@@ -20,7 +20,16 @@ class Patient extends Model
         'patient_prescribed_medicine_quantity',
         'patient_medical_comments',
         'physician_name',
+        'school_year_id',
      ];
+
+    public function user_data () {
+        return $this->belongsTo(UserPatient::class, 'user_patient_id');
+    }
+
+    public function school_year () {
+        return $this->belongsTo(SchoolYear::class);
+    }
 
     public function scopeFilter($query, array $filters)
     {

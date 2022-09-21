@@ -81,6 +81,8 @@ return new class extends Migration
             $table->longText('remarks')->nullable();
             // physician
             $table->string('university_physician_examine')->nullable();
+            // school year
+            $table->string('school_year');
             $table->timestamps();
         });
     }

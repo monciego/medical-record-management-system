@@ -8,6 +8,8 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ExaminationReportController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\SchoolYearController;
+use App\Http\Controllers\TreatmentRecordController;
 use App\Http\Controllers\UserPatientController;
 
 /*
@@ -52,6 +54,10 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
     // export document
     Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
+    // treatment records
+    Route::resource('treatment-records', TreatmentRecordController::class);
+    // treatment records
+    Route::resource('school-year', SchoolYearController::class);
 });
 
 

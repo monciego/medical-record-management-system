@@ -19,6 +19,10 @@ return new class extends Migration
                 ->constrained('user_patients')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->foreignId('school_year_id')
+                ->constrained('school_years')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('clinic');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');

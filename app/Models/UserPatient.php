@@ -53,6 +53,8 @@ class UserPatient extends Model
         'assestment',
          // university physician
         'university_physician',
+         // school year
+        'school_year',
     ];
 
     public function scopeFilter($query, array $filters)

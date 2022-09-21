@@ -6,6 +6,7 @@ use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Models\Medicine;
+use App\Models\SchoolYear;
 use App\Models\UserPatient;
 use Illuminate\Support\Facades\DB;
 
@@ -57,6 +58,7 @@ class PatientController extends Controller
             'patient_prescribed_medicine_quantity' => 'nullable',
             'patient_medical_comments' => 'nullable',
             'physician_name' => 'required',
+            'school_year_id' => 'required',
         ]);
 
           $patient_prescribed_medicine = $request->input('patient_prescribed_medicine');
@@ -72,6 +74,7 @@ class PatientController extends Controller
             'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
             'patient_medical_comments' =>  $request->patient_medical_comments,
             'physician_name' => $request->physician_name,
+            'school_year_id' => $request->school_year_id,
         ]);
 
     $patient_prescribed_medicines = $request->input('patient_prescribed_medicine');
@@ -145,10 +148,11 @@ class PatientController extends Controller
     public function consult(UserPatient $user)
     {
           $user = UserPatient::findOrFail($user->id);
+          $school_years = SchoolYear::all();
         //   dd($user);
            $todayDate = date('Y-m-d', strtotime('today'));
            $medicines = Medicine::all();
         //   dd($user);
-          return view('pages.admin.users.consult', compact('user', 'todayDate', 'medicines'));
+          return view('pages.admin.users.consult', compact('user', 'todayDate', 'medicines', 'school_years'));
     }
 }
