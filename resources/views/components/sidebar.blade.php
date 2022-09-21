@@ -104,13 +104,11 @@
             <x-nav-link :href="route('treatment-records.index')"
                 :active="request()->routeIs('treatment-records.index*')">
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#94A3B8" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                        <path d="M16 11h6m-3 -3v6" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(148, 163, 184, 1);transform: ;msFilter:;">
+                        <path
+                            d="M6 22h12a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm7-18 5 5h-5V4zM8 14h3v-3h2v3h3v2h-3v3h-2v-3H8v-2z">
+                        </path>
                     </svg>
                     <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
                         {{ __('Treatment Records') }}
