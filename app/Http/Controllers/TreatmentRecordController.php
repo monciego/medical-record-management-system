@@ -18,8 +18,7 @@ class TreatmentRecordController extends Controller
      */
     public function index()
     {
-        //  $patients = UserPatient::latest()->with('patient_information')->has('patient_information')->get();
-         $patients = Patient::latest()->with('user_data', 'school_year')->filter(request(['school_year']))->get();
+         $patients = Patient::latest()->with('user_data', 'school_year')->filter(request(['school_year']))->paginate(6);
          $school_years = SchoolYear::all();
         return view('pages.admin.treatment-record.index', compact('patients', 'school_years'));
     }

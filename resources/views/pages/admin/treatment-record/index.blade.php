@@ -1,16 +1,19 @@
 <x-app-layout>
-    Treatment Record
+    @section('title','Treatment Records')
+    <div class="col-span-full xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
+        <header class="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
+            <h2 class="font-semibold text-slate-800">Treatment Records</h2>
+            <div>
+                @include('pages.admin.treatment-record.filter')
+            </div>
 
-    Filter:
-    @foreach ($school_years as $school_year)
-    <a href="{{ route('treatment-records.index') }}/?school_year={{ $school_year->id }}">{{ $school_year->school_year
-        }}</a>
-    @endforeach
+        </header>
+        <div class="p-3">
+            @include('pages.admin.treatment-record.table')
+        </div>
+    </div>
 
-    @foreach ($patients as $patient)
-    <li>
-        {{ $patient->user_data->user_patient_full_name }}
-        {{ $patient->school_year->school_year }}
-    </li>
-    @endforeach
+    <div class="mt-4">
+        {{ $patients->links() }}
+    </div>
 </x-app-layout>
