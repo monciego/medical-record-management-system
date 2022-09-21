@@ -6,6 +6,7 @@ use App\Models\TreatmentRecord;
 use App\Http\Requests\StoreTreatmentRecordRequest;
 use App\Http\Requests\UpdateTreatmentRecordRequest;
 use App\Models\Patient;
+use App\Models\SchoolYear;
 use App\Models\UserPatient;
 
 class TreatmentRecordController extends Controller
@@ -18,8 +19,9 @@ class TreatmentRecordController extends Controller
     public function index()
     {
         //  $patients = UserPatient::latest()->with('patient_information')->has('patient_information')->get();
-         $patients = Patient::latest()->with('user_data', 'school_year')->get();
-        return view('pages.admin.treatment-record.index', compact('patients'));
+         $patients = Patient::latest()->with('user_data', 'school_year')->filter(request(['school_year']))->get();
+         $school_years = SchoolYear::all();
+        return view('pages.admin.treatment-record.index', compact('patients', 'school_years'));
     }
 
     /**
