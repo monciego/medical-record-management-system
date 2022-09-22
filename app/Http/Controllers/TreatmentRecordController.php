@@ -50,9 +50,10 @@ class TreatmentRecordController extends Controller
      * @param  \App\Models\TreatmentRecord  $treatmentRecord
      * @return \Illuminate\Http\Response
      */
-    public function show(TreatmentRecord $treatmentRecord)
+    public function show($id)
     {
-        //
+        $patient = Patient::latest()->with('user_data', 'school_year')->findOrFail($id);
+        return view('pages.admin.treatment-record.show', compact('patient'));
     }
 
     /**

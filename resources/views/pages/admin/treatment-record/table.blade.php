@@ -46,7 +46,8 @@
                     <div>{{ $patient->user_data->user_year_department_role }}</div>
                 </td>
                 <td class="p-2 ">
-                    <a class="text-indigo-700 underline cursor-pointer" href="">More
+                    <a class="text-indigo-700 underline cursor-pointer"
+                        href="{{ route('treatment-records.show', $patient->id) }}">More
                         Details</a>
                 </td>
             </tr>
