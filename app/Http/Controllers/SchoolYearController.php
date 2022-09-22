@@ -14,7 +14,9 @@ class SchoolYearController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.school-year.index');
+        return view('pages.admin.school-year.index', [
+            'school_years' => SchoolYear::get()
+        ]);
     }
 
     /**

@@ -23,5 +23,12 @@
         </form>
 
 
+        <ul class="mt-4">
+            <h2 class="text-lg font-medium">School Years</h2>
+            @foreach ($school_years as $school_year)
+            <li>{{ $school_year->school_year }}</li>
+            @endforeach
+        </ul>
+
     </div>
 </x-app-layout>
