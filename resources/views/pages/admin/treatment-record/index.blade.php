@@ -5,6 +5,7 @@
             <h2 class="font-semibold text-slate-800">Treatment Records</h2>
             <div>
                 @include('pages.admin.treatment-record.filter')
+                @include('pages.admin.treatment-record.filter-clinic')
             </div>
 
         </header>

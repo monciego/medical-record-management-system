@@ -1,5 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="mr-2  relative inline-block text-left" x-data="{filterOpen:false}">
+<div class="mr-4  relative inline-block text-left" x-data="{filterOpen:false}">
     <div x-show="filterOpen" x-cloak x-on:click="filterOpen = false"
         class="z-[500] fixed top-0 bottom-0 right-0 left-0">
     </div>
@@ -7,7 +7,7 @@
         <button type="button" x-on:click="filterOpen = !filterOpen"
             class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
             id="menu-button" aria-expanded="true" aria-haspopup="true">
-            Filter by school year
+            Filter by clinic
             <!-- Heroicon name: mini/chevron-down -->
             <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                 aria-hidden="true">
@@ -22,11 +22,13 @@
         role="filter" aria-orientation="vertical" aria-labelledby="filter-button" tabindex="-1">
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
             href="{{ route('treatment-records.index') }}">All</a>
-        @foreach ($school_years as $school_year)
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
-            href="{{ route('treatment-records.index') }}/?school_year={{ $school_year->id }}">{{
-            $school_year->school_year
-            }}</a>
-        @endforeach
+            href="{{ route('treatment-records.index') }}/?clinic=medical">
+            Medical
+        </a>
+        <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
+            href="{{ route('treatment-records.index') }}/?clinic=dental">
+            Dental
+        </a>
     </div>
 </div>

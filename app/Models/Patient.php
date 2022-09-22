@@ -40,5 +40,9 @@ class Patient extends Model
         if($filters['school_year'] ?? false) {
               $query->where('school_year_id',  request('school_year'));
         }
+
+        if($filters['clinic'] ?? false) {
+              $query->where('clinic',  request('clinic'));
+        }
     }
 }
