@@ -19,6 +19,10 @@ return new class extends Migration
                 ->constrained('user_patients')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->foreignId('school_year_id')
+                ->constrained('school_years')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             // checkbox
             $table->boolean('pre_employment')->default(0)->nullable();
             $table->boolean('annual')->default(0)->nullable();
@@ -81,8 +85,6 @@ return new class extends Migration
             $table->longText('remarks')->nullable();
             // physician
             $table->string('university_physician_examine')->nullable();
-            // school year
-            $table->string('school_year');
             $table->timestamps();
         });
     }

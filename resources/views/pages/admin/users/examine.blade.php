@@ -806,6 +806,49 @@
                                                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ old('remarks') }}</textarea>
                                                                     </div>
 
+                                                                    {{-- school year --}}
+                                                                    <div class="mt-4 col-span-6 sm:col-span-2">
+                                                                        <label for="school_year_id"
+                                                                            class="block text-sm font-medium text-gray-700">
+                                                                            School Year</label>
+                                                                        <select name="school_year_id"
+                                                                            autocomplete="school_year_id"
+                                                                            class="{{($errors->first('school_year_id') ? "
+                                                                            border-red-600" : "border-gray-300" )}} mt-1
+                                                                            block w-full py-2 px-3 border
+                                                                            border-gray-300 bg-white rounded-md
+                                                                            shadow-sm focus:outline-none
+                                                                            focus:ring-indigo-500
+                                                                            focus:border-indigo-500 sm:text-sm">
+                                                                            <option selected disabled hidden>Select Year
+                                                                            </option>
+                                                                            @foreach ($school_years as $school_year)
+                                                                            <option {{ old('school_year_id',
+                                                                                $school_year->id) }} id="school_year_id"
+                                                                                value="{{
+                                                                                $school_year->id
+                                                                                }}">{{ $school_year->school_year }}
+                                                                            </option>
+                                                                            @endforeach
+
+                                                                        </select>
+                                                                        @error('school_year_id')
+                                                                        <div class="flex items-center gap-1 mt-1 ml-1">
+                                                                            <div>
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="h-4 w-4" viewBox="0 0 20 20"
+                                                                                    fill="#cc0000">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                                                        clip-rule="evenodd" />
+                                                                                </svg>
+                                                                            </div>
+                                                                            <p class="text-red-700 font-medium text-xs">
+                                                                                {{ $message }}</p>
+                                                                        </div>
+                                                                        @enderror
+                                                                    </div>
+
                                                                     <hr class="col-span-6 my-4">
 
                                                                     <div class="col-span-6 sm:col-span-2"></div>
@@ -827,7 +870,6 @@
                                                                     </div>
 
 
-                                                                    {{-- --}}
                                                                 </div>
 
                                                                 <div class=" px-4 py-3 bg-gray-50 text-right sm:px-6">

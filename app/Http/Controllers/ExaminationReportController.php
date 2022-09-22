@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ExaminationReport;
 use App\Http\Requests\StoreExaminationReportRequest;
 use App\Http\Requests\UpdateExaminationReportRequest;
+use App\Models\SchoolYear;
 use App\Models\UserPatient;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -104,6 +105,7 @@ class ExaminationReportController extends Controller
             'remarks' => 'nullable',
             // university physician
             'university_physician_examine' => 'nullable',
+            'school_year_id' => 'required',
            ]);
 
              ExaminationReport::create([
@@ -166,6 +168,8 @@ class ExaminationReportController extends Controller
                 'unfit_text' => $request->unfit_text,
                 //remarks
                 'remarks' => $request->remarks,
+                //school_year
+                'school_year_id' => $request->school_year_id,
                 // university physician
                 'university_physician_examine' => $request->university_physician_examine,
              ]);
@@ -235,8 +239,9 @@ class ExaminationReportController extends Controller
     {
         // function for examining the patient hmm, i think this is only for route and not POST
           $user = UserPatient::findOrFail($user->id);
+          $school_years = SchoolYear::all();
            $todayDate = date('Y-m-d', strtotime('today'));
-          return view('pages.admin.users.examine', compact('user', 'todayDate'));
+          return view('pages.admin.users.examine', compact('user', 'todayDate', 'school_years'));
     }
 
     public function exportDocument($examinationReport) {

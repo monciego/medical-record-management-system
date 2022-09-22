@@ -75,7 +75,15 @@ class ExaminationReport extends Model
         'unfit_text',
         //remarks
         'remarks',
+        //school_year
+        'school_year_id',
         // university physician
         'university_physician_examine',
     ];
+
+
+    public function school_year () {
+        return $this->belongsTo(SchoolYear::class);
+    }
+
 }

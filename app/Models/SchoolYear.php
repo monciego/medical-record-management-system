@@ -13,8 +13,11 @@ class SchoolYear extends Model
         'school_year'
     ];
 
-       public function patient_information () {
+    public function patient_information () {
         return $this->hasOne(Patient::class);
     }
 
+    public function examination_report () {
+        return $this->hasOne(ExaminationReport::class);
+    }
 }
