@@ -39,6 +39,8 @@
                     <x-slot name="content">
                         <!-- Change Password -->
                         @include('auth.change-password.change-password')
+                        <!-- School Year -->
+                        @include('pages.admin.school-year.dropdown-link')
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
