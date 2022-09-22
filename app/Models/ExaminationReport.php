@@ -86,4 +86,11 @@ class ExaminationReport extends Model
         return $this->belongsTo(SchoolYear::class);
     }
 
+
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['role'] ?? false) {
+              $query->where('user_patient_role',  request('role'));
+        }
+    }
 }

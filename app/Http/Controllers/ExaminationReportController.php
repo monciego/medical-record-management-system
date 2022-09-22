@@ -20,9 +20,8 @@ class ExaminationReportController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.medical-examination-report.index', [
-          'examine_records' => UserPatient::latest()->with('examination_reports')->has('examination_reports')->paginate(6)
-        ]);
+        $examine_records =  UserPatient::latest()->with('examination_reports')->has('examination_reports')->filter(request(['role']))->paginate(6);
+        return view('pages.admin.medical-examination-report.index', compact('examine_records'));
     }
 
     /**
