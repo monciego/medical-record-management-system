@@ -113,6 +113,12 @@
                     :active="request()->routeIs('change-password.index')">
                     {{ __('Change Password') }}
                 </x-responsive-nav-link>
+                @if (Auth::user()->hasRole('administrator'))
+                <x-responsive-nav-link :href="route('school-year.index')"
+                    :active="request()->routeIs('school-year.index')">
+                    {{ __('School Year') }}
+                </x-responsive-nav-link>
+                @endif
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
