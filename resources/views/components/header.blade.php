@@ -107,6 +107,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('change-password.index')"
+                    :active="request()->routeIs('change-password.index')">
+                    {{ __('Change Password') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
