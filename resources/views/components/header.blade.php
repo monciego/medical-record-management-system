@@ -40,7 +40,9 @@
                         <!-- Change Password -->
                         @include('auth.change-password.change-password')
                         <!-- School Year -->
+                        @if (Auth::user()->hasRole('administrator'))
                         @include('pages.admin.school-year.dropdown-link')
+                        @endif
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
