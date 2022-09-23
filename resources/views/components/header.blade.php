@@ -80,12 +80,23 @@
                 {{ __('Analytics') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('medicine.index')" :active="request()->routeIs('medicine.index')">
-                {{ __('Medicine') }}
+                {{ __('Medicines') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                {{ __('Clinical Records') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('patient.index')" :active="request()->routeIs('patient.index')">
-                {{ __('Patient') }}
+                {{ __('Patient Records') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('treatment-records.index')"
+                :active="request()->routeIs('treatment-records.index')">
+                {{ __('Treatment Records') }}
             </x-responsive-nav-link>
             @endif
+            <x-responsive-nav-link :href="route('medical-examination-report.index')"
+                :active="request()->routeIs('medical-examination-report.index')">
+                {{ __('Examination Reports') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
