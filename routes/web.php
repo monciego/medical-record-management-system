@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ExaminationReportController;
+use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SchoolYearController;
@@ -60,5 +61,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('school-year', SchoolYearController::class);
 });
 
+
+// Fallback Route
+Route::fallback(FallbackController::class);
 
 require __DIR__.'/auth.php';
