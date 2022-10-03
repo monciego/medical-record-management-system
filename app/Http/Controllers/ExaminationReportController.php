@@ -290,10 +290,12 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('genitourinary', $data->genitourinary);
         $templateProcessor->setValue('extremities', $data->extremities);
         $templateProcessor->setValue('neurological', $data->neurological);
-        // laboratory results
-        $templateProcessor->setValue('obo_n', $obo_n);
-        $templateProcessor->setValue('obo_nn', $obo_nn);
-        $templateProcessor->setValue('obo_findings', $data->obo_findings);
+
+        // laboratory and lab results are not printed (box issue)
+        // and remarks
+
+        // university physician
+        $templateProcessor->setValue('university_physician_examine', $data->university_physician_examine);
 
         // naming and saving file
         $fileName = $data->user_data->user_patient_full_name;

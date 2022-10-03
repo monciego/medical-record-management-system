@@ -595,39 +595,6 @@ select {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.container {
-  width: 100%;
-}
-@media (min-width: 640px) {
-
-  .container {
-    max-width: 640px;
-  }
-}
-@media (min-width: 768px) {
-
-  .container {
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px) {
-
-  .container {
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1280px) {
-
-  .container {
-    max-width: 1280px;
-  }
-}
-@media (min-width: 1536px) {
-
-  .container {
-    max-width: 1536px;
-  }
-}
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -721,14 +688,6 @@ select {
 .my-10 {
   margin-top: 2.5rem !important;
   margin-bottom: 2.5rem !important;
-}
-.my-16 {
-  margin-top: 4rem !important;
-  margin-bottom: 4rem !important;
-}
-.my-20 {
-  margin-top: 5rem !important;
-  margin-bottom: 5rem !important;
 }
 .ml-3 {
   margin-left: 0.75rem !important;
@@ -1424,56 +1383,8 @@ select {
   line-height: 1.5 !important;
   letter-spacing: -0.01em !important;
 }
-.text-\[20rem\] {
-  font-size: 20rem !important;
-}
-.text-\[3rem\] {
-  font-size: 3rem !important;
-}
-.text-\[10rem\] {
-  font-size: 10rem !important;
-}
 .text-\[13rem\] {
   font-size: 13rem !important;
-}
-.text-\[5rrem\] {
-  font-size: 5rrem !important;
-}
-.text-\[13rem\] {
-  font-size: 13rem !important;
-}
-.text-\[5rem\] {
-  font-size: 5rem !important;
-}
-.text-\[13rem\] {
-  font-size: 13rem !important;
-}
-.text-\[2rem\] {
-  font-size: 2rem !important;
-}
-.text-\[13rem\] {
-  font-size: 13rem !important;
-}
-.text-3xl {
-  font-size: 1.88rem !important;
-  line-height: 1.33 !important;
-  letter-spacing: -0.01em !important;
-}
-.text-\[13rem\] {
-  font-size: 13rem !important;
-}
-.text-3xl {
-  font-size: 1.88rem !important;
-  line-height: 1.33 !important;
-  letter-spacing: -0.01em !important;
-}
-.text-\[13rem\] {
-  font-size: 13rem !important;
-}
-.text-3xl {
-  font-size: 1.88rem !important;
-  line-height: 1.33 !important;
-  letter-spacing: -0.01em !important;
 }
 .font-medium {
   font-weight: 500 !important;
