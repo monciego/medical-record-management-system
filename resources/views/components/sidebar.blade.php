@@ -115,6 +115,20 @@
                     </span>
                 </div>
             </x-nav-link>
+            {{-- Daily Records Report --}}
+            <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.index*')">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(148, 163, 184, 1);transform: ;msFilter:;">
+                        <path
+                            d="M6 22h12a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2zm7-18 5 5h-5V4zM8 14h3v-3h2v3h3v2h-3v3h-2v-3H8v-2z">
+                        </path>
+                    </svg>
+                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
+                        {{ __('Reports') }}
+                    </span>
+                </div>
+            </x-nav-link>
             @endif
             {{-- Medical Examination Report --}}
             <x-nav-link :href="route('medical-examination-report.index')"

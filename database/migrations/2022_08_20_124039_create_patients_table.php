@@ -23,6 +23,7 @@ return new class extends Migration
                 ->constrained('school_years')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->boolean('semester')->default(0)->nullable(); // 0 = first sem / 1 = second sem / 2 = third sem
             $table->string('clinic');
             $table->date('patient_consult_date');
             $table->string('patient_consult_time');

@@ -21,6 +21,7 @@ class Patient extends Model
         'patient_medical_comments',
         'physician_name',
         'school_year_id',
+        'semester',
      ];
 
     public function user_data () {

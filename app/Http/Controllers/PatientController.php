@@ -55,6 +55,7 @@ class PatientController extends Controller
             'complaints' => 'required',
             'diagnosis' => 'required',
             'patient_prescribed_medicine' => 'nullable',
+            'semester' => 'nullable',
             'patient_prescribed_medicine_quantity' => 'nullable',
             'patient_medical_comments' => 'nullable',
             'physician_name' => 'required',
@@ -73,6 +74,7 @@ class PatientController extends Controller
             'patient_prescribed_medicine' =>  implode('|', $patient_prescribed_medicine),
             'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
             'patient_medical_comments' =>  $request->patient_medical_comments,
+            'semester' => $request->semester,
             'physician_name' => $request->physician_name,
             'school_year_id' => $request->school_year_id,
         ]);

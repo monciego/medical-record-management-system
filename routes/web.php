@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\DailyRecordReport;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ExaminationReportController;
+use App\Http\Controllers\ExportDailyRecordController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
@@ -59,6 +61,24 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('treatment-records', TreatmentRecordController::class);
     // treatment records
     Route::resource('school-year', SchoolYearController::class);
+    // daily record report
+    Route::resource('report', DailyRecordReport::class)->only(['index']);
+    Route::get('/report/students', [DailyRecordReport::class, 'students'])->name('report.students');
+    Route::get('/report/teaching-staffs', [DailyRecordReport::class, 'teaching'])->name('report.teaching');
+    Route::get('/report/non-teaching-staffs', [DailyRecordReport::class, 'non_teaching'])->name('report.non_teaching');
+    // exporting daily record
+    // students
+    Route::get('document/export-students-first-sem/{id}', [ExportDailyRecordController::class, 'exportStudentsFirstSem'])->name('export.students-first-sem');
+    Route::get('document/export-students-second-sem/{id}', [ExportDailyRecordController::class, 'exportStudentsSecondSem'])->name('export.students-second-sem');
+    Route::get('document/export-students-summer/{id}', [ExportDailyRecordController::class, 'exportStudentsSummer'])->name('export.students-summer');
+    // teaching
+    Route::get('document/export-teaching-first-sem/{id}', [ExportDailyRecordController::class, 'exportTeachingFirstSem'])->name('export.teaching-first-sem');
+    Route::get('document/export-teaching-second-sem/{id}', [ExportDailyRecordController::class, 'exportTeachingSecondSem'])->name('export.teaching-second-sem');
+    Route::get('document/export-teaching-summer/{id}', [ExportDailyRecordController::class, 'exportTeachingSummer'])->name('export.teaching-summer');
+    // non teaching
+    Route::get('document/export-non-teaching-first-sem/{id}', [ExportDailyRecordController::class, 'exportNonTeachingFirstSem'])->name('export.non-teaching-first-sem');
+    Route::get('document/export-non-teaching-second-sem/{id}', [ExportDailyRecordController::class, 'exportNonTeachingSecondSem'])->name('export.non-teaching-second-sem');
+    Route::get('document/export-non-teaching-summer/{id}', [ExportDailyRecordController::class, 'exportNonTeachingSummer'])->name('export.non-teaching-summer');
 });
 
 
