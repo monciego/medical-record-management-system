@@ -737,14 +737,14 @@ select {
 .mr-1 {
   margin-right: 0.25rem !important;
 }
-.ml-1 {
-  margin-left: 0.25rem !important;
+.mr-4 {
+  margin-right: 1rem !important;
 }
 .mt-2 {
   margin-top: 0.5rem !important;
 }
-.mr-4 {
-  margin-right: 1rem !important;
+.ml-1 {
+  margin-left: 0.25rem !important;
 }
 .ml-4 {
   margin-left: 1rem !important;
@@ -830,14 +830,14 @@ select {
 .h-12 {
   height: 3rem !important;
 }
+.max-h-64 {
+  max-height: 16rem !important;
+}
 .max-h-56 {
   max-height: 14rem !important;
 }
 .max-h-44 {
   max-height: 11rem !important;
-}
-.max-h-64 {
-  max-height: 16rem !important;
 }
 .min-h-screen {
   min-height: 100vh !important;
