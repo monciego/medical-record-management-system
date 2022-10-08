@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('change-password', ChangePasswordController::class);
     Route::post('/password/update', [ChangePasswordController::class, 'changePassword'])
     ->name('change.password');
+     // export document
+    Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
 });
 
 // ** Route for admin
@@ -55,8 +57,6 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Examination Report
     // Route::resource('medical-examination-report', ExaminationReportController::class);
     Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
-    // export document
-    Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
     // treatment records
     Route::resource('treatment-records', TreatmentRecordController::class);
     // treatment records
