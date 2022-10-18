@@ -8,16 +8,16 @@
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
-                                {{-- Patient Role --}}
+                                {{-- Patient Category --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_role" class="block text-sm font-medium text-gray-700">
-                                        Role</label>
+                                        Patient Category</label>
                                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
                                         autocomplete="patient-role" class="{{($errors->first('user_patient_role') ? "
                                         border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
                                         border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
                                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        <option selected disabled hidden>Patient Role</option>
+                                        <option selected disabled hidden>Patient Category</option>
                                         <option {{ old('user_patient_role')==='student' ? 'selected' : '' }}
                                             id="student" value="student">Student</option>
                                         <option {{ old('user_patient_role')==='teaching_staff' ? 'selected' : '' }}

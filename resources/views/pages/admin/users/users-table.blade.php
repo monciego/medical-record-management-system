@@ -12,7 +12,7 @@
                     <div class="font-semibold text-left">User Name</div>
                 </th>
                 <th class="p-2">
-                    <div class="font-semibold text-left">User Role</div>
+                    <div class="font-semibold text-left">User Category</div>
                 </th>
                 <th class="p-2">
                     <div class="font-semibold text-left">Department/Year</div>

@@ -12,7 +12,7 @@
                     <div class="font-semibold text-left">Patient Name</div>
                 </th>
                 <th class="p-2">
-                    <div class="font-semibold text-left">Patient Role</div>
+                    <div class="font-semibold text-left">Patient Category</div>
                 </th>
                 <th class="p-2">
                     <div class="font-semibold text-left">Department/Year</div>
