@@ -199,13 +199,13 @@
                                 {{-- Patient Gender --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_gender" class="block text-sm font-medium
-                                        text-gray-700">Sex/Gender</label>
+                                        text-gray-700">Gender</label>
                                     <select id="user_patient_gender" disabled name="user_patient_gender"
                                         autocomplete="gender" class="{{($errors->first('user_patient_gender') ? "
                                         border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
                                         border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
                                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
-                                        <option selected disabled hidden>Sex/Gender</option>
+                                        <option selected disabled hidden>Gender</option>
                                         <option {{ old('user_patient_gender')=='male' ? 'selected' : '' }} value="male">
                                             Male</option>
                                         <option {{ old('user_patient_gender')=='female' ? 'selected' : '' }}

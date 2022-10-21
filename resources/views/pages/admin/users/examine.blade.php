@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
-                    <h5 class="text-sm text-gray-800 mb-1">Sex</h5>
+                    <h5 class="text-sm text-gray-800 mb-1">Gender</h5>
                     <p
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                         {{ $user->user_patient_gender }}

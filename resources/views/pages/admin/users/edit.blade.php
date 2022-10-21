@@ -149,7 +149,7 @@
                     @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-2">
-                    <label for="user_patient_gender" class="text-sm text-gray-800 mb-1 block">Sex/Gender</label>
+                    <label for="user_patient_gender" class="text-sm text-gray-800 mb-1 block">Gender</label>
                     <select id="user_patient_gender" name="user_patient_gender"
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                         <option {{ $user->user_patient_gender == 'male' ? 'selected' : '' }} value="male">Male
