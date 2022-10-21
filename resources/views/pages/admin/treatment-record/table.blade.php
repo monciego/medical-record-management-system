@@ -31,7 +31,8 @@
                     <div>{{ $patient->user_data->user_patient_id }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $patient->user_data->user_patient_full_name }}</div>
+                    <div>{{ $patient->user_data->user_patient_first_name }} {{
+                        $patient->user_data->user_patient_last_name }}</div>
                 </td>
                 <td class="p-2 ">
                     @if($patient->user_data->user_patient_role == 'teaching_staff')

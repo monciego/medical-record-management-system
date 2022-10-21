@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title', isset($user) ? $user->user_patient_full_name . ' - Edit' : 'Edit User')
+    @section('title', isset($user) ? $user->user_patient_first_name . ' - Edit' : 'Edit User')
     <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="flex-col flex md:flex-row justify-between">
             <div class="sm:pb-0 md:pb-5 ">
@@ -23,7 +23,8 @@
                 </div>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details of
-                    {{$user->user_patient_full_name }}
+                    {{$user->user_patient_first_name }}
+                    {{$user->user_patient_last_name }}
                 </p>
             </div>
 
@@ -68,13 +69,73 @@
                     @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-2">
-                    <label for="user_patient_full_name" class="text-sm text-gray-800 mb-1 block">Full name</label>
-                    <input type="text" name="user_patient_full_name" id="user_patient_full_name"
-                        :value="old('user_patient_full_name')" value="{{$user->user_patient_full_name}}"
-                        class="{{($errors->first('user_patient_full_name') ? " border-red-600" : "border-gray-300" )}}
+                    <label for="user_patient_first_name" class="text-sm text-gray-800 mb-1 block">First name</label>
+                    <input type="text" name="user_patient_first_name" id="user_patient_first_name"
+                        :value="old('user_patient_first_name')" value="{{$user->user_patient_first_name}}"
+                        class="{{($errors->first('user_patient_first_name') ? " border-red-600" : "border-gray-300" )}}
                         text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
                         py-2">
-                    @error('user_patient_full_name')
+                    @error('user_patient_first_name')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_middle_name" class="text-sm text-gray-800 mb-1 block">Middle name</label>
+                    <input type="text" name="user_patient_middle_name" id="user_patient_middle_name"
+                        :value="old('user_patient_middle_name')" value="{{$user->user_patient_middle_name}}"
+                        class="{{($errors->first('user_patient_middle_name') ? " border-red-600" : "border-gray-300" )}}
+                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
+                        py-2">
+                    @error('user_patient_middle_name')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_last_name" class="text-sm text-gray-800 mb-1 block">Last name</label>
+                    <input type="text" name="user_patient_last_name" id="user_patient_last_name"
+                        :value="old('user_patient_last_name')" value="{{$user->user_patient_last_name}}"
+                        class="{{($errors->first('user_patient_last_name') ? " border-red-600" : "border-gray-300" )}}
+                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
+                        py-2">
+                    @error('user_patient_last_name')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_suffix" class="text-sm text-gray-800 mb-1 block">Suffix</label>
+                    <input type="text" name="user_patient_suffix" id="user_patient_suffix"
+                        :value="old('user_patient_suffix')" value="{{$user->user_patient_suffix}}"
+                        class="{{($errors->first('user_patient_suffix') ? " border-red-600" : "border-gray-300" )}}
+                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
+                        py-2">
+                    @error('user_patient_suffix')
                     <div class="flex items-center gap-1 mt-1 ml-1">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">

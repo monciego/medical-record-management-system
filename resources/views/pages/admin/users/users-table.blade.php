@@ -32,7 +32,8 @@
                     <div>{{ $user->user_patient_id }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $user->user_patient_full_name }}</div>
+                    <div>{{ $user->user_patient_first_name }} {{ $user->user_patient_middle_name }} {{
+                        $user->user_patient_last_name }}</div>
                 </td>
                 <td class="p-2 ">
                     <div>@include('utils.user-patient-role')</div>

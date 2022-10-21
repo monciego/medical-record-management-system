@@ -1,5 +1,6 @@
 <x-app-layout>
-    @section('title', isset($user) ? $user->user_patient_full_name : 'Consult a patient')
+    @section('title', isset($user) ? $user->user_patient_first_name . " " . $user->user_patient_last_name : 'Consult a
+    patient')
     <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="flex-col flex md:flex-row justify-between">
             <div class="sm:pb-0 md:pb-5 ">
@@ -15,7 +16,8 @@
                 </div>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details of
-                    {{$user->user_patient_full_name }} ({{ $user->user_patient_id }})
+                    {{$user->user_patient_first_name }} {{$user->user_patient_last_name }} ({{ $user->user_patient_id
+                    }})
                 </p>
             </div>
             <div>
@@ -57,10 +59,40 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
-                    <h5 class="text-sm text-gray-800 mb-1">Name of Patient</h5>
+                    <h5 class="text-sm text-gray-800 mb-1">First Name of Patient</h5>
                     <p
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                        {{ $user->user_patient_full_name }}
+                        {{ $user->user_patient_first_name }}
+                    </p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                    <h5 class="text-sm text-gray-800 mb-1">Middle Name of Patient</h5>
+                    <p
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        {{ $user->user_patient_middle_name }}
+                        @if($user->user_patient_middle_name == null )
+                        Not Specified
+                        @endif
+                    </p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                    <h5 class="text-sm text-gray-800 mb-1">Last Name of Patient</h5>
+                    <p
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        {{ $user->user_patient_last_name }}
+                    </p>
+                </div>
+
+                <div class="col-span-6 sm:col-span-2">
+                    <h5 class="text-sm text-gray-800 mb-1">Suffix of Patient</h5>
+                    <p
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        {{ $user->user_patient_suffix }}
+                        @if($user->user_patient_suffix == null )
+                        Not Specified
+                        @endif
                     </p>
                 </div>
 

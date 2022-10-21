@@ -40,7 +40,10 @@ class UserPatientController extends Controller
         $formFields = $request->validate([
             'user_patient_id' => 'required|max:255', // must unique
             'user_patient_role' => 'required',
-            'user_patient_full_name' => 'required|max:255',
+            'user_patient_first_name' => 'required|max:255',
+            'user_patient_middle_name' => 'nullable',
+            'user_patient_last_name' => 'required|max:255',
+            'user_patient_suffix' => 'nullable',
             'user_patient_gender' => 'required',
             'user_patient_birthday' => 'required',
             'user_year_department_role' =>'required|max:255',
@@ -75,7 +78,10 @@ class UserPatientController extends Controller
          UserPatient::create([
              'user_patient_id' => $request->user_patient_id,
              'user_patient_role' => $request->user_patient_role,
-             'user_patient_full_name' => $request->user_patient_full_name,
+             'user_patient_first_name' => $request->user_patient_first_name,
+             'user_patient_middle_name' => $request->user_patient_middle_name,
+             'user_patient_last_name' => $request->user_patient_last_name,
+             'user_patient_suffix' => $request->user_patient_suffix,
              'user_patient_gender' => $request->user_patient_gender,
              'user_patient_birthday' => $request->user_patient_birthday,
              'user_year_department_role' => $request->user_year_department_role,
@@ -154,7 +160,10 @@ class UserPatientController extends Controller
          $request->validate([
             'user_patient_id' => 'required', // must unique
             'user_patient_role' => 'required',
-            'user_patient_full_name' => 'required',
+            'user_patient_first_name' => 'required',
+            'user_patient_middle_name' => 'nullable',
+            'user_patient_last_name' => 'required',
+            'user_patient_suffix' => 'nullable',
             'user_patient_gender' => 'required',
             'user_patient_birthday' => 'required',
             'user_year_department_role' =>'required',
@@ -192,7 +201,10 @@ class UserPatientController extends Controller
           UserPatient::where('id', $id)->update([
             'user_patient_id' => $request->user_patient_id,
              'user_patient_role' => $request->user_patient_role,
-             'user_patient_full_name' => $request->user_patient_full_name,
+             'user_patient_first_name' => $request->user_patient_first_name,
+             'user_patient_middle_name' => $request->user_patient_middle_name,
+             'user_patient_last_name' => $request->user_patient_last_name,
+             'user_patient_suffix' => $request->user_patient_suffix,
              'user_patient_gender' => $request->user_patient_gender,
              'user_patient_birthday' => $request->user_patient_birthday,
              'user_year_department_role' => $request->user_year_department_role,

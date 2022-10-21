@@ -1,5 +1,6 @@
 <x-app-layout>
-    @section('title', isset($data) ? $data->user_patient_full_name : 'Examination Report')
+    @section('title', isset($data) ? $data->user_patient_first_name . " " . $data->user_patient_last_name : 'Examination
+    Report')
 
     @foreach ($examination_report_datas as $examination_report_data)
 
@@ -84,7 +85,10 @@
                 <h5 class="text-sm text-gray-800 mb-1">Name</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $examination_report_data->user_data->user_patient_full_name }}
+                    {{ $examination_report_data->user_data->user_patient_first_name }}
+                    {{ $examination_report_data->user_data->user_patient_middle_name }}
+                    {{ $examination_report_data->user_data->user_patient_last_name }}
+                    {{ $examination_report_data->user_data->user_patient_suffix }}
                 </p>
             </div>
 

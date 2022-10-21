@@ -245,6 +245,11 @@ class ExaminationReportController extends Controller
 
     public function exportDocument($examinationReport) {
         $data = ExaminationReport::with('user_data')->findOrFail($examinationReport);
+        $first_name = $data->user_data->user_patient_first_name;
+        $middle_name = $data->user_data->user_patient_middle_name;
+        $last_name = $data->user_data->user_patient_last_name;
+        $suffix = $data->user_data->user_patient_suffix;
+        $full_name = $first_name . " " . $middle_name . " " . $last_name . " " . $suffix;
         $pr = $data->pre_employment === 1 ? '✓' : ' ';
         $an = $data->annual === 1 ? '✓' : ' ';
         $ojt = $data->ojt === 1 ? '✓' : ' ';
@@ -260,7 +265,7 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('an', $an);
         $templateProcessor->setValue('ojt', $ojt);
         // basic information
-         $templateProcessor->setValue('name', $data->user_data->user_patient_full_name);
+         $templateProcessor->setValue('name', $full_name);
          $templateProcessor->setValue('age', $age);
          $templateProcessor->setValue('address', $data->address);
          $templateProcessor->setValue('sex', $data->user_data->user_patient_gender);
@@ -298,7 +303,7 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('university_physician_examine', $data->university_physician_examine);
 
         // naming and saving file
-        $fileName = $data->user_data->user_patient_full_name;
+        $fileName = $data->user_data->user_patient_first_name;
         $templateProcessor->saveAs($fileName . ' Medical Examination Report' . '.docx');
         return response()->download($fileName . ' Medical Examination Report' . '.docx')->deleteFileAfterSend(true);
     }

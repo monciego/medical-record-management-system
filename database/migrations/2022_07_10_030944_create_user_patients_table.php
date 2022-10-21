@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('user_patient_id');
             $table->string('user_patient_role');
-            $table->string('user_patient_full_name');
+            $table->string('user_patient_first_name');
+            $table->string('user_patient_middle_name')->nullable();
+            $table->string('user_patient_last_name');
+            $table->string('user_patient_suffix')->nullable();
             $table->string('user_patient_gender');
             $table->string('user_patient_birthday');
             $table->string('user_year_department_role');
@@ -35,7 +38,7 @@ return new class extends Migration
             $table->longText('immunization_history')->nullable();
             $table->longText('social_and_environmental_history')->nullable();
             $table->longText('obstetrics_gynecological_history')->nullable(); // for female only
-            // physical examination (checkboxes)
+            // physical examination (checkboxesadmin.clinic@psu.edu)
             $table->boolean('general_survey')->default(0)->nullable();
             $table->boolean('skin')->default(0)->nullable();
             $table->boolean('heent')->default(0)->nullable();

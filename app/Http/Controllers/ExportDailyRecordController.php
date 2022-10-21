@@ -50,7 +50,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+                      $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -117,7 +117,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -185,7 +185,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+           $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -257,7 +257,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -324,7 +324,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -391,7 +391,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -462,7 +462,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -530,7 +530,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+            $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
@@ -605,7 +605,7 @@ class ExportDailyRecordController extends Controller
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
-            $table->addCell(2000)->addText($data->user_data->user_patient_full_name);
+           $table->addCell(2000)->addText($data->user_data->user_patient_first_name . " " . $data->user_data->user_patient_middle_name . " " . $data->user_data->user_patient_last_name . " " . $data->user_data->user_patient_suffix);
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);

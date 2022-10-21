@@ -20,7 +20,7 @@
                 </header>
                 <p class="text-xs">
                     This action will permanently remove <span class="font-bold capitalize">{{
-                        $user->user_patient_full_name
+                        $user->user_patient_first_name
                         }}</span>.
                     This cannot be undone.
                 </p>

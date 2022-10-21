@@ -29,7 +29,8 @@
             @foreach ($non_teaching_records as $non_teaching_record)
             <tr>
                 <td class="p-2">
-                    {{ $non_teaching_record->user_data->user_patient_full_name }}
+                    {{ $non_teaching_record->user_data->user_patient_first_name }}
+                    {{ $non_teaching_record->user_data->user_patient_last_name }}
                 </td>
                 <td class="p-2 ">
                     {{ $non_teaching_record->user_data->user_year_department_role }}

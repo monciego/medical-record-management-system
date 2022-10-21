@@ -154,8 +154,11 @@ return [
         'user_patient_id' => [
             'required' => 'Please enter your user id or student id',
         ],
-        'user_patient_full_name' => [
-            'required' => 'Please enter your full name',
+        'user_patient_first_name' => [
+            'required' => 'Please enter your first name',
+        ],
+        'user_patient_last_name' => [
+            'required' => 'Please enter your last name',
         ],
         'user_patient_gender' => [
             'required' => 'Please select a gender',

@@ -21,7 +21,10 @@ class UserPatient extends Model
         // basic information
         'user_patient_id',
         'user_patient_role',
-        'user_patient_full_name',
+        'user_patient_first_name',
+        'user_patient_middle_name',
+        'user_patient_last_name',
+        'user_patient_suffix',
         'user_patient_gender',
         'user_patient_birthday',
         'user_year_department_role',

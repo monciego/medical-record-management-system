@@ -35,7 +35,8 @@
                     <div>{{ $examine_record->user_patient_id }}</div>
                 </td>
                 <td class="p-2 ">
-                    <div>{{ $examine_record->user_patient_full_name }}</div>
+                    <div>{{ $examine_record->user_patient_first_name }} {{ $examine_record->user_patient_last_name }}
+                    </div>
                 </td>
                 <td class="p-2 ">
                     <div>

@@ -29,7 +29,8 @@
             @foreach ($student_records as $student_record)
             <tr>
                 <td class="p-2">
-                    {{ $student_record->user_data->user_patient_full_name }}
+                    {{ $student_record->user_data->user_patient_first_name }}
+                    {{ $student_record->user_data->user_patient_last_name }}
                 </td>
                 <td class="p-2 ">
                     {{ $student_record->user_data->user_year_department_role }}

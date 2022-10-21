@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title', isset($patient) ? $patient->user_data->user_patient_full_name : 'Treatment Record')
+    @section('title', isset($patient) ? $patient->user_data->user_patient_first_name : 'Treatment Record')
 
     <div class="px-4 py-5 sm:px-6 bg-white shadow overflow-hidden sm:rounded-lg mb-4">
         <div class="flex-col flex md:flex-row justify-between">
@@ -12,7 +12,8 @@
                 </div>
                 </h3>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">Treatment Record of
-                    {{$patient->user_data->user_patient_full_name }}
+                    {{$patient->user_data->user_patient_first_name }}
+                    {{$patient->user_data->user_patient_last_name }}
                 </p>
             </div>
             <div class="my-2 sm:my-0 text-sm">
