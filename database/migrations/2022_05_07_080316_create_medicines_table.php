@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('medicine_quantity');
             $table->bigInteger('medicine_cost');
             $table->longText('date_of_acquisition');
+            $table->longText('date_of_expiration');
             $table->timestamps();
         });
     }

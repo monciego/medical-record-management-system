@@ -42,6 +42,11 @@
                         :value="old('medicine_cost')" required autofocus />
                 </div>
                 <div class="mt-4">
+                    <x-label for="date_of_expiration" :value="__('Date of Expiration')" />
+                    <x-input id="date_of_expiration" class="block mt-1 w-full" type="date" name="date_of_expiration"
+                        :value="old('date_of_expiration')" required autofocus />
+                </div>
+                <div class="mt-4">
                     <x-label for="date_of_acquisition" :value="__('Date of Acquisition')" />
                     <x-input id="date_of_acquisition" value="{{ $todayDate  }}" class="block mt-1 w-full" type="date"
                         name="date_of_acquisition" :value="old('date_of_acquisition')" required autofocus />

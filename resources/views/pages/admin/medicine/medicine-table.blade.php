@@ -18,6 +18,9 @@
                     <div class="font-semibold text-left">Date of Acquisition</div>
                 </th>
                 <th class="p-2">
+                    <div class="font-semibold text-left">Date of Expiration</div>
+                </th>
+                <th class="p-2">
                     <div class="font-semibold text-left">Action</div>
                 </th>
             </tr>
@@ -39,6 +42,9 @@
                 <td class="p-2 ">
                     {{-- <div>{{ $medicine->date_of_acquisition }}</div> --}}
                     {{ \Carbon\Carbon::parse($medicine->date_of_acquisition)->isoFormat('MMM D YYYY')}}
+                </td>
+                <td class="p-2 ">
+                    {{ \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
                 </td>
                 <td class="p-2 ">
                     <div>

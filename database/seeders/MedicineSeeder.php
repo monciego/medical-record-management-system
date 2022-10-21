@@ -22,6 +22,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 1000,
             'medicine_cost' => 15000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
        Medicine::create([
             'id' => 2,
@@ -29,6 +30,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 500,
             'medicine_cost' => 10000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
        Medicine::create([
             'id' => 3,
@@ -36,6 +38,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 300,
             'medicine_cost' => 1000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
        Medicine::create([
             'id' => 4,
@@ -43,6 +46,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 800,
             'medicine_cost' => 2000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
        Medicine::create([
             'id' => 5,
@@ -50,6 +54,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 200,
             'medicine_cost' => 6000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
        Medicine::create([
             'id' => 6,
@@ -57,6 +62,7 @@ class MedicineSeeder extends Seeder
             'medicine_quantity' => 2000,
             'medicine_cost' => 15000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
        ]);
     }
 }

@@ -14,5 +14,6 @@ class Medicine extends Model
         'medicine_quantity',
         'medicine_cost',
         'date_of_acquisition',
+        'date_of_expiration',
     ];
 }

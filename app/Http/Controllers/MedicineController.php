@@ -44,6 +44,7 @@ class MedicineController extends Controller
             'medicine_quantity' => ['required'],
             'medicine_cost' => 'required',
             'date_of_acquisition' => 'required',
+            'date_of_expiration' => 'required',
         ]);
          Medicine::create($formFields);
 
@@ -87,6 +88,7 @@ class MedicineController extends Controller
             'medicine_quantity' => ['required'],
             'medicine_cost' => 'required',
             'date_of_acquisition' => 'required',
+            'date_of_expiration' => 'required',
         ]);
 
         $medicine->update($formFields);
