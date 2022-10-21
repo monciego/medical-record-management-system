@@ -105,9 +105,22 @@
                 <h5 class="text-sm text-gray-800 mb-1">Blood Type</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                    {{ $patient->user_patient_blood_type }}
-                    @if($patient->user_patient_blood_type == null )
-                    Not Specified
+                    @if($patient->user_patient_blood_type == 'o_negative')
+                    O negative
+                    @elseif($patient->user_patient_blood_type == 'o_positive')
+                    O positive
+                    @elseif($patient->user_patient_blood_type == 'a_negative')
+                    A negative
+                    @elseif($patient->user_patient_blood_type == 'a_positive')
+                    A positive
+                    @elseif($patient->user_patient_blood_type == 'b_negative')
+                    B negative
+                    @elseif($patient->user_patient_blood_type == 'b_positive')
+                    B positive
+                    @elseif($patient->user_patient_blood_type == 'ab_negative')
+                    AB negative
+                    @elseif($patient->user_patient_blood_type == 'ab_positive')
+                    AB positive
                     @endif
                 </p>
             </div>

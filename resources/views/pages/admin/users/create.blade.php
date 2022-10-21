@@ -254,6 +254,63 @@
 
                                 {{-- Patient Blood Type --}}
                                 <div class="col-span-6 sm:col-span-2">
+                                    <label for="user_patient_blood_type"
+                                        class="block text-sm font-medium text-gray-700">Blood Type</label>
+                                    <select id="user_patient_blood_type" disabled name="user_patient_blood_type"
+                                        autocomplete="blood-type"
+                                        class="{{($errors->first('user_patient_blood_type') ? " border-red-600"
+                                        : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border border-gray-300
+                                        bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500
+                                        focus:border-indigo-500 sm:text-sm inputs capitalize cursor-no-drop">
+                                        <option selected disabled hidden>Blood Type</option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='o_negative'
+                                            ? 'selected' : '' }} value="o_negative">
+                                            O negative
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='o_positive'
+                                            ? 'selected' : '' }} value="o_positive">
+                                            O positive
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='a_negative'
+                                            ? 'selected' : '' }} value="a_negative">
+                                            A negative
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='a_positive'
+                                            ? 'selected' : '' }} value="a_positive">
+                                            A positive
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='b_negative'
+                                            ? 'selected' : '' }} value="b_negative">
+                                            B negative
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='b_positive'
+                                            ? 'selected' : '' }} value="b_positive">
+                                            B positive
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='ab_negative'
+                                            ? 'selected' : '' }} value="ab_negative">
+                                            AB negative
+                                        </option>
+                                        <option class="capitalize" old('user_patient_blood_type')=='ab_positive'
+                                            ? 'selected' : '' }} value="ab_positive">
+                                            AB positive
+                                        </option>
+                                    </select>
+                                    @error('user_patient_blood_type')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+                                {{-- <div class="col-span-6 sm:col-span-2">
                                     <label for="user_patient_blood_type	"
                                         class="block text-sm font-medium text-gray-700">Blood Type
                                     </label>
@@ -261,17 +318,34 @@
                                         value="{{ old('user_patient_blood_type') }}" id="user_patient_blood_type"
                                         autocomplete="patient-blood-type"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
-                                </div>
+                                </div> --}}
 
                                 {{-- Civil status --}}
                                 <div class="col-span-6 sm:col-span-2">
                                     <label for="civil_status" class="block text-sm font-medium text-gray-700">Civil
                                         Status</label>
-                                    <input type="text" disabled name="civil_status" id="civil_status"
-                                        autocomplete="civil-status" value="{{ old('civil_status') }}"
+                                    <select id="civil_status" disabled name="civil_status" autocomplete="civil-status"
                                         class="{{($errors->first('civil_status') ? " border-red-600" : "border-gray-300"
-                                        )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm
-                                        sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                        )}} mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md
+                                        shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500
+                                        sm:text-sm inputs capitalize cursor-no-drop">
+                                        <option selected disabled hidden>Civil Status</option>
+                                        <option class="capitalize" old('civil_status')=='single' ? 'selected' : '' }}
+                                            value="single">
+                                            single</option>
+                                        <option class="capitalize" old('civil_status')=='married' ? 'selected' : '' }}
+                                            value="married">
+                                            married
+                                        </option>
+                                        <option class="capitalize" old('civil_status')=='divorced' ? 'selected' : '' }}
+                                            value="divorced">
+                                            divorced
+                                        </option>
+                                        <option class="capitalize" old('civil_status')=='widowed' ? 'selected' : '' }}
+                                            value="widowed">
+                                            widowed
+                                        </option>
+                                    </select>
                                     @error('civil_status')
                                     <div class="flex items-center gap-1 mt-1 ml-1">
                                         <div>

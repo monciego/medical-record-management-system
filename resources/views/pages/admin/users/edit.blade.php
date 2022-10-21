@@ -206,18 +206,56 @@
                     </div>
                     @enderror
                 </div>
-                <div class="col-span-6 sm:col-span-2">
+                {{-- <div class="col-span-6 sm:col-span-2">
                     <label for="user_patient_blood_type" class="text-sm text-gray-800 mb-1 block">Blood Type</label>
                     <input type="text" name="user_patient_blood_type" id="user_patient_blood_type"
                         :value="old('user_patient_blood_type')"
                         value="{{ $user->user_patient_blood_type === null ? 'Not Specified' : $user->user_patient_blood_type }}"
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4 py-2">
+                </div> --}}
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_blood_type" class="text-sm text-gray-800 mb-1 block">Civil Status</label>
+                    <select id="user_patient_blood_type" name="user_patient_blood_type"
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        <option {{ $user->user_patient_blood_type == 'o_negative' ? 'selected' : '' }}
+                            value="o_negative">O negative
+                        </option>
+                        <option {{ $user->user_patient_blood_type == 'o_positive' ? 'selected' : '' }}
+                            value="o_positive">
+                            O positive</option>
+                        <option {{ $user->user_patient_blood_type == 'a_negative' ? 'selected' : '' }}
+                            value="a_negative">
+                            A negative</option>
+                        <option {{ $user->user_patient_blood_type == 'a_positive' ? 'selected' : '' }}
+                            value="a_positive">
+                            A positive</option>
+                        <option {{ $user->user_patient_blood_type == 'b_negative' ? 'selected' : '' }}
+                            value="b_negative">
+                            B negative</option>
+                        <option {{ $user->user_patient_blood_type == 'b_positive' ? 'selected' : '' }}
+                            value="b_positive">
+                            B positive</option>
+                        <option {{ $user->user_patient_blood_type == 'ab_negative' ? 'selected' : '' }}
+                            value="ab_negative">
+                            AB negative</option>
+                        <option {{ $user->user_patient_blood_type == 'ab_positive' ? 'selected' : '' }}
+                            value="ab_positive">
+                            AB positive</option>
+                    </select>
                 </div>
                 <div class="col-span-6 sm:col-span-2">
                     <label for="civil_status" class="text-sm text-gray-800 mb-1 block">Civil Status</label>
-                    <input type="text" name="civil_status" id="civil_status" :value="old('civil_status')"
-                        value="{{ $user->civil_status === null ? 'Not Specified' : $user->civil_status }}"
-                        class="text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4 py-2">
+                    <select id="civil_status" name="civil_status"
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        <option {{ $user->civil_status == 'single' ? 'selected' : '' }} value="single">single
+                        </option>
+                        <option {{ $user->civil_status == 'married' ? 'selected' : '' }} value="married">
+                            married</option>
+                        <option {{ $user->civil_status == 'divorced' ? 'selected' : '' }} value="divorced">
+                            divorced</option>
+                        <option {{ $user->civil_status == 'widowed' ? 'selected' : '' }} value="widowed">
+                            widowed</option>
+                    </select>
                 </div>
                 <div class="col-span-6 sm:col-span-2">
                     <label for="nationality" class="text-sm text-gray-800 mb-1 block">Nationality</label>
