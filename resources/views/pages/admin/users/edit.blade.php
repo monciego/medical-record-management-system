@@ -36,7 +36,7 @@
             <div class=" pb-5 pt-5 grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-2">
                     <label for="user_patient_role" class="block text-sm font-medium text-gray-700">Patient
-                        Role</label>
+                        Category</label>
                     <select onChange="update(this);" id="patient_role" name="user_patient_role"
                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         <option {{ $user->user_patient_role == 'student' ? 'selected' : '' }} id="student"
