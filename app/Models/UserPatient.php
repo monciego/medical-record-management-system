@@ -50,8 +50,15 @@ class UserPatient extends Model
         'abdomen',
         'genitourinary',
         'musculoskeletal',
-        // textareas
+        // neurological examination
+        'mental_status',
+        'coordination_and_balance',
+        'reflexes',
+        'sensation',
+        'cranial_nerves',
+        'autonomic_nervous_system_nerves',
         'neurological_examination',
+        // textareas
         'laboratory_results',
         'assestment',
          // university physician

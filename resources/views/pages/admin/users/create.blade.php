@@ -641,7 +641,102 @@
                                 {{-- neurological_examination --}}
                                 <div class="col-span-6">
                                     <label for="neurological_examination"
-                                        class="block text-sm font-medium text-gray-700">Neurological Examination</label>
+                                        class="block text-sm font-medium text-gray-700">Neurological
+                                        Examination</label>
+
+                                </div>
+                                {{-- mental status --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="mental_status" name="mental_status" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="mental_status" class="font-medium text-gray-700">
+                                                Mental Status
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- coordination and balance --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="coordination_and_balance" name="coordination_and_balance"
+                                                type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="coordination_and_balance" class="font-medium text-gray-700">
+                                                Coordination and Balance
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- reflexes--}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="reflexes" name="reflexes" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="reflexes" class="font-medium text-gray-700">
+                                                Reflexes
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- sensation--}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="sensation" name="sensation" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="sensation" class="font-medium text-gray-700">
+                                                Sensation
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- cranial_nerves--}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="cranial_nerves" name="cranial_nerves" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="cranial_nerves" class="font-medium text-gray-700">
+                                                Cranial Nerves
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- autonomic_nervous_system_nerves--}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="flex items-start">
+                                        <div class="flex items-center h-5">
+                                            <input id="autonomic_nervous_system_nerves"
+                                                name="autonomic_nervous_system_nerves" type="checkbox"
+                                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                        </div>
+                                        <div class="ml-3 text-sm">
+                                            <label for="autonomic_nervous_system_nerves"
+                                                class="font-medium text-gray-700">
+                                                Autonomic Nervous System Nerves
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-6">
+                                    <label for="neurological_examination"
+                                        class="block text-sm font-medium text-gray-700">Others (Neurological
+                                        Examination)</label>
                                     <textarea disabled name="neurological_examination" id="neurological_examination"
                                         autocomplete="neurological_examination"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('neurological_examination') }}</textarea>

@@ -69,8 +69,15 @@ class UserPatientController extends Controller
             'abdomen' => 'nullable',
             'genitourinary' => 'nullable',
             'musculoskeletal' => 'nullable',
-            // textareas
+            // neurological examination
+            'mental_status' => 'nullable',
+            'coordination_and_balance' => 'nullable',
+            'reflexes' => 'nullable',
+            'sensation' => 'nullable',
+            'cranial_nerves' => 'nullable',
+            'autonomic_nervous_system_nerves' => 'nullable',
             'neurological_examination' => 'nullable',
+            // textareas
             'laboratory_results' => 'nullable',
             'assestment' => 'nullable',
             'university_physician' => 'nullable',
@@ -107,8 +114,15 @@ class UserPatientController extends Controller
              'abdomen' => $request->abdomen === 'on',
              'genitourinary' => $request->genitourinary === 'on',
              'musculoskeletal' => $request->musculoskeletal === 'on',
+            //  neurological examination
+            'mental_status' => $request->mental_status === 'on',
+            'coordination_and_balance' => $request->coordination_and_balance === 'on',
+            'reflexes' => $request->reflexes === 'on',
+            'sensation' => $request->sensation === 'on',
+            'cranial_nerves' => $request->cranial_nerves === 'on',
+            'autonomic_nervous_system_nerves' => $request->autonomic_nervous_system_nerves === 'on',
+            'neurological_examination' => $request->neurological_examination,
              // textareas
-              'neurological_examination' => $request->neurological_examination,
               'laboratory_results' => $request->laboratory_results,
               'assestment' => $request->assestment,
               'university_physician' => $request->university_physician,
@@ -189,8 +203,15 @@ class UserPatientController extends Controller
             'abdomen' => 'nullable',
             'genitourinary' => 'nullable',
             'musculoskeletal' => 'nullable',
-            // textareas
+            // neurological examination
+            'mental_status' => 'nullable',
+            'coordination_and_balance' => 'nullable',
+            'reflexes' => 'nullable',
+            'sensation' => 'nullable',
+            'cranial_nerves' => 'nullable',
+            'autonomic_nervous_system_nerves' => 'nullable',
             'neurological_examination' => 'nullable',
+            // textareas
             'laboratory_results' => 'nullable',
             'assestment' => 'nullable',
             'university_physician' => 'required',
@@ -230,8 +251,15 @@ class UserPatientController extends Controller
              'abdomen' => $request->abdomen === 'on',
              'genitourinary' => $request->genitourinary === 'on',
              'musculoskeletal' => $request->musculoskeletal === 'on',
+            //  neurological examination
+            'mental_status' => $request->mental_status === 'on',
+            'coordination_and_balance' => $request->coordination_and_balance === 'on',
+            'reflexes' => $request->reflexes === 'on',
+            'sensation' => $request->sensation === 'on',
+            'cranial_nerves' => $request->cranial_nerves === 'on',
+            'autonomic_nervous_system_nerves' => $request->autonomic_nervous_system_nerves === 'on',
+            'neurological_examination' => $request->neurological_examination,
              // textareas
-              'neurological_examination' => $request->neurological_examination,
               'laboratory_results' => $request->laboratory_results,
               'assestment' => $request->assestment,
               'university_physician' => $request->university_physician,

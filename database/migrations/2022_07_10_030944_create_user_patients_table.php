@@ -47,7 +47,14 @@ return new class extends Migration
             $table->boolean('abdomen')->default(0)->nullable();
             $table->boolean('genitourinary')->default(0)->nullable();
             $table->boolean('musculoskeletal')->default(0)->nullable();
-            $table->longText('neurological_examination')->nullable();
+            // neurological examination
+            $table->boolean('mental_status')->default(0)->nullable();
+            $table->boolean('coordination_and_balance')->default(0)->nullable();
+            $table->boolean('reflexes')->default(0)->nullable();
+            $table->boolean('sensation')->default(0)->nullable();
+            $table->boolean('cranial_nerves')->default(0)->nullable();
+            $table->boolean('autonomic_nervous_system_nerves')->default(0)->nullable();
+            $table->longText('neurological_examination')->nullable(); // others
             $table->longText('laboratory_results')->nullable();
             $table->longText('assestment')->nullable();
             // university physician
