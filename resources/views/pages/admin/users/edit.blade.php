@@ -214,7 +214,7 @@
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4 py-2">
                 </div> --}}
                 <div class="col-span-6 sm:col-span-2">
-                    <label for="user_patient_blood_type" class="text-sm text-gray-800 mb-1 block">Civil Status</label>
+                    <label for="user_patient_blood_type" class="text-sm text-gray-800 mb-1 block">Blood Type</label>
                     <select id="user_patient_blood_type" name="user_patient_blood_type"
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                         <option {{ $user->user_patient_blood_type == 'o_negative' ? 'selected' : '' }}
