@@ -745,7 +745,150 @@
                                 {{-- laboratory_results --}}
                                 <div class="col-span-6">
                                     <label for="laboratory_results"
-                                        class="block text-sm font-medium text-gray-700">Laboratory Results</label>
+                                        class="block text-sm font-medium text-gray-700">Laboratory
+                                        Results</label>
+                                </div>
+
+
+                                {{-- urine --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="urine" name="urine" type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="urine" class="font-medium text-gray-700">
+                                                    Urine
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="urine_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="urine_comment" value="{{ old('urine_comment') }}"
+                                        id="urine_comment" autocomplete="urine_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                {{-- stool --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="stool" name="stool" type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="stool" class="font-medium text-gray-700">
+                                                    Stool
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="stool_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="stool_comment" value="{{ old('stool_comment') }}"
+                                        id="stool_comment" autocomplete="stool_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                {{-- saliva --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="saliva" name="saliva" type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="saliva" class="font-medium text-gray-700">
+                                                    Saliva
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="saliva_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="saliva_comment" value="{{ old('saliva_comment') }}"
+                                        id="saliva_comment" autocomplete="saliva_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                {{-- sputum --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="sputum" name="sputum" type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="sputum" class="font-medium text-gray-700">
+                                                    Sputum
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="sputum_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="sputum_comment" value="{{ old('sputum_comment') }}"
+                                        id="sputum_comment" autocomplete="sputum_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                {{-- complete_blood_count --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="complete_blood_count" name="complete_blood_count"
+                                                    type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="complete_blood_count" class="font-medium text-gray-700">
+                                                    Complete Blood Count
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="complete_blood_count_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="complete_blood_count_comment"
+                                        value="{{ old('complete_blood_count_comment') }}"
+                                        id="complete_blood_count_comment" autocomplete="complete_blood_count_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                {{-- x_ray --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <div class="col-span-6 sm:col-span-2">
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="x_ray" name="x_ray" type="checkbox"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="x_ray" class="font-medium text-gray-700">
+                                                    X-Ray
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label for="x_ray_comment"
+                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                    <input type="text" name="x_ray_comment" value="{{ old('x_ray_comment') }}"
+                                        id="x_ray_comment" autocomplete="x_ray_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class=" col-span-6">
+                                    <label for="laboratory_results"
+                                        class="block text-sm font-medium text-gray-700">Others
+                                        (Laboratory
+                                        Results)</label>
                                     <textarea disabled name="laboratory_results" id="laboratory_results"
                                         autocomplete="laboratory_results"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('laboratory_results') }}</textarea>

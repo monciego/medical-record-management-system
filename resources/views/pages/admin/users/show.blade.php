@@ -494,7 +494,175 @@
             </div>
 
             <div class="col-span-6">
-                <h5 class="text-sm text-gray-800 mb-1">Laboratory Results</h5>
+                <h5 class="text-sm text-gray-800">Laboratory Results</h5>
+            </div>
+
+            {{-- urine --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="urine" name="urine" {{ $user->urine == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="urine" class="font-medium text-gray-700">
+                                Urine
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->urine_comment }}
+                    @if ($user->urine_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            {{-- stool --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="stool" name="stool" {{ $user->stool == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="stool" class="font-medium text-gray-700">
+                                Stool
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->stool_comment }}
+                    @if ($user->stool_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            {{-- saliva --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="saliva" name="saliva" {{ $user->saliva == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="saliva" class="font-medium text-gray-700">
+                                Saliva
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->saliva_comment }}
+                    @if ($user->saliva_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            {{-- sputum --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="sputum" name="sputum" {{ $user->sputum == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="sputum" class="font-medium text-gray-700">
+                                Sputum
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->sputum_comment }}
+                    @if ($user->sputum_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            {{-- complete_blood_count --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="complete_blood_count" name="complete_blood_count" {{ $user->complete_blood_count
+                            == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="complete_blood_count" class="font-medium text-gray-700">
+                                Complete Blood Count
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->complete_blood_count_comment }}
+                    @if ($user->complete_blood_count_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            {{-- x_ray --}}
+            <div class="col-span-6 sm:col-span-2">
+                <div class="col-span-6 sm:col-span-2">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="x_ray" name="x_ray" {{ $user->x_ray
+                            == true ? 'checked'
+                            :
+                            '' }} disabled="disabled" type="checkbox"
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="x_ray" class="font-medium text-gray-700">
+                                X-ray
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->x_ray_comment }}
+                    @if ($user->x_ray_comment == null)
+                    N/A
+                    @endif
+                </p>
+            </div>
+
+            <div class="col-span-6">
+                <h5 class="text-sm text-gray-800 mb-1">Others (Laboratory Results)</h5>
                 <p
                     class="{{ $user->laboratory_results == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
                     {{ $user->laboratory_results }}

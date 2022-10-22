@@ -55,7 +55,21 @@ return new class extends Migration
             $table->boolean('cranial_nerves')->default(0)->nullable();
             $table->boolean('autonomic_nervous_system_nerves')->default(0)->nullable();
             $table->longText('neurological_examination')->nullable(); // others
-            $table->longText('laboratory_results')->nullable();
+            // laboratory results
+            $table->string('urine')->nullable();
+            $table->string('urine_comment')->nullable();
+            $table->string('stool')->nullable();
+            $table->string('stool_comment')->nullable();
+            $table->string('saliva')->nullable();
+            $table->string('saliva_comment')->nullable();
+            $table->string('sputum')->nullable();
+            $table->string('sputum_comment')->nullable();
+            $table->string('complete_blood_count')->nullable();
+            $table->string('complete_blood_count_comment')->nullable();
+            $table->string('x_ray')->nullable();
+            $table->string('x_ray_comment')->nullable();
+            $table->longText('laboratory_results')->nullable(); // others
+            // assestment
             $table->longText('assestment')->nullable();
             // university physician
             $table->string('university_physician');

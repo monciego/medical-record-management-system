@@ -58,8 +58,21 @@ class UserPatient extends Model
         'cranial_nerves',
         'autonomic_nervous_system_nerves',
         'neurological_examination',
-        // textareas
+        // laboratory results
+        'urine',
+        'urine_comment',
+        'stool',
+        'stool_comment',
+        'saliva',
+        'saliva_comment',
+        'sputum',
+        'sputum_comment',
+        'complete_blood_count',
+        'complete_blood_count_comment',
+        'x_ray',
+        'x_ray_comment',
         'laboratory_results',
+        // assestment
         'assestment',
          // university physician
         'university_physician',

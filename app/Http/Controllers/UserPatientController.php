@@ -77,8 +77,21 @@ class UserPatientController extends Controller
             'cranial_nerves' => 'nullable',
             'autonomic_nervous_system_nerves' => 'nullable',
             'neurological_examination' => 'nullable',
-            // textareas
+            // laboratory results
+            'urine' => 'nullable',
+            'urine_comment' => 'nullable',
+            'stool' => 'nullable',
+            'stool_comment' => 'nullable',
+            'saliva' => 'nullable',
+            'saliva_comment' => 'nullable',
+            'sputum' => 'nullable',
+            'sputum_comment' => 'nullable',
+            'complete_blood_count' => 'nullable',
+            'complete_blood_count_comment' => 'nullable',
+            'x_ray' => 'nullable',
+            'x_ray_comment' => 'nullable',
             'laboratory_results' => 'nullable',
+            // textareas
             'assestment' => 'nullable',
             'university_physician' => 'nullable',
         ]);
@@ -122,8 +135,21 @@ class UserPatientController extends Controller
             'cranial_nerves' => $request->cranial_nerves === 'on',
             'autonomic_nervous_system_nerves' => $request->autonomic_nervous_system_nerves === 'on',
             'neurological_examination' => $request->neurological_examination,
+            // laboratory result
+            'urine' => $request->urine,
+            'urine_comment' => $request->urine_comment,
+            'stool' => $request->stool,
+            'stool_comment' => $request->stool_comment,
+            'saliva' => $request->saliva,
+            'saliva_comment' => $request->saliva_comment,
+            'sputum' => $request->sputum,
+            'sputum_comment' => $request->sputum_comment,
+            'complete_blood_count' => $request->complete_blood_count,
+            'complete_blood_count_comment' => $request->complete_blood_count_comment,
+            'x_ray' => $request->x_ray,
+            'x_ray_comment' => $request->x_ray_comment,
+            'laboratory_results' => $request->laboratory_results,
              // textareas
-              'laboratory_results' => $request->laboratory_results,
               'assestment' => $request->assestment,
               'university_physician' => $request->university_physician,
           ]);
@@ -211,8 +237,21 @@ class UserPatientController extends Controller
             'cranial_nerves' => 'nullable',
             'autonomic_nervous_system_nerves' => 'nullable',
             'neurological_examination' => 'nullable',
-            // textareas
+            // laboratory results
+            'urine' => 'nullable',
+            'urine_comment' => 'nullable',
+            'stool' => 'nullable',
+            'stool_comment' => 'nullable',
+            'saliva' => 'nullable',
+            'saliva_comment' => 'nullable',
+            'sputum' => 'nullable',
+            'sputum_comment' => 'nullable',
+            'complete_blood_count' => 'nullable',
+            'complete_blood_count_comment' => 'nullable',
+            'x_ray' => 'nullable',
+            'x_ray_comment' => 'nullable',
             'laboratory_results' => 'nullable',
+            // textareas
             'assestment' => 'nullable',
             'university_physician' => 'required',
         ]);
@@ -259,8 +298,21 @@ class UserPatientController extends Controller
             'cranial_nerves' => $request->cranial_nerves === 'on',
             'autonomic_nervous_system_nerves' => $request->autonomic_nervous_system_nerves === 'on',
             'neurological_examination' => $request->neurological_examination,
+            // laboratory result
+            'urine' => $request->urine,
+            'urine_comment' => $request->urine_comment,
+            'stool' => $request->stool,
+            'stool_comment' => $request->stool_comment,
+            'saliva' => $request->saliva,
+            'saliva_comment' => $request->saliva_comment,
+            'sputum' => $request->sputum,
+            'sputum_comment' => $request->sputum_comment,
+            'complete_blood_count' => $request->complete_blood_count,
+            'complete_blood_count_comment' => $request->complete_blood_count_comment,
+            'x_ray' => $request->x_ray,
+            'x_ray_comment' => $request->x_ray_comment,
+            'laboratory_results' => $request->laboratory_results,
              // textareas
-              'laboratory_results' => $request->laboratory_results,
               'assestment' => $request->assestment,
               'university_physician' => $request->university_physician,
             ]);
