@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Medicine;
 use App\Http\Requests\StoreMedicineRequest;
 use App\Http\Requests\UpdateMedicineRequest;
+use Carbon\Carbon;
 
 class MedicineController extends Controller
 {
@@ -15,9 +16,11 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.medicine.index', [
-            'medicines' => Medicine::latest()->paginate(6)
-        ]);
+        $medicines = Medicine::latest()->paginate(6);
+        $currentTime = Carbon::now()->subDays(1);
+        // $expiredMedicines = Medicine::whereDate('date_of_expiration' , '<' , $currentTime->addDays(1))->get();
+        // dd($clientsToNotif);
+        return view('pages.admin.medicine.index', compact('medicines', 'currentTime'));
     }
 
     /**

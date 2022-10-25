@@ -40,11 +40,13 @@
                     <div>@money($medicine->medicine_cost)</div>
                 </td>
                 <td class="p-2 ">
-                    {{-- <div>{{ $medicine->date_of_acquisition }}</div> --}}
                     {{ \Carbon\Carbon::parse($medicine->date_of_acquisition)->isoFormat('MMM D YYYY')}}
                 </td>
                 <td class="p-2 ">
-                    {{ \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
+                    @if ($medicine->date_of_expiration < $currentTime) <span class="text-red-600">Expired</span>
+                        @else {{
+                        \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
+                        @endif
                 </td>
                 <td class="p-2 ">
                     <div>
