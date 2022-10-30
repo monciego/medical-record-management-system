@@ -514,7 +514,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->urine_comment }}
@@ -541,7 +541,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->stool_comment }}
@@ -568,7 +568,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->saliva_comment }}
@@ -595,7 +595,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->sputum_comment }}
@@ -623,7 +623,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->complete_blood_count_comment }}
@@ -651,7 +651,7 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="text-sm text-gray-800 mb-1">Comment</h5>
+                <h5 class="text-sm text-gray-800 mb-1">Result</h5>
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     {{ $user->x_ray_comment }}

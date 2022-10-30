@@ -766,7 +766,7 @@
                                         </div>
                                     </div>
                                     <label for="urine_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="urine_comment" value="{{ old('urine_comment') }}"
                                         id="urine_comment" autocomplete="urine_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -788,7 +788,7 @@
                                         </div>
                                     </div>
                                     <label for="stool_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="stool_comment" value="{{ old('stool_comment') }}"
                                         id="stool_comment" autocomplete="stool_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -810,7 +810,7 @@
                                         </div>
                                     </div>
                                     <label for="saliva_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="saliva_comment" value="{{ old('saliva_comment') }}"
                                         id="saliva_comment" autocomplete="saliva_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -832,7 +832,7 @@
                                         </div>
                                     </div>
                                     <label for="sputum_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="sputum_comment" value="{{ old('sputum_comment') }}"
                                         id="sputum_comment" autocomplete="sputum_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -855,7 +855,7 @@
                                         </div>
                                     </div>
                                     <label for="complete_blood_count_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="complete_blood_count_comment"
                                         value="{{ old('complete_blood_count_comment') }}"
                                         id="complete_blood_count_comment" autocomplete="complete_blood_count_comment"
@@ -878,7 +878,7 @@
                                         </div>
                                     </div>
                                     <label for="x_ray_comment"
-                                        class="block text-xs font-medium text-gray-700">Comment</label>
+                                        class="block text-xs font-medium text-gray-700">Result</label>
                                     <input type="text" name="x_ray_comment" value="{{ old('x_ray_comment') }}"
                                         id="x_ray_comment" autocomplete="x_ray_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
