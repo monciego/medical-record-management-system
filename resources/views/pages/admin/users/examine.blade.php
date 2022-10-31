@@ -269,7 +269,7 @@
 
             <div class="col-span-6 sm:col-span-2">
                 <label for="height" class="block text-sm font-medium text-gray-700">
-                    Height
+                    Height (ft)
                 </label>
                 <input type="text" name="height" value="{{ old('height') }}" id="height" autocomplete="height"
                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -277,7 +277,7 @@
 
             <div class="col-span-6 sm:col-span-2">
                 <label for="weight" class="block text-sm font-medium text-gray-700">
-                    Weight
+                    Weight (kg)
                 </label>
                 <input type="text" name="weight" value="{{ old('weight') }}" id="weight" autocomplete="weight"
                     class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
