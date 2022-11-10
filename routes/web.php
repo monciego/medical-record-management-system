@@ -8,8 +8,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ExaminationReportController;
 use App\Http\Controllers\ExportDailyRecordController;
+use App\Http\Controllers\ExportMedicalRecordController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\MedicineRecordController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\TreatmentRecordController;
@@ -49,6 +51,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
     // Medicines
     Route::resource('medicine', MedicineController::class);
+    Route::resource('medicine-record', MedicineRecordController::class);
+      Route::get('document/export-medical-record', [ExportMedicalRecordController::class, 'medicalReport'])->name('export.medical-report');
     // Patients
     Route::resource('patient', PatientController::class);
     Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
