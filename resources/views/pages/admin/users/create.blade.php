@@ -265,35 +265,35 @@
                                         <option selected disabled hidden>Blood Type</option>
                                         <option class="capitalize" old('user_patient_blood_type')=='o_negative'
                                             ? 'selected' : '' }} value="o_negative">
-                                            O negative
+                                            O-
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='o_positive'
                                             ? 'selected' : '' }} value="o_positive">
-                                            O positive
+                                            O+
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='a_negative'
                                             ? 'selected' : '' }} value="a_negative">
-                                            A negative
+                                            A+
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='a_positive'
                                             ? 'selected' : '' }} value="a_positive">
-                                            A positive
+                                            A+
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='b_negative'
                                             ? 'selected' : '' }} value="b_negative">
-                                            B negative
+                                            B-
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='b_positive'
                                             ? 'selected' : '' }} value="b_positive">
-                                            B positive
+                                            B+
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='ab_negative'
                                             ? 'selected' : '' }} value="ab_negative">
-                                            AB negative
+                                            AB-
                                         </option>
                                         <option class="capitalize" old('user_patient_blood_type')=='ab_positive'
                                             ? 'selected' : '' }} value="ab_positive">
-                                            AB positive
+                                            AB+
                                         </option>
                                     </select>
                                     @error('user_patient_blood_type')
