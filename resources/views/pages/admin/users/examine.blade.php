@@ -294,7 +294,7 @@
 
             <div class="col-span-6 sm:col-span-2">
                 <label for="heart_rate" class="block text-sm font-medium text-gray-700">
-                    Heart Rate
+                    Heart Rate (BPM)
                 </label>
                 <input type="text" name="heart_rate" value="{{ old('heart_rate') }}" id="heart_rate"
                     autocomplete="heart_rate"
