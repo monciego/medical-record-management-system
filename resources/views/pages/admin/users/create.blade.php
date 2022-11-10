@@ -988,7 +988,7 @@
                 // label.textContent = "Year & Section";
                 department_year_role.style.display = "block";
             } else if (non_teaching_staff === that.value) {
-                localStorage.setItem('r0l3', 'Role')
+                localStorage.setItem('r0l3', 'Position')
                 label.textContent = localStorage.getItem("r0l3");
                 // label.textContent = "Role";
                 department_year_role.style.display = "block";
