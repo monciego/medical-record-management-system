@@ -312,7 +312,7 @@
 
             <div class="col-span-6 sm:col-span-2">
                 <label for="temperature" class="block text-sm font-medium text-gray-700">
-                    Temperature
+                    Temperature (Celcius)
                 </label>
                 <input type="text" name="temperature" value="{{ old('temperature') }}" id="temperature"
                     autocomplete="temperature"
