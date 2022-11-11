@@ -128,7 +128,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="col-span-6 sm:col-span-2">
+                {{-- <div class="col-span-6 sm:col-span-2">
                     <label for="user_patient_suffix" class="text-sm text-gray-800 mb-1 block">Suffix</label>
                     <input type="text" name="user_patient_suffix" id="user_patient_suffix"
                         :value="old('user_patient_suffix')" value="{{$user->user_patient_suffix}}"
@@ -147,6 +147,63 @@
                         <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
                     </div>
                     @enderror
+                </div> --}}
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_suffix" class="text-sm text-gray-800 mb-1 block">Suffix</label>
+                    <select id="user_patient_suffix" name="user_patient_suffix"
+                        class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                        <option {{ $user->user_patient_suffix == 'none' ? 'selected' : '' }} value="none">
+                            None
+                        </option>
+                        <option {{ $user->user_patient_suffix == '1ST' ? 'selected' : '' }} value="1ST">
+                            1ST
+                        </option>
+                        <option {{ $user->user_patient_suffix == '2nd' ? 'selected' : '' }} value="2nd">
+                            2nd
+                        </option>
+                        <option {{ $user->user_patient_suffix == '3RD' ? 'selected' : '' }} value="3RD">
+                            3RD
+                        </option>
+                        <option {{ $user->user_patient_suffix == '4TH' ? 'selected' : '' }} value="4TH">
+                            4TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == '5TH' ? 'selected' : '' }} value="5TH">
+                            5TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == '6TH' ? 'selected' : '' }} value="6TH">
+                            6TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == '7TH' ? 'selected' : '' }} value="7TH">
+                            7TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == '8TH' ? 'selected' : '' }} value="8TH">
+                            8TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == '9TH' ? 'selected' : '' }} value="9TH">
+                            9TH
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'I' ? 'selected' : '' }} value="I">
+                            I
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'II' ? 'selected' : '' }} value="1ST">
+                            II
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'II' ? 'selected' : '' }} value="II">
+                            II
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'III' ? 'selected' : '' }} value="III">
+                            III
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'IV' ? 'selected' : '' }} value="IV">
+                            IV
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'SR' ? 'selected' : '' }} value="SR">
+                            SR
+                        </option>
+                        <option {{ $user->user_patient_suffix == 'V' ? 'selected' : '' }} value="V">
+                            V
+                        </option>
+                    </select>
                 </div>
                 <div class="col-span-6 sm:col-span-2">
                     <label for="user_patient_gender" class="text-sm text-gray-800 mb-1 block">Gender</label>

@@ -104,9 +104,12 @@
                     <h5 class="text-sm text-gray-800 mb-1">Suffix</h5>
                     <p
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
-                        {{ $user->user_patient_suffix }}
                         @if($user->user_patient_suffix == null )
                         Not Specified
+                        @elseif ($user->user_patient_suffix === 'none')
+                        Not Specified
+                        @else
+                        {{$user->user_patient_suffix }}
                         @endif
                     </p>
                 </div>

@@ -88,7 +88,11 @@
                     {{ $examination_report_data->user_data->user_patient_first_name }}
                     {{ $examination_report_data->user_data->user_patient_middle_name }}
                     {{ $examination_report_data->user_data->user_patient_last_name }}
+                    @if ($examination_report_data->user_data->user_patient_suffix === 'none')
+
+                    @else
                     {{ $examination_report_data->user_data->user_patient_suffix }}
+                    @endif
                 </p>
             </div>
 
