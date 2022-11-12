@@ -92,5 +92,9 @@ class ExaminationReport extends Model
         if($filters['role'] ?? false) {
               $query->where('user_patient_role',  request('role'));
         }
+
+        if($filters['search'] ?? false) {
+              $query->where('user_patient_first_name', 'like', '%' . request('search'));
+        }
     }
 }

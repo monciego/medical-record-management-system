@@ -7,6 +7,7 @@
                 @include('pages.admin.medical-examination-report.filter-role')
             </div>
         </header>
+        @include('pages.admin.medical-examination-report.search-input')
         <div class="p-3">
             @include('pages.admin.medical-examination-report.table')
         </div>

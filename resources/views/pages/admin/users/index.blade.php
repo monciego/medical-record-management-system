@@ -16,6 +16,7 @@
             </div>
 
         </header>
+        @include('pages.admin.users.search-input')
         <div class="p-3">
             @include('pages.admin.users.users-table')
         </div>

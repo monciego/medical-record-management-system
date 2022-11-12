@@ -14,8 +14,8 @@
                     <span class="xs:block text-sm ml-2">New Patient</span>
                 </a> --}}
             </div>
-
         </header>
+        @include('pages.admin.patient.search-input')
         <div class="p-3">
             @include('pages.admin.patient.patient-table')
         </div>

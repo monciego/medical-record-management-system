@@ -7,7 +7,6 @@
                 @include('pages.admin.treatment-record.filter')
                 @include('pages.admin.treatment-record.filter-clinic')
             </div>
-
         </header>
         <div class="p-3">
             @include('pages.admin.treatment-record.table')
