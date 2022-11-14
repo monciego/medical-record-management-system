@@ -197,6 +197,9 @@
                         <option {{ $user->user_patient_suffix == 'IV' ? 'selected' : '' }} value="IV">
                             IV
                         </option>
+                        <option {{ $user->user_patient_suffix == 'JR' ? 'selected' : '' }} value="JR">
+                            JR
+                        </option>
                         <option {{ $user->user_patient_suffix == 'SR' ? 'selected' : '' }} value="SR">
                             SR
                         </option>

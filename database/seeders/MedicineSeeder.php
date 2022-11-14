@@ -26,7 +26,7 @@ class MedicineSeeder extends Seeder
        ]);
        Medicine::create([
             'id' => 2,
-            'medicine_name' => 'Acetaminophen',
+            'medicine_name' => 'Cefalexin',
             'medicine_quantity' => 500,
             'medicine_cost' => 10000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
@@ -59,6 +59,46 @@ class MedicineSeeder extends Seeder
        Medicine::create([
             'id' => 6,
             'medicine_name' => 'Allopurinol',
+            'medicine_quantity' => 2000,
+            'medicine_cost' => 15000,
+            'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
+       ]);
+       Medicine::create([
+            'id' => 7,
+            'medicine_name' => 'Betamethasone',
+            'medicine_quantity' => 2000,
+            'medicine_cost' => 15000,
+            'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
+       ]);
+       Medicine::create([
+            'id' => 8,
+            'medicine_name' => 'Clonidine',
+            'medicine_quantity' => 2000,
+            'medicine_cost' => 15000,
+            'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
+       ]);
+       Medicine::create([
+            'id' => 9,
+            'medicine_name' => 'Domperidone',
+            'medicine_quantity' => 2000,
+            'medicine_cost' => 15000,
+            'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
+       ]);
+       Medicine::create([
+            'id' => 10,
+            'medicine_name' => 'Metformin',
+            'medicine_quantity' => 2000,
+            'medicine_cost' => 15000,
+            'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
+            'date_of_expiration' => Carbon::now()->format('Y-m-d'),
+       ]);
+       Medicine::create([
+            'id' => 11,
+            'medicine_name' => 'Omeprazole',
             'medicine_quantity' => 2000,
             'medicine_cost' => 15000,
             'date_of_acquisition' => Carbon::now()->format('Y-m-d'),
