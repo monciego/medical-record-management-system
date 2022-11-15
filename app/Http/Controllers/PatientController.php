@@ -62,8 +62,8 @@ class PatientController extends Controller
             'school_year_id' => 'required',
         ]);
 
-          $patient_prescribed_medicine = $request->input('patient_prescribed_medicine');
-          $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity');
+          $patient_prescribed_medicine = $request->input('patient_prescribed_medicine', []);
+          $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity', []);
         Patient::create([
             'user_patient_id' => $request->user_patient_id,
             'clinic' => $request->clinic,
@@ -79,11 +79,11 @@ class PatientController extends Controller
             'school_year_id' => $request->school_year_id,
         ]);
 
-    $patient_prescribed_medicines = $request->input('patient_prescribed_medicine');
+    $patient_prescribed_medicines = $request->input('patient_prescribed_medicine', []);
 
     $num_i = 0;
     foreach($patient_prescribed_medicines as $given_medicine){
-        DB::table('medicines')->where('medicine_name', $given_medicine)->decrement('medicine_quantity',   array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i]);
+        DB::table('medicines')->where('medicine_name', $given_medicine)->decrement('medicine_quantity', array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i]);
         $num_i = $num_i + 1;
     }
 
