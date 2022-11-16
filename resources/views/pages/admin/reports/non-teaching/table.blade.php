@@ -43,7 +43,11 @@
                 </td>
                 <td class="p-2 ">
                     @foreach(explode('|', $non_teaching_record->patient_prescribed_medicine) as $medicine)
+                    @if ($medicine)
                     <p class="block">{{$medicine}}</p>
+                    @else
+                    <p>No Medicines Given</p>
+                    @endif
                     @endforeach
                 </td>
             </tr>
