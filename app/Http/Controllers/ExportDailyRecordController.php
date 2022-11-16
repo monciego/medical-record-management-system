@@ -47,6 +47,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -54,7 +55,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -114,6 +120,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -121,7 +128,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -182,6 +194,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -189,7 +202,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -254,6 +272,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -261,7 +280,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -321,6 +345,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -328,7 +353,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -388,6 +418,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -395,7 +426,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -459,6 +495,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -466,7 +503,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -527,6 +569,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -534,7 +577,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
@@ -602,6 +650,7 @@ class ExportDailyRecordController extends Controller
             $school_year = $data->school_year->school_year;
             $semester = $data->semester;
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
+            $medicineData = $medicines->implode(', ');
             $consult_date = \Carbon\Carbon::parse($data->patient_consult_date)->isoFormat('MMM D YYYY');
             $table->addRow();
             $table->addCell(2000)->addText($consult_date);
@@ -609,7 +658,12 @@ class ExportDailyRecordController extends Controller
             $table->addCell(2000)->addText($data->user_data->user_year_department_role);
             $table->addCell(2000)->addText($data->complaints);
             $table->addCell(2000)->addText($data->diagnosis);
-            $table->addCell(2000)->addText($medicines->implode(', '));
+            if($data->patient_prescribed_medicine === "") {
+                // $table->addCell(2000)->addText($medicineData);
+                $table->addCell(2000)->addText('No Medicines Given');
+            } else {
+                $table->addCell(2000)->addText($medicineData);
+            }
         }
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
