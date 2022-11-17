@@ -58,12 +58,6 @@ return new class extends Migration
             // laboratory results
             $table->string('urine')->nullable();
             $table->string('urine_comment')->nullable();
-            $table->string('stool')->nullable();
-            $table->string('stool_comment')->nullable();
-            $table->string('saliva')->nullable();
-            $table->string('saliva_comment')->nullable();
-            $table->string('sputum')->nullable();
-            $table->string('sputum_comment')->nullable();
             $table->string('complete_blood_count')->nullable();
             $table->string('complete_blood_count_comment')->nullable();
             $table->string('x_ray')->nullable();

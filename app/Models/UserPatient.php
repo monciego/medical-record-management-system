@@ -61,12 +61,6 @@ class UserPatient extends Model
         // laboratory results
         'urine',
         'urine_comment',
-        'stool',
-        'stool_comment',
-        'saliva',
-        'saliva_comment',
-        'sputum',
-        'sputum_comment',
         'complete_blood_count',
         'complete_blood_count_comment',
         'x_ray',
