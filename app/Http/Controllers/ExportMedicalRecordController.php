@@ -68,8 +68,9 @@ class ExportMedicalRecordController extends Controller
 
          $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $section = $phpWord->addSection();
-        $section->addImage('images/logo.png', array('width' => 32, 'height' => 32, ));
-         $section->addText('Pangasinan State University');
+        $section->addImage('images/logo.png', array('width' => 42, 'height' => 42, 'marginLeft' => 20, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER));
+        $section->addText('Pangasinan State University',  [], [ 'align' => \PhpOffice\PhpWord\Style\Cell::VALIGN_CENTER ]);
+        $section->addText('MEDICAL-DENTAL UNIT',  [], [ 'align' => \PhpOffice\PhpWord\Style\Cell::VALIGN_CENTER ]);
 
         $table = array('borderColor'=>'black', 'borderSize'=> 1, 'cellMargin'=>50, 'valign'=>'center');
         $phpWord->addTableStyle('table', $table);

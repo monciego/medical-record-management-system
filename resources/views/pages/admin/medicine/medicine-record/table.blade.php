@@ -29,7 +29,8 @@
                     <div class="ml-2 flex gap-2">
                         <div>
                             @foreach(explode('|', $data->patient_prescribed_medicine_quantity) as $medicine_quantity)
-                            <li>{{ number_format($medicine_quantity) }}</li>
+                            {{-- <li>{{ number_format($medicine_quantity) }}</li> --}}
+                            <li>{{ $medicine_quantity }}</li>
                             @endforeach
                         </div>
                         <div>
