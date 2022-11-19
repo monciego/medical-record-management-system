@@ -109,21 +109,21 @@
                 <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                     @if($patient->user_patient_blood_type == 'o_negative')
-                    O negative
+                    O-
                     @elseif($patient->user_patient_blood_type == 'o_positive')
-                    O positive
+                    O+
                     @elseif($patient->user_patient_blood_type == 'a_negative')
-                    A negative
+                    A-
                     @elseif($patient->user_patient_blood_type == 'a_positive')
-                    A positive
+                    A+
                     @elseif($patient->user_patient_blood_type == 'b_negative')
-                    B negative
+                    B-
                     @elseif($patient->user_patient_blood_type == 'b_positive')
-                    B positive
+                    B+
                     @elseif($patient->user_patient_blood_type == 'ab_negative')
-                    AB negative
+                    AB-
                     @elseif($patient->user_patient_blood_type == 'ab_positive')
-                    AB positive
+                    AB+
                     @endif
                 </p>
             </div>

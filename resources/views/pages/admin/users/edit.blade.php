@@ -278,29 +278,36 @@
                     <select id="user_patient_blood_type" name="user_patient_blood_type"
                         class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
                         <option {{ $user->user_patient_blood_type == 'o_negative' ? 'selected' : '' }}
-                            value="o_negative">O negative
+                            value="o_negative">O-
                         </option>
                         <option {{ $user->user_patient_blood_type == 'o_positive' ? 'selected' : '' }}
                             value="o_positive">
-                            O positive</option>
+                            O+
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'a_negative' ? 'selected' : '' }}
                             value="a_negative">
-                            A negative</option>
+                            A-
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'a_positive' ? 'selected' : '' }}
                             value="a_positive">
-                            A positive</option>
+                            A+
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'b_negative' ? 'selected' : '' }}
                             value="b_negative">
-                            B negative</option>
+                            B-
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'b_positive' ? 'selected' : '' }}
                             value="b_positive">
-                            B positive</option>
+                            B+
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'ab_negative' ? 'selected' : '' }}
                             value="ab_negative">
-                            AB negative</option>
+                            AB-
+                        </option>
                         <option {{ $user->user_patient_blood_type == 'ab_positive' ? 'selected' : '' }}
                             value="ab_positive">
-                            AB positive</option>
+                            AB+
+                        </option>
                     </select>
                 </div>
                 <div class="col-span-6 sm:col-span-2">
