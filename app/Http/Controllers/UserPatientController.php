@@ -52,6 +52,9 @@ class UserPatientController extends Controller
             'nationality' => 'nullable|max:255',
             'religion' => 'nullable',
             'contact_person' => 'nullable',
+            'user_patient_height' => 'nullable',
+            'user_patient_weight' => 'nullable',
+            'user_patient_bmi' => 'nullable',
             'patient_phone_number' => 'required',
             // medical history
             'history_of_past_illness' => 'nullable',
@@ -89,6 +92,12 @@ class UserPatientController extends Controller
             'assestment' => 'nullable',
             'university_physician' => 'nullable',
         ]);
+
+        $height_squared = (float)$request->user_patient_height * (float)$request->user_patient_height;
+
+        $bmi = (float)$request->user_patient_weight / $height_squared;
+        $rounded_bmi = round($bmi, 2);
+
          UserPatient::create([
              'user_patient_id' => $request->user_patient_id,
              'user_patient_role' => $request->user_patient_role,
@@ -104,6 +113,9 @@ class UserPatientController extends Controller
              'nationality' => $request->nationality,
              'religion' => $request->religion,
              'contact_person' => $request->contact_person,
+             'user_patient_height' => $request->user_patient_height,
+             'user_patient_weight' => $request->user_patient_weight,
+             'user_patient_bmi' => $rounded_bmi,
              'patient_phone_number' => $request->patient_phone_number,
              // medical history
              'history_of_past_illness' => $request->history_of_past_illness,
@@ -141,6 +153,8 @@ class UserPatientController extends Controller
               'assestment' => $request->assestment,
               'university_physician' => $request->university_physician,
           ]);
+
+
 
         return redirect('/users')->with('success-message', 'User Added Successfully!');
     }
@@ -200,6 +214,9 @@ class UserPatientController extends Controller
             'nationality' => 'nullable',
             'religion' => 'nullable',
             'contact_person' => 'nullable',
+            'user_patient_height' => 'nullable',
+            'user_patient_weight' => 'nullable',
+            'user_patient_bmi' => 'nullable',
             'patient_phone_number' => 'required',
             // medical history
             'history_of_past_illness' => 'nullable',
@@ -240,6 +257,12 @@ class UserPatientController extends Controller
 
         //  $user->update($formFields);
 
+        $height_squared = (float)$request->user_patient_height * (float)$request->user_patient_height;
+
+        $bmi = (float)$request->user_patient_weight / $height_squared;
+        $rounded_bmi = round($bmi, 2);
+
+
           UserPatient::where('id', $id)->update([
             'user_patient_id' => $request->user_patient_id,
              'user_patient_role' => $request->user_patient_role,
@@ -255,6 +278,9 @@ class UserPatientController extends Controller
              'nationality' => $request->nationality,
              'religion' => $request->religion,
              'contact_person' => $request->contact_person,
+             'user_patient_height' => $request->user_patient_height,
+             'user_patient_weight' => $request->user_patient_weight,
+             'user_patient_bmi' =>  $rounded_bmi ,
              'patient_phone_number' => $request->patient_phone_number,
              // medical history
              'history_of_past_illness' => $request->history_of_past_illness,

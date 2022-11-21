@@ -192,6 +192,36 @@
                     {{ $user->patient_phone_number }}
                 </p>
             </div>
+            <div class="col-span-6 sm:col-span-2">
+                <h5 class="text-sm text-gray-800 mb-1">Height</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->user_patient_height }}
+                    @if($user->user_patient_height == null )
+                    Not Specified
+                    @endif
+                </p>
+            </div>
+            <div class="col-span-6 sm:col-span-2">
+                <h5 class="text-sm text-gray-800 mb-1">Weight</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->user_patient_weight }}
+                    @if($user->user_patient_weight == null )
+                    Not Specified
+                    @endif
+                </p>
+            </div>
+            <div class="col-span-6 sm:col-span-2">
+                <h5 class="text-sm text-gray-800 mb-1">BMI</h5>
+                <p
+                    class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->user_patient_bmi }}
+                    @if($user->user_patient_bmi == null )
+                    Not Specified
+                    @endif
+                </p>
+            </div>
 
             {{-- medical history --}}
             <div class="col-span-6">

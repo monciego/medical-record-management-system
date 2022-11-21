@@ -33,6 +33,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman Catholic',
         'contact_person' => 'John Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -89,6 +92,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman Catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -145,6 +151,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman Catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -201,6 +210,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -257,6 +269,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -313,6 +328,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -369,6 +387,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -425,6 +446,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -481,6 +505,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -537,6 +564,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -593,6 +623,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -649,6 +682,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -705,6 +741,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -761,6 +800,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -817,6 +859,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -873,6 +918,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -929,6 +977,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -985,6 +1036,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -1041,6 +1095,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,
@@ -1097,6 +1154,9 @@ class UserPatientSeeder extends Seeder
         'religion' => 'Roman catholic',
         'contact_person' => 'Jane Doe',
         'patient_phone_number' => '09123457192',
+        'user_patient_height' => '1.52',
+        'user_patient_weight' => '60',
+        'user_patient_bmi' => null,
         // medica => l
         'history_of_past_illness' => 'None',
         'past_illness' => null,

@@ -34,6 +34,9 @@ class UserPatient extends Model
         'religion',
         'contact_person',
         'patient_phone_number',
+        'user_patient_height',
+        'user_patient_weight',
+        'user_patient_bmi',
         // medical history
         'history_of_past_illness',
         'past_illness',

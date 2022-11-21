@@ -362,6 +362,65 @@
                     </div>
                     @enderror
                 </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_height" class="text-sm text-gray-800 mb-1 block">Height</label>
+                    <input type="text" name="user_patient_height" id="user_patient_height"
+                        :value="old('user_patient_height')" value="{{ $user->user_patient_height }}"
+                        class="{{($errors->first('user_patient_height') ? " border-red-600" : "border-gray-300" )}}
+                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
+                        py-2">
+                    @error('user_patient_height')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_weight" class="text-sm text-gray-800 mb-1 block">Weight</label>
+                    <input type="text" name="user_patient_weight" id="user_patient_weight"
+                        :value="old('user_patient_weight')" value="{{ $user->user_patient_weight }}"
+                        class="{{($errors->first('user_patient_weight') ? " border-red-600" : "border-gray-300" )}}
+                        text-sm dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4
+                        py-2">
+                    @error('user_patient_weight')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+                <div class="col-span-6 sm:col-span-2">
+                    <label for="user_patient_bmi" class="text-sm text-gray-800 mb-1 block">BMI</label>
+                    <input readonly type="text" name="user_patient_bmi" id="user_patient_bmi"
+                        :value="old('user_patient_bmi')" value="{{ $user->user_patient_bmi }}"
+                        class="{{($errors->first('user_patient_bmi') ? " border-red-600" : "border-gray-300" )}} text-sm
+                        dark-text font-medium capitalize w-full border border-gray-300 shadow rounded-md px-4 py-2">
+                    @error('user_patient_bmi')
+                    <div class="flex items-center gap-1 mt-1 ml-1">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
 
                 {{-- medical history --}}
                 <div class="col-span-6">

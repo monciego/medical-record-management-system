@@ -534,6 +534,56 @@
                                     @enderror
                                 </div>
 
+                                {{-- Patient height --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="user_patient_height" class="block text-sm font-medium text-gray-700">
+                                        Height (meters)
+                                    </label>
+                                    <input type="text" disabled name="user_patient_height" id="patient-height"
+                                        autocomplete="patient-height" value="{{ old('user_patient_height') }}"
+                                        class="{{($errors->first('user_patient_height') ? " border-red-600"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('user_patient_height')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Patient weight --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="user_patient_weight" class="block text-sm font-medium text-gray-700">
+                                        Weight (kilograms)
+                                    </label>
+                                    <input type="text" disabled name="user_patient_weight" id="patient-weight"
+                                        autocomplete="patient-weight" value="{{ old('user_patient_weight') }}"
+                                        class="{{($errors->first('user_patient_weight') ? " border-red-600"
+                                        : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
+                                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
+                                    @error('user_patient_weight')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
                                 {{-- Medical History --}}
                                 <div class="col-span-6">
                                     <h2 class="font-medium">Medical History</h2>
