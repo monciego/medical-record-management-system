@@ -408,18 +408,18 @@
                                         <option selected disabled hidden>Civil Status</option>
                                         <option class="capitalize" old('civil_status')=='single' ? 'selected' : '' }}
                                             value="single">
-                                            single</option>
+                                            SINGLE</option>
                                         <option class="capitalize" old('civil_status')=='married' ? 'selected' : '' }}
                                             value="married">
-                                            married
+                                            MARRIED
                                         </option>
                                         <option class="capitalize" old('civil_status')=='divorced' ? 'selected' : '' }}
                                             value="divorced">
-                                            divorced
+                                            DIVORCED
                                         </option>
                                         <option class="capitalize" old('civil_status')=='widowed' ? 'selected' : '' }}
                                             value="widowed">
-                                            widowed
+                                            WIDOWED
                                         </option>
                                     </select>
                                     @error('civil_status')
