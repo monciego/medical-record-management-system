@@ -149,11 +149,11 @@
                                     <label for="user_patient_suffix"
                                         class="block text-sm font-medium text-gray-700">Suffix</label>
                                     <select id="user_patient_suffix" disabled name="user_patient_suffix"
-                                        autocomplete="gender" class="{{($errors->first('user_patient_suffix') ? "
+                                        autocomplete="suffix" class="{{($errors->first('user_patient_suffix') ? "
                                         border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
                                         border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
                                         focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
-                                        <option selected disabled hidden>Gender</option>
+                                        <option selected disabled hidden>Select</option>
                                         <option {{ old('none')=='none' ? ' selected' : '' }} value="none">
                                             None
                                         </option>
