@@ -548,8 +548,15 @@
                     </div>
                 </div>
                 <h5 class="text-sm text-gray-800 mb-1">Result</h5>
-                <p
+                {{-- <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->urine_comment }}
+                    @if ($user->urine_comment == null)
+                    N/A
+                    @endif
+                </p> --}}
+                <p
+                    class="{{ $user->urine_comment == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
                     {{ $user->urine_comment }}
                     @if ($user->urine_comment == null)
                     N/A
@@ -576,8 +583,15 @@
                     </div>
                 </div>
                 <h5 class="text-sm text-gray-800 mb-1">Result</h5>
-                <p
+                {{-- <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->complete_blood_count_comment }}
+                    @if ($user->complete_blood_count_comment == null)
+                    N/A
+                    @endif
+                </p> --}}
+                <p
+                    class="{{ $user->complete_blood_count_comment == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
                     {{ $user->complete_blood_count_comment }}
                     @if ($user->complete_blood_count_comment == null)
                     N/A
@@ -604,8 +618,15 @@
                     </div>
                 </div>
                 <h5 class="text-sm text-gray-800 mb-1">Result</h5>
-                <p
+                {{-- <p
                     class="text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2">
+                    {{ $user->x_ray_comment }}
+                    @if ($user->x_ray_comment == null)
+                    N/A
+                    @endif
+                </p> --}}
+                <p
+                    class="{{ $user->x_ray_comment == null ? 'text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' : 'h-20 overflow-y-scroll text-sm dark-text font-medium capitalize w-full border border-gray-200 shadow-sm rounded-md px-4 py-2' }}">
                     {{ $user->x_ray_comment }}
                     @if ($user->x_ray_comment == null)
                     N/A

@@ -893,9 +893,13 @@
                                     </div>
                                     <label for="urine_comment"
                                         class="block text-xs font-medium text-gray-700">Result</label>
-                                    <input type="text" name="urine_comment" value="{{ old('urine_comment') }}"
+                                    {{-- <input type="text" name="urine_comment" value="{{ old('urine_comment') }}"
                                         id="urine_comment" autocomplete="urine_comment"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                        class="pb-10 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    --}}
+                                    <textarea name="urine_comment" id="urine_comment" autocomplete="urine_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('urine_comment') }}</textarea>
+
                                 </div>
 
                                 {{-- complete_blood_count --}}
@@ -916,10 +920,14 @@
                                     </div>
                                     <label for="complete_blood_count_comment"
                                         class="block text-xs font-medium text-gray-700">Result</label>
-                                    <input type="text" name="complete_blood_count_comment"
+                                    {{-- <input type="text" name="complete_blood_count_comment"
                                         value="{{ old('complete_blood_count_comment') }}"
                                         id="complete_blood_count_comment" autocomplete="complete_blood_count_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    --}}
+                                    <textarea name="complete_blood_count_comment" id="complete_blood_count_comment"
+                                        autocomplete="complete_blood_count_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('complete_blood_count_comment') }}</textarea>
                                 </div>
 
                                 {{-- x_ray --}}
@@ -939,9 +947,12 @@
                                     </div>
                                     <label for="x_ray_comment"
                                         class="block text-xs font-medium text-gray-700">Result</label>
-                                    <input type="text" name="x_ray_comment" value="{{ old('x_ray_comment') }}"
+                                    {{-- <input type="text" name="x_ray_comment" value="{{ old('x_ray_comment') }}"
                                         id="x_ray_comment" autocomplete="x_ray_comment"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    --}}
+                                    <textarea name="x_ray_comment" id="x_ray_comment" autocomplete="x_ray_comment"
+                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">{{ old('x_ray_comment') }}</textarea>
                                 </div>
 
                                 <div class=" col-span-6">
