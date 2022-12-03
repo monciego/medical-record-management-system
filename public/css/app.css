@@ -1371,6 +1371,9 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem !important;
 }
+.pb-10 {
+  padding-bottom: 2.5rem !important;
+}
 .text-left {
   text-align: left !important;
 }
