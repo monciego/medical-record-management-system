@@ -258,6 +258,23 @@ class ExaminationReportController extends Controller
         // lab results
          $obo_n = $data->obo === 'normal' ? '✓' : ' ';
          $obo_nn = $data->obo === 'not_normal' ? '✓' : ' ';
+         $urinalysis_n = $data->urinalysis === 'normal' ? '✓' : ' ';
+         $urinalysis_nn = $data->urinalysis === 'not_normal' ? '✓' : ' ';
+         $fecalysis_n = $data->fecalysis === 'normal' ? '✓' : ' ';
+         $fecalysis_nn = $data->fecalysis === 'not_normal' ? '✓' : ' ';
+         $hbs_ag_n = $data->hbs_ag === 'normal' ? '✓' : ' ';
+         $hbs_ag_nn = $data->hbs_ag === 'not_normal' ? '✓' : ' ';
+         $pregnancy_test_n = $data->pregnancy_test === 'normal' ? '✓' : ' ';
+         $pregnancy_test_nn = $data->pregnancy_test === 'not_normal' ? '✓' : ' ';
+         $pregnancy_test_n = $data->pregnancy_test === 'normal' ? '✓' : ' ';
+         $pregnancy_test_nn = $data->pregnancy_test === 'not_normal' ? '✓' : ' ';
+         $drug_test_n = $data->drug_test === 'normal' ? '✓' : ' ';
+         $drug_test_nn = $data->drug_test === 'not_normal' ? '✓' : ' ';
+         $chest_xray_n = $data->chest_xray === 'normal' ? '✓' : ' ';
+         $chest_xray_nn = $data->chest_xray === 'not_normal' ? '✓' : ' ';
+         $ecg_n = $data->ecg === 'normal' ? '✓' : ' ';
+         $ecg_nn = $data->ecg === 'not_normal' ? '✓' : ' ';
+
 
         $templateProcessor = new TemplateProcessor('documents/document.docx');
         // purpose
@@ -295,6 +312,35 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('genitourinary', $data->genitourinary);
         $templateProcessor->setValue('extremities', $data->extremities);
         $templateProcessor->setValue('neurological', $data->neurological);
+
+        $templateProcessor->setValue('obo_n', $obo_n);
+        $templateProcessor->setValue('obo_nn', $obo_nn);
+        $templateProcessor->setValue('obo_findings', $data->obo_findings);
+        $templateProcessor->setValue('urinalysis_n', $urinalysis_n);
+        $templateProcessor->setValue('urinalysis_nn', $urinalysis_nn);
+        $templateProcessor->setValue('urinalysis_findings', $data->urinalysis_findings);
+        $templateProcessor->setValue('fecalysis_n', $fecalysis_n);
+        $templateProcessor->setValue('fecalysis_nn', $fecalysis_nn);
+        $templateProcessor->setValue('fecalysis_findings', $data->fecalysis_findings);
+        $templateProcessor->setValue('hbs_ag_n', $hbs_ag_n);
+        $templateProcessor->setValue('hbs_ag_nn', $hbs_ag_nn);
+        $templateProcessor->setValue('hbs_ag_findings', $data->hbs_ag_findings);
+        $templateProcessor->setValue('pregnancy_test_n', $pregnancy_test_n);
+        $templateProcessor->setValue('pregnancy_test_nn', $pregnancy_test_nn);
+        $templateProcessor->setValue('pregnancy_test_findings', $data->pregnancy_test_findings);
+        $templateProcessor->setValue('drug_test_n', $drug_test_n);
+        $templateProcessor->setValue('drug_test_nn', $drug_test_nn);
+        $templateProcessor->setValue('drug_test_findings', $data->drug_test_findings);
+        $templateProcessor->setValue('chest_xray_n', $chest_xray_n);
+        $templateProcessor->setValue('chest_xray_nn', $chest_xray_nn);
+        $templateProcessor->setValue('chest_xray_findings', $data->chest_xray_findings);
+        $templateProcessor->setValue('ecg_n', $ecg_n);
+        $templateProcessor->setValue('ecg_nn', $ecg_nn);
+        $templateProcessor->setValue('ecg_findings', $data->ecg_findings);
+        $templateProcessor->setValue('others', $data->others);
+        $templateProcessor->setValue('pending_text', $data->pending_text);
+        $templateProcessor->setValue('unfit_text', $data->unfit_text);
+        $templateProcessor->setValue('remarks', $data->remarks);
 
         // laboratory and lab results are not printed (box issue)
         // and remarks
