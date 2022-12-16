@@ -38,7 +38,7 @@
                     </span>
                 </div>
             </x-nav-link>
-            {{-- -** Admin sidebar --}}
+            {{-- -** Admin (nurse) sidebar --}}
             @if (Auth::user()->hasRole('administrator'))
             {{-- Analytics --}}
             <x-nav-link :href="route('analytics')" :active="request()->routeIs('analytics')">
@@ -149,7 +149,7 @@
                     </span>
                 </div>
             </x-nav-link>
-            {{-- -** Superadministrator sidebar --}}
+            {{-- -** Superadministrator (doctor) sidebar --}}
             @if (Auth::user()->hasRole('superadministrator'))
             {{-- Create account/Register --}}
             <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
