@@ -93,6 +93,11 @@
                 :active="request()->routeIs('medical-examination-report.index')">
                 {{ __('Examination Reports') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->hasRole('superadministrator'))
+            <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                {{ __('Create account') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

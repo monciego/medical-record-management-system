@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DailyRecordReport;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,15 @@ Route::group(['middleware' => ['auth']], function() {
      // export document
     Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
 });
+
+
+// ** Route for both (admin and user)
+Route::group(['middleware' => ['auth', 'role:superadministrator']], function() {
+    Route::get('register', [RegisteredUserController::class, 'create'])
+                ->name('register');
+    Route::post('register', [RegisteredUserController::class, 'store']);
+});
+
 
 // ** Route for admin
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
