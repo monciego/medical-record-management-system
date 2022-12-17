@@ -37,6 +37,8 @@ Route::get('/', function () {
 // ** Route for both (admin and user)
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Users
+    Route::resource('users', UserPatientController::class);
     // Examination Report
     Route::resource('medical-examination-report', ExaminationReportController::class);
     Route::resource('change-password', ChangePasswordController::class);
@@ -52,6 +54,9 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function() {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
+    // Examination Report
+    // Route::resource('medical-examination-report', ExaminationReportController::class);
+    Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
 });
 
 
@@ -66,11 +71,6 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Patients
     Route::resource('patient', PatientController::class);
     Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
-    // Users
-    Route::resource('users', UserPatientController::class);
-    // Examination Report
-    // Route::resource('medical-examination-report', ExaminationReportController::class);
-    Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
     // treatment records
     Route::resource('treatment-records', TreatmentRecordController::class);
     // treatment records

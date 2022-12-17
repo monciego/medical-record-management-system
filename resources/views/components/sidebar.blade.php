@@ -38,6 +38,19 @@
                     </span>
                 </div>
             </x-nav-link>
+            {{-- Medical Records --}}
+            <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index*')">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="#94A3B8" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
+                        {{ __('Clinical Records') }}
+                    </span>
+                </div>
+            </x-nav-link>
             {{-- -** Admin (nurse) sidebar --}}
             @if (Auth::user()->hasRole('administrator'))
             {{-- Analytics --}}
@@ -68,19 +81,6 @@
                     </svg>
                     <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
                         {{ __('Medicines') }}
-                    </span>
-                </div>
-            </x-nav-link>
-            {{-- Medical Records --}}
-            <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index*')">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="#94A3B8" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Clinical Records') }}
                     </span>
                 </div>
             </x-nav-link>
