@@ -36,6 +36,14 @@ class DatabaseSeeder extends Seeder
 
          $adminUserTwo->attachRole('administrator');
 
+        $adminUserThree = \App\Models\User::factory()->create([
+            'name' => 'Nurse',
+            'email' => 'jerichobantiquete@gmail.com',
+            'password' => Hash::make('jerichobantiquete@gmail.com'),
+        ]);
+
+         $adminUserThree->attachRole('nurse');
+
         $superadminUser = \App\Models\User::factory()->create([
             'name' => 'Doctor',
             'email' => 'superadmin.clinic@psu.edu',

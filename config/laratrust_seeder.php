@@ -21,6 +21,10 @@ return [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
+        'nurse' => [
+            'users' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
     ],
 
     'permissions_map' => [

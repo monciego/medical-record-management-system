@@ -34,13 +34,12 @@ Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 
-// ** Route for both (admin and user)
+// ** Route for authenticated users
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Users
     Route::resource('users', UserPatientController::class);
-    // Examination Report
-    Route::resource('medical-examination-report', ExaminationReportController::class);
+
     Route::resource('change-password', ChangePasswordController::class);
     Route::post('/password/update', [ChangePasswordController::class, 'changePassword'])
     ->name('change.password');
@@ -49,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 
-// ** Route for both (admin and user)
+// ** Route for superadministrator (doctor)
 Route::group(['middleware' => ['auth', 'role:superadministrator']], function() {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
@@ -59,8 +58,16 @@ Route::group(['middleware' => ['auth', 'role:superadministrator']], function() {
     Route::get('examine/{user}', [ExaminationReportController::class, 'examine'])->name('examine');
 });
 
+// ** Route for superadministrator and administrator
+Route::group(['middleware' => ['role:superadministrator|administrator']], function () {
+    // Route::resource('users', UserPatientController::class);
+        // Examination Report
+    Route::resource('medical-examination-report', ExaminationReportController::class);
+});
 
-// ** Route for admin
+
+
+// ** Route for administrator (nurse)
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Analytics
     Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
@@ -69,10 +76,10 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('medicine-record', MedicineRecordController::class);
       Route::get('document/export-medical-record', [ExportMedicalRecordController::class, 'medicalReport'])->name('export.medical-report');
     // Patients
-    Route::resource('patient', PatientController::class);
-    Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
+    // Route::resource('patient', PatientController::class);
+    // Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
     // treatment records
-    Route::resource('treatment-records', TreatmentRecordController::class);
+    // Route::resource('treatment-records', TreatmentRecordController::class);
     // treatment records
     Route::resource('school-year', SchoolYearController::class);
     // daily record report
@@ -93,6 +100,15 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::get('document/export-non-teaching-first-sem/{id}', [ExportDailyRecordController::class, 'exportNonTeachingFirstSem'])->name('export.non-teaching-first-sem');
     Route::get('document/export-non-teaching-second-sem/{id}', [ExportDailyRecordController::class, 'exportNonTeachingSecondSem'])->name('export.non-teaching-second-sem');
     Route::get('document/export-non-teaching-summer/{id}', [ExportDailyRecordController::class, 'exportNonTeachingSummer'])->name('export.non-teaching-summer');
+});
+
+
+// Route for administrator and nurse role (nurse)
+Route::group(['middleware' => ['role:administrator|nurse']], function () {
+    Route::resource('treatment-records', TreatmentRecordController::class);
+    Route::resource('patient', PatientController::class);
+    Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
+    // Route::resource('users', UserPatientController::class);
 });
 
 
