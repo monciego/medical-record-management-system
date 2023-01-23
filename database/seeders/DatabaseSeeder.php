@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
 
         $adminUserThree = \App\Models\User::factory()->create([
             'name' => 'Nurse',
-            'email' => 'jerichobantiquete@gmail.com',
-            'password' => Hash::make('jerichobantiquete@gmail.com'),
+            'email' => 'mbartolome.lingayen@psu.edu.ph',
+            'password' => Hash::make('mbartolome.lingayen@psu.edu.ph'),
         ]);
 
          $adminUserThree->attachRole('nurse');
