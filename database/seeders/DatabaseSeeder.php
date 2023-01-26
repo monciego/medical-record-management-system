@@ -37,17 +37,17 @@ class DatabaseSeeder extends Seeder
          $adminUserTwo->attachRole('administrator');
 
         $adminUserThree = \App\Models\User::factory()->create([
-            'name' => 'Nurse',
-            'email' => 'mbartolome.lingayen@psu.edu.ph',
-            'password' => Hash::make('mbartolome.lingayen@psu.edu.ph'),
+            'name' => 'Dental',
+            'email' => 'bartolomemb.570.stud@cdd.edu.ph',
+            'password' => Hash::make('bartolomemb.570.stud@cdd.edu.ph'),
         ]);
 
          $adminUserThree->attachRole('nurse');
 
         $superadminUser = \App\Models\User::factory()->create([
             'name' => 'Doctor',
-            'email' => 'superadmin.clinic@psu.edu',
-            'password' => Hash::make('superadmin.clinic@psu.edu'),
+            'email' => 'mbartolome.lingayen@psu.edu.ph',
+            'password' => Hash::make('mbartolome.lingayen@psu.edu.ph'),
         ]);
 
          $superadminUser->attachRole('superadministrator');
