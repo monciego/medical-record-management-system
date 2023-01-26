@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserPatientSeeder::class);
 
         $adminUser = \App\Models\User::factory()->create([
-            'name' => 'Nurse',
+            'name' => 'Nurse 2',
             'email' => 'admin.clinic@psu.edu',
             'password' => Hash::make('admin.clinic@psu.edu'),
         ]);
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $adminUser->attachRole('administrator');
 
         $adminUserTwo = \App\Models\User::factory()->create([
-            'name' => 'Nurse',
+            'name' => 'Nurse 1',
             'email' => 'bartolomejrm@gmail.com',
             'password' => Hash::make('bartolomejrm@gmail.com'),
         ]);
