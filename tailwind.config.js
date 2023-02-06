@@ -9,6 +9,11 @@ module.exports = {
     important: true,
     theme: {
         extend: {
+            backgroundImage: {
+                // image/login-background.jpg
+                "login-background":
+                    "url('./public/images/login-background.jpg')",
+            },
             boxShadow: {
                 DEFAULT:
                     "0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.02)",
