@@ -41,7 +41,7 @@
                 <td class="p-2 ">
                     <div>
                         @if($examine_record->user_patient_role == 'teaching_staff')
-                        Teaching Staff
+                        Teaching
                         @elseif($examine_record->user_patient_role == 'non_teaching_staff')
                         Non-Teaching Staff
                         @elseif($examine_record->user_patient_role == 'student')

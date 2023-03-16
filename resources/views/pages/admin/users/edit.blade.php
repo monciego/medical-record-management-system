@@ -42,7 +42,7 @@
                         <option {{ $user->user_patient_role == 'student' ? 'selected' : '' }} id="student"
                             value="student">Student</option>
                         <option {{ $user->user_patient_role == 'teaching_staff' ? 'selected' : '' }} id="teaching_staff"
-                            value="teaching_staff">Teaching Staff</option>
+                            value="teaching_staff">Teaching</option>
                         <option id="non_teaching_staff" {{ $user->user_patient_role == 'non_teaching_staff' ? 'selected'
                             : '' }}
                             value="non_teaching_staff">Non-Teaching Staff

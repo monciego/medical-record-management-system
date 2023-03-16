@@ -23,7 +23,7 @@
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100" href="{{ route('users.index') }}">All</a>
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
             href="{{ route('users.index') }}/?role=teaching_staff">
-            Teaching Staff
+            Teaching
         </a>
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
             href="{{ route('users.index') }}/?role=non_teaching_staff">

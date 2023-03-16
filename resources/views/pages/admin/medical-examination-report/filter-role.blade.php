@@ -24,7 +24,7 @@
             href="{{ route('medical-examination-report.index') }}">All</a>
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
             href="{{ route('medical-examination-report.index') }}/?role=teaching_staff">
-            Teaching Staff
+            Teaching
         </a>
         <a class="text-gray-700 block px-4 py-3 text-sm hover:bg-slate-100"
             href="{{ route('medical-examination-report.index') }}/?role=non_teaching_staff">

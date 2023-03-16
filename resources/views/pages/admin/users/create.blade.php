@@ -21,7 +21,7 @@
                                         <option {{ old('user_patient_role')==='student' ? 'selected' : '' }}
                                             id="student" value="student">Student</option>
                                         <option {{ old('user_patient_role')==='teaching_staff' ? 'selected' : '' }}
-                                            id="teaching_staff" value="teaching_staff">Teaching Staff</option>
+                                            id="teaching_staff" value="teaching_staff">Teaching</option>
                                         <option {{ old('user_patient_role')==='non_teaching_staff' ? 'selected' : '' }}
                                             id="non_teaching_staff" value="non_teaching_staff">Non-Teaching Staff
                                         </option>

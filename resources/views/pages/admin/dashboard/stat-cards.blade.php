@@ -24,7 +24,7 @@
                 </g>
             </svg>
         </header>
-        <h2 class="text-lg font-semibold text-slate-800 mb-2">Teaching Staffs</h2>
+        <h2 class="text-lg font-semibold text-slate-800 mb-2">Teaching</h2>
         <div class="flex items-start">
             <div class="text-3xl font-bold text-slate-800 mr-2">{{ $teaching_staffs_count }}</div>
         </div>
