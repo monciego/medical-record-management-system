@@ -1,16 +1,16 @@
-<div class="h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg">
+<div class="h-screen pb-10 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg">
     <div class="z-[900]">
-        <img class="h-32" src="{{ asset('images/logo.png') }}" alt="logo">
+        <img class="h-20" src="{{ asset('images/logo.png') }}" alt="logo">
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg z-[900]">
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-slate-900 shadow-md overflow-hidden sm:rounded-lg z-[900]">
         {{ $slot }}
     </div>
 </div>
 
 <style>
     .bg {
-        background-image: url('{{ asset('images/login-background.jpg') }}');
+        background-image: url('{{ asset("images/login-background.jpg") }}');
         background-position: center;
         /* Center the image */
         background-repeat: no-repeat;
