@@ -87,20 +87,6 @@
             @endif
 
             @if (Auth::user()->hasRole('administrator'))
-            {{-- Analytics --}}
-            <x-nav-link :href="route('analytics')" :active="request()->routeIs('analytics')">
-                <div class="flex items-center">
-                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                        <path class="fill-current text-slate-600 false" d="M0 20h24v2H0z"></path>
-                        <path class="fill-current text-slate-400 false"
-                            d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z">
-                        </path>
-                    </svg>
-                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Analytics') }}
-                    </span>
-                </div>
-            </x-nav-link>
             {{-- Medicine --}}
             <x-nav-link :href="route('medicine.index')" :active="request()->routeIs('medicine.index')">
                 <div class="flex items-center">
@@ -150,6 +136,22 @@
                     </svg>
                     <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
                         {{ __('Examination Reports') }}
+                    </span>
+                </div>
+            </x-nav-link>
+            @endif
+            @if (Auth::user()->hasRole('superadministrator|nurse'))
+            {{-- Analytics --}}
+            <x-nav-link :href="route('analytics')" :active="request()->routeIs('analytics')">
+                <div class="flex items-center">
+                    <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                        <path class="fill-current text-slate-600 false" d="M0 20h24v2H0z"></path>
+                        <path class="fill-current text-slate-400 false"
+                            d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z">
+                        </path>
+                    </svg>
+                    <span class="text-sm font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
+                        {{ __('Analytics') }}
                     </span>
                 </div>
             </x-nav-link>

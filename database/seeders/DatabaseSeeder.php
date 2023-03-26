@@ -22,32 +22,32 @@ class DatabaseSeeder extends Seeder
 
         $adminUser = \App\Models\User::factory()->create([
             'name' => 'Nurse 2',
-            'email' => 'admin.clinic@psu.edu',
-            'password' => Hash::make('admin.clinic@psu.edu'),
+            'email' => 'snurse2@psu.edu.ph',
+            'password' => Hash::make('snurse2@psu.edu.ph'),
         ]);
 
         $adminUser->attachRole('administrator');
 
         $adminUserTwo = \App\Models\User::factory()->create([
             'name' => 'Nurse 1',
-            'email' => 'bartolomejrm@gmail.com',
-            'password' => Hash::make('bartolomejrm@gmail.com'),
+            'email' => 'snurse1@psu.edu.ph',
+            'password' => Hash::make('snurse1@psu.edu.ph'),
         ]);
 
          $adminUserTwo->attachRole('administrator');
 
         $adminUserThree = \App\Models\User::factory()->create([
             'name' => 'Dental',
-            'email' => 'bartolomemb.570.stud@cdd.edu.ph',
-            'password' => Hash::make('bartolomemb.570.stud@cdd.edu.ph'),
+            'email' => 'sdentist@psu.edu.ph',
+            'password' => Hash::make('sdentist@psu.edu.ph'),
         ]);
 
          $adminUserThree->attachRole('nurse');
 
         $superadminUser = \App\Models\User::factory()->create([
             'name' => 'Doctor',
-            'email' => 'mbartolome.lingayen@psu.edu.ph',
-            'password' => Hash::make('mbartolome.lingayen@psu.edu.ph'),
+            'email' => 'sdoctor@psu.edu.ph',
+            'password' => Hash::make('sdoctor@psu.edu.ph'),
         ]);
 
          $superadminUser->attachRole('superadministrator');

@@ -69,8 +69,6 @@ Route::group(['middleware' => ['role:superadministrator|administrator']], functi
 
 // ** Route for administrator (nurse)
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
-    // Analytics
-    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
     // Medicines
     Route::resource('medicine', MedicineController::class);
     Route::resource('medicine-record', MedicineRecordController::class);
@@ -109,6 +107,12 @@ Route::group(['middleware' => ['role:administrator|nurse']], function () {
     Route::resource('patient', PatientController::class);
     Route::get('consult/{user}', [PatientController::class, 'consult'])->name('consult');
     // Route::resource('users', UserPatientController::class);
+});
+
+// Route for administrator and nurse role (nurse)
+Route::group(['middleware' => ['role:superadministrator|nurse']], function () {
+      // Analytics
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
 });
 
 
