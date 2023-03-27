@@ -1,9 +1,9 @@
 <div class="h-screen pb-10 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg">
     <div class="z-[900]">
-        <img class="h-20" src="{{ asset('images/logo.png') }}" alt="logo">
+        <img class="h-28" src="{{ asset('images/logo.png') }}" alt="logo">
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-gray-100 shadow-md overflow-hidden sm:rounded-lg z-[900]">
+    <div class="w-full sm:max-w-md mt-6 px-6 mb-16 py-4 bg-gray-100 shadow-md overflow-hidden sm:rounded-lg z-[900]">
         {{ $slot }}
     </div>
 </div>
