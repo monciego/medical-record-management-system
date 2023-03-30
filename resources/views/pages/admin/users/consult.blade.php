@@ -307,7 +307,9 @@
                         <label for="{{ $medicine->medicine_name }}" class="w-full hover:bg-indigo-50 bg-wite p-1 block">
                             <input class="rounded text-indigo-600" type="checkbox" name="patient_prescribed_medicine[]"
                                 onclick="myFunction(this.id)" id="{{ $medicine->medicine_name }}"
-                                value="{{ $medicine->medicine_name }}">
+                                value="{{ $medicine->medicine_name }}" {{ (is_array(old('patient_prescribed_medicine'))
+                                && in_array($medicine->medicine_name, old('patient_prescribed_medicine'))) ? ' checked'
+                            : '' }} />
                             <span class="text-sm ml-2">{{ $medicine->medicine_name }}</span>
                         </label>
                         @endforeach
@@ -315,15 +317,17 @@
                 </div>
 
                 @foreach ($medicines as $medicine)
+
                 <div class="col-span-6 sm:col-span-2" style="display: none" id="{{ $medicine->medicine_name }}_text">
                     <label for="patient_prescribed_medicine_quantity" class="text-sm text-gray-800 mb-1 block">{{
                         $medicine->medicine_name }}
                         Quantity</label>
                     <input type="number" name="patient_prescribed_medicine_quantity[]"
-                        id="{{ $medicine->medicine_name }}" :value="old('patient_prescribed_medicine_quantity')"
+                        id="{{ $medicine->medicine_name }}"
+                        value="{{ old('patient_prescribed_medicine_quantity' . '.' . $loop->index) }}"
                         class="{{($errors->first('patient_prescribed_medicine_quantity') ? " border-red-600"
                         : "border-gray-300" )}} text-sm dark-text font-medium capitalize w-full border border-gray-300
-                        shadow rounded-md px-4 py-2">
+                        shadow rounded-md px-4 py-2 quantity">
                     @error('patient_prescribed_medicine_quantity')
                     <div class="flex items-center gap-1 mt-1 ml-1">
                         <div>
