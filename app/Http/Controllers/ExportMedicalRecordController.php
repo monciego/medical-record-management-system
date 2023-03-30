@@ -76,6 +76,7 @@ class ExportMedicalRecordController extends Controller
         $phpWord->addTableStyle('table', $table);
         $table = $section->addTable('table');
         $table->addRow();
+        $table->addCell(1750)->addText(htmlspecialchars("#"));
         $table->addCell(1750)->addText(htmlspecialchars("Medicines Given or Distributed"));
         $table->addCell(1750)->addText(htmlspecialchars("No. of Students"));
         $table->addCell(1750)->addText(htmlspecialchars("No. of Faculty"));
@@ -87,7 +88,6 @@ class ExportMedicalRecordController extends Controller
 
             $medicines = Str::of($data->patient_prescribed_medicine)->explode('|');
             $quantity = Str::of($data->patient_prescribed_medicine_quantity)->explode('|');
-
             $student_value = '';
             if ($data->user_data->user_patient_role === 'student') {
                 $student_value = '1';
@@ -110,6 +110,7 @@ class ExportMedicalRecordController extends Controller
             }
 
             $table->addRow();
+            $table->addCell(2000)->addText($quantity->implode(', '));
             $table->addCell(2000)->addText($medicines->implode(', '));
             $table->addCell(2000)->addText($student_value );
             $table->addCell(2000)->addText($faculty_value);
@@ -118,6 +119,7 @@ class ExportMedicalRecordController extends Controller
         }
         $table->addRow();
         $table->addCell(1750)->addText(htmlspecialchars("No. of Medicines Given"));
+        $table->addCell(1750)->addText(htmlspecialchars(""));
         $table->addCell(1750)->addText($student);
         $table->addCell(1750)->addText($total_teaching_staff);
         $table->addCell(1750)->addText($staff);
