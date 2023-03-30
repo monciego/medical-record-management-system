@@ -111,7 +111,12 @@ class ExportMedicalRecordController extends Controller
 
             $table->addRow();
             $table->addCell(2000)->addText($quantity->implode(', '));
+             if($data->patient_prescribed_medicine == '') {
+                 $table->addCell(2000)->addText(htmlspecialchars("No Prescribed Medicine"));
+            } else {
             $table->addCell(2000)->addText($medicines->implode(', '));
+
+            }
             $table->addCell(2000)->addText($student_value );
             $table->addCell(2000)->addText($faculty_value);
             $table->addCell(2000)->addText($staff_value);

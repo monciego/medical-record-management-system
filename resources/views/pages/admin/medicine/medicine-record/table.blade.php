@@ -37,6 +37,9 @@
                             @foreach(explode('|', $data->patient_prescribed_medicine) as $medicine)
                             <p class="block">{{$medicine}}</p>
                             @endforeach
+                            @if ($data->patient_prescribed_medicine == "")
+                            No prescribed medicine
+                            @endif
                         </div>
                     </div>
                 </td>
