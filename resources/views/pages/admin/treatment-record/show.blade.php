@@ -67,18 +67,14 @@
         <p>
             <span class="font-medium">Medicines Given: <div class="ml-8 flex gap-2">
                     <div>
-                        @foreach(explode('|', $patient->patient_prescribed_medicine_quantity) as
-                        $medicine_quantity)
+                        @foreach(explode('|', $patient->patient_prescribed_medicine_quantity)
+                        as $medicine_quantity)
                         @if ($medicine_quantity)
                         <li>{{ number_format($medicine_quantity) }}</li>
                         @else
                         <li>No Medicines Given</li>
                         @endif
                         @endforeach
-                        {{-- @foreach(explode('|', $patient->patient_prescribed_medicine_quantity) as
-                        $medicine_quantity)
-                        <li>{{ number_format($medicine_quantity) }}</li>
-                        @endforeach --}}
                     </div>
                     <div>
                         @foreach(explode('|', $patient->patient_prescribed_medicine) as $medicine)
