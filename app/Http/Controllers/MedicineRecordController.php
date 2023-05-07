@@ -40,6 +40,8 @@ class MedicineRecordController extends Controller
             return $query->where('user_patient_role', '=', 'student');
         })->pluck('patient_prescribed_medicine_quantity');
 
+        // dd($datas);
+
         // seperate the extracted data to | an
         $output_student = $student->implode('|');
 

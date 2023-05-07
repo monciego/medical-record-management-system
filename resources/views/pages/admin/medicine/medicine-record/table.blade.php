@@ -9,6 +9,9 @@
                     <div class="font-semibold text-left">Medicines Given or Distributed</div>
                 </th>
                 <th class="p-2">
+                    <div class="font-semibold text-left">No. of Medicines Given</div>
+                </th>
+                <th class="p-2">
                     <div class="font-semibold text-left">No. of Students</div>
                 </th>
                 <th class="p-2">
@@ -23,63 +26,91 @@
         <tbody class="text-sm font-medium divide-y divide-slate-100 ">
             {{-- row --}}
             {{-- {{ $value }} --}}
-            @foreach ($datas as $data)
+
+            <!-- This code stores the data from the database table 'patients' into a dictionary -->
+            @php
+            $medicineQuantities = [
+            'students' => 0,
+            'faculty' => 0,
+            'staff' => 0,
+            ];
+            $medicines = [];
+            $totalStudents = 0;
+            $totalFaculty = 0;
+            $totalStaff = 0;
+            $totalMedicineQuantity = 0;
+
+            foreach ($datas as $data) {
+            $prescribedMedicines = explode('|', $data->patient_prescribed_medicine);
+            $prescribedQuantities = explode('|', $data->patient_prescribed_medicine_quantity);
+            $role = $data->user_data->user_patient_role;
+
+            foreach ($prescribedMedicines as $index => $medicine) {
+            $quantity = (int)$prescribedQuantities[$index];
+
+            if ($quantity == 0) {
+            continue; // skip adding quantity if it's 0
+            }
+
+            if (!array_key_exists($medicine, $medicines)) {
+            $medicines[$medicine] = [
+            'quantity' => 0,
+            'students' => 0,
+            'faculty' => 0,
+            'staff' => 0,
+            ];
+            }
+
+            $medicines[$medicine]['quantity'] += $quantity;
+
+
+            if ($role === 'student') {
+            $medicines[$medicine]['students'] += 1;
+            $totalStudents += 1;
+            } elseif ($role === 'teaching_staff') {
+            $medicines[$medicine]['faculty'] += 1;
+            $totalFaculty += 1;
+            } elseif ($role === 'non_teaching_staff') {
+            $medicines[$medicine]['staff'] += 1;
+            $totalStaff += 1;
+            }
+            }
+            }
+
+            foreach ($medicines as $medicine) {
+            $totalMedicineQuantity += $medicine['quantity'];
+            }
+            @endphp
+
+
+            <!-- table body -->
+            @foreach ($medicines as $medicine => $values)
             <tr>
-                <td class="p-2">
-                    <div class="ml-2 flex gap-2">
-                        <div>
-                            @foreach(explode('|', $data->patient_prescribed_medicine_quantity) as $medicine_quantity)
-                            {{-- <li>{{ number_format($medicine_quantity) }}</li> --}}
-                            <li>{{ $medicine_quantity }}</li>
-                            @endforeach
-                        </div>
-                        <div>
-                            @foreach(explode('|', $data->patient_prescribed_medicine) as $medicine)
-                            <p class="block">{{$medicine}}</p>
-                            @endforeach
-                            @if ($data->patient_prescribed_medicine == "")
-                            No prescribed medicine
-                            @endif
-                        </div>
-                    </div>
-                </td>
-                <td class="p-2">
-                    @if ($data->user_data->user_patient_role === 'student')
-                    1
-                    @else
-                    0
-                    @endif
-                </td>
-                <td class="p-2 ">
-                    @if ($data->user_data->user_patient_role === 'teaching_staff')
-                    1
-                    @else
-                    0
-                    @endif
-                    {{-- {{ $student_record->complaints }} --}}
-                </td>
-                <td class="p-2 ">
-                    @if ($data->user_data->user_patient_role === 'non_teaching_staff')
-                    1
-                    @else
-                    0
-                    @endif
-                </td>
+                <td>{{ $medicine }}</td>
+                <td>{{ $values['quantity'] }}</td>
+                <td>{{ $values['students'] }}</td>
+                <td>{{ $values['faculty'] }}</td>
+                <td>{{ $values['staff'] }}</td>
             </tr>
             @endforeach
+
             <tr class="bg-slate-500 text-white">
                 <td class="p-2 font-medium">
-                    No. Medicines Given
+                    TOTAL
                 </td>
                 <td class="p-2 font-medium">
-                    {{ $student }}
+                    {{ $totalMedicineQuantity }}
+                </td>
+                <td>
+                    {{$totalStudents }}
                 </td>
                 <td class="p-2 font-medium">
-                    {{ $total_teaching_staff }}
+                    {{ $totalFaculty}}
                 </td>
                 <td class="p-2 font-medium">
-                    {{ $staff }}
+                    {{$totalStaff}}
                 </td>
+                <td></td>
             </tr>
         </tbody>
     </table>
