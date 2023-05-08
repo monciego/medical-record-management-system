@@ -6,6 +6,7 @@ use App\Models\Patient;
 use Illuminate\Support\Str;
 use Exception;
 use Illuminate\Http\Request;
+use PhpOffice\PhpWord\Settings;
 
 class ExportMedicalRecordController extends Controller
 {
@@ -128,7 +129,10 @@ class ExportMedicalRecordController extends Controller
         $table->addCell(1750)->addText($student);
         $table->addCell(1750)->addText($total_teaching_staff);
         $table->addCell(1750)->addText($staff);
-         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+
+        \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
+
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
             try {
             $objWriter->save(storage_path('MedicalReport.docx'));
         } catch (Exception $e) {

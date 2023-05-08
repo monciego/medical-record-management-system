@@ -7,7 +7,7 @@ use Exception;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Illuminate\Support\Str;
-
+use PhpOffice\PhpWord\Settings;
 
 class ExportDailyRecordController extends Controller
 {
@@ -62,6 +62,9 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+
+        \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
+
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -135,6 +138,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+        \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -209,6 +213,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -287,6 +292,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -360,6 +366,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -433,6 +440,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -510,6 +518,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -584,6 +593,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
@@ -665,6 +675,7 @@ class ExportDailyRecordController extends Controller
                 $table->addCell(2000)->addText($medicineData);
             }
         }
+                \PhpOffice\PhpWord\Settings::setZipClass(Settings::PCLZIP);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         try {
           if($semester === 0) {
