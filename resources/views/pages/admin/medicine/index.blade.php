@@ -14,6 +14,10 @@
                     </svg>
                     <span class="xs:block text-sm ml-2">Medicine Records</span>
                 </a>
+                <a href="{{ route('preview.medicine') }}"
+                    class="px-4 py-2 font-medium text-sm inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-green-500 hover:bg-green-600 text-white">
+                    <span class="xs:block text-sm ml-2">Preview</span>
+                </a>
             </div>
         </header>
         <div class="p-3">

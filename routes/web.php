@@ -70,6 +70,7 @@ Route::group(['middleware' => ['role:superadministrator|administrator']], functi
 // ** Route for administrator (nurse)
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     // Medicines
+    Route::get('medicine-preview', [MedicineController::class, 'preview'])->name('preview.medicine');
     Route::resource('medicine', MedicineController::class);
     Route::resource('medicine-record', MedicineRecordController::class);
       Route::get('document/export-medical-record', [ExportMedicalRecordController::class, 'medicalReport'])->name('export.medical-report');

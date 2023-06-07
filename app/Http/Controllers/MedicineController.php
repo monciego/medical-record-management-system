@@ -24,6 +24,20 @@ class MedicineController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function preview()
+    {
+        $medicines = Medicine::latest()->get();
+        $currentTime = Carbon::now()->subDays(1);
+        // $expiredMedicines = Medicine::whereDate('date_of_expiration' , '<' , $currentTime->addDays(1))->get();
+        // dd($clientsToNotif);
+        return view('pages.admin.medicine.medicine-preview', compact('medicines', 'currentTime'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
