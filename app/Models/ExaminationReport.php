@@ -94,7 +94,7 @@ class ExaminationReport extends Model
         }
 
         if($filters['search'] ?? false) {
-              $query->where('user_patient_first_name', 'like', '%' . request('search'));
+              $query->where('user_patient_id', 'like', '%' . request('search'));
         }
     }
 }
