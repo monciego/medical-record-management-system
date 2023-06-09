@@ -38,7 +38,7 @@ class UserPatientController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'user_patient_id' => 'required|max:255', // must unique
+            'user_patient_id' => 'required|max:255|unique:user_patients', // must unique
             'user_patient_role' => 'required',
             'user_patient_first_name' => 'required|max:255',
             'user_patient_middle_name' => 'nullable',
