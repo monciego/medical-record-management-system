@@ -221,7 +221,7 @@
                 <div id="department_year_role" class="col-span-6 sm:col-span-2">
                     <label for="user_year_department_role" class="text-sm text-gray-800 mb-1 block" id="label">
                         @if ($user->user_patient_role === 'student')
-                        Year & Section
+                        Course / Year & Section
                         @elseif($user->user_patient_role === 'teaching_staff')
                         Department
                         @elseif($user->user_patient_role === 'non_teaching_staff')

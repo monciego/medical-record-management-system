@@ -57,7 +57,7 @@ class MedicineController extends Controller
     {
         //
         $formFields = $request->validate([
-            'medicine_name' => 'required',
+            'medicine_name' => 'required|unique:medicines',
             'medicine_quantity' => ['required'],
             'medicine_cost' => 'required',
             'date_of_acquisition' => 'required',

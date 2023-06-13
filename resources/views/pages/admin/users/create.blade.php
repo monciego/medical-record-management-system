@@ -1054,7 +1054,7 @@
                 label.textContent = localStorage.getItem("r0l3");
                 department_year_role.style.display = "block";
             } else if (student === that.value) {
-                localStorage.setItem('r0l3', 'Year & Section')
+                localStorage.setItem('r0l3', 'Course / Year & Section')
                 label.textContent = localStorage.getItem("r0l3");
                 // label.textContent = "Year & Section";
                 department_year_role.style.display = "block";
