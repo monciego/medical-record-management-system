@@ -96,7 +96,7 @@
             <div class="col-span-6 sm:col-span-2">
                 <h5 class="text-sm text-gray-800 mb-1">
                     @if ($user->user_patient_role === 'student')
-                    Year and Section
+                    Course / Year and Section
                     @elseif($user->user_patient_role === 'teaching_staff')
                     Department
                     @elseif($user->user_patient_role === 'non_teaching_staff')
