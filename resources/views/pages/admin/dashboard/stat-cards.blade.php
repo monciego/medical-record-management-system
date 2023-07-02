@@ -1,6 +1,6 @@
 <div
     class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
-    <div class="px-5 py-5">
+    <a href="{{ route('report.teaching') }}" class="px-5 py-5">
         <header class="flex justify-between items-start mb-2">
             <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -28,12 +28,12 @@
         <div class="flex items-start">
             <div class="text-3xl font-bold text-slate-800 mr-2">{{ $teaching_staffs_count }}</div>
         </div>
-    </div>
+    </a>
 </div>
 
 <div
     class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
-    <div class="px-5 py-5">
+    <a href="{{ route('report.non_teaching') }}" class="px-5 py-5">
         <header class="flex justify-between items-start mb-2">
             <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -61,12 +61,12 @@
         <div class="flex items-start">
             <div class="text-3xl font-bold text-slate-800 mr-2">{{ $non_teaching_staffs_count }}</div>
         </div>
-    </div>
+    </a>
 </div>
 
 <div
     class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
-    <div class="px-5 py-5">
+    <a href="{{ route('report.students') }}" class="px-5 py-5">
         <header class="flex justify-between items-start mb-2">
             <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -94,5 +94,5 @@
         <div class="flex items-start">
             <div class="text-3xl font-bold text-slate-800 mr-2">{{ $students_count }}</div>
         </div>
-    </div>
+    </a>
 </div>
