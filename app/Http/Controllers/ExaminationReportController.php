@@ -250,9 +250,9 @@ class ExaminationReportController extends Controller
         $last_name = $data->user_data->user_patient_last_name;
         $suffix = $data->user_data->user_patient_suffix;
         $full_name = $first_name . " " . $middle_name . " " . $last_name . " " . $suffix;
-        $pr = $data->pre_employment === 1 ? '✓' : ' ';
-        $an = $data->annual === 1 ? '✓' : ' ';
-        $ojt = $data->ojt === 1 ? '✓' : ' ';
+        $pr = $data->pre_employment === '1' ? '✓' : ' ';
+        $an = $data->annual === '1' ? '✓' : ' ';
+        $ojt = $data->ojt === '1' ? '✓' : ' ';
         $examinationDate = \Carbon\Carbon::parse($data->date_of_examination)->isoFormat('MMM D YYYY');
         $age = \Carbon\Carbon::parse($data->user_data->user_patient_birthday)->age;
         // lab results
@@ -275,6 +275,11 @@ class ExaminationReportController extends Controller
          $ecg_n = $data->ecg === 'normal' ? '✓' : ' ';
          $ecg_nn = $data->ecg === 'not_normal' ? '✓' : ' ';
 
+         $class_a = $data->class_a === '1' ? '✓' : ' ';
+         $class_b = $data->class_b === '1' ? '✓' : ' ';
+         $class_c = $data->class_c === '1' ? '✓' : ' ';
+         $pending = $data->pending === '1' ? '✓' : ' ';
+         $unfit = $data->class_c === '1' ? '✓' : ' ';
 
         $templateProcessor = new TemplateProcessor('documents/document.docx');
         // purpose
@@ -341,6 +346,12 @@ class ExaminationReportController extends Controller
         $templateProcessor->setValue('pending_text', $data->pending_text);
         $templateProcessor->setValue('unfit_text', $data->unfit_text);
         $templateProcessor->setValue('remarks', $data->remarks);
+
+        $templateProcessor->setValue('class_a', $class_a);
+        $templateProcessor->setValue('class_b', $class_b);
+        $templateProcessor->setValue('class_c', $class_c);
+        $templateProcessor->setValue('pending', $pending);
+        $templateProcessor->setValue('unfit', $unfit);
 
         // laboratory and lab results are not printed (box issue)
         // and remarks
