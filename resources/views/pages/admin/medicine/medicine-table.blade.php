@@ -21,6 +21,9 @@
                     <div class="font-semibold text-left">Date of Expiration</div>
                 </th>
                 <th class="p-2">
+                    <div class="font-semibold text-left">Stock</div>
+                </th>
+                <th class="p-2">
                     <div class="font-semibold text-left">Action</div>
                 </th>
             </tr>
@@ -35,6 +38,7 @@
                 </td>
                 <td class="p-2 ">
                     <div>{{ number_format($medicine->medicine_quantity) }}</div>
+
                 </td>
                 <td class="p-2 ">
                     <div>@money($medicine->medicine_cost)</div>
@@ -47,6 +51,10 @@
                         @else {{
                         \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
                         @endif
+                </td>
+                <td class="p-2 ">
+                    <div class="text-red-700">
+                        @if ($medicine->medicine_quantity <= 100) Citical Stock @endif </div>
                 </td>
                 <td class="p-2 ">
                     <div>

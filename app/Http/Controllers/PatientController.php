@@ -62,32 +62,58 @@ class PatientController extends Controller
             'school_year_id' => 'required',
         ]);
 
-          $patient_prescribed_medicine = $request->input('patient_prescribed_medicine', []);
-          $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity', []);
-        Patient::create([
-            'user_patient_id' => $request->user_patient_id,
-            'clinic' => $request->clinic,
-            'patient_consult_date' =>  $request->patient_consult_date,
-            'patient_consult_time' =>  $request->patient_consult_time,
-            'complaints' =>  $request->complaints,
-            'diagnosis' =>  $request->diagnosis,
-            'patient_prescribed_medicine' =>  implode('|', $patient_prescribed_medicine),
-            'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
-            'patient_medical_comments' =>  $request->patient_medical_comments,
-            'semester' => $request->semester,
-            'physician_name' => $request->physician_name,
-            'school_year_id' => $request->school_year_id,
-        ]);
 
-    $patient_prescribed_medicines = $request->input('patient_prescribed_medicine', []);
 
-    $num_i = 0;
-    foreach($patient_prescribed_medicines as $given_medicine){
-        DB::table('medicines')->where('medicine_name', $given_medicine)->decrement('medicine_quantity', array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i]);
-        $num_i = $num_i + 1;
-    }
+          $patient_prescribed_medicines = $request->input('patient_prescribed_medicine', []);
 
-        return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
+          $num_i = 0;
+          foreach($patient_prescribed_medicines as $given_medicine){
+              // ->where('medicine_quantity', '>', 0)
+              $ok =  DB::table('medicines')->where('medicine_name', $given_medicine)->pluck('medicine_quantity')[$num_i];
+
+              $patient_prescribed_medicine = $request->input('patient_prescribed_medicine', []);
+              $patient_prescribed_medicine_quantity = $request->input('patient_prescribed_medicine_quantity', []);
+              $x =  array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i];
+            //   dd($ok - $x);
+
+              $b = $ok - $x;
+
+              if($b < 0) {
+
+              } else {
+
+                  DB::table('medicines')->where('medicine_name', $given_medicine)->decrement('medicine_quantity', array_values(array_filter($patient_prescribed_medicine_quantity))[$num_i]);
+              }
+
+            // dd($ok < 0 ? 'negative' : 'positive');
+
+            if($b < 0) {
+                return redirect('/patient')->with('danger-message', 'Medicine out of stock!');
+            } else {
+                Patient::create([
+                    'user_patient_id' => $request->user_patient_id,
+                    'clinic' => $request->clinic,
+                    'patient_consult_date' =>  $request->patient_consult_date,
+                    'patient_consult_time' =>  $request->patient_consult_time,
+                    'complaints' =>  $request->complaints,
+                    'diagnosis' =>  $request->diagnosis,
+                    'patient_prescribed_medicine' =>  implode('|', $patient_prescribed_medicine),
+                    'patient_prescribed_medicine_quantity' =>  implode('|', array_filter($patient_prescribed_medicine_quantity)),
+                    'patient_medical_comments' =>  $request->patient_medical_comments,
+                    'semester' => $request->semester,
+                    'physician_name' => $request->physician_name,
+                    'school_year_id' => $request->school_year_id,
+                    ]);
+
+                    DB::table('medicines')->where('medicine_name', $given_medicine)->update([
+                        'stock_out' => $x
+                    ]);
+
+
+                    return redirect('/patient')->with('success-message', 'Patient Added Successfully!');
+            }
+          }
+
     }
 
     /**

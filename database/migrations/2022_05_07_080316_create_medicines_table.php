@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->string('medicine_name');
+            $table->bigInteger('stock_out')->nullable();
             $table->bigInteger('medicine_quantity');
             $table->bigInteger('medicine_cost');
             $table->longText('date_of_acquisition');
