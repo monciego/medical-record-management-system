@@ -32,6 +32,8 @@
 
                     <x-slot name="content">
                         <!-- Change Password -->
+                        @include('pages.admin.change-name.change-name')
+                        <!-- Change Password -->
                         @include('auth.change-password.change-password')
                         <!-- School Year -->
                         @if (Auth::user()->hasRole('administrator'))

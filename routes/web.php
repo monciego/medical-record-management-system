@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ChangeNameController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DailyRecordReport;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('change-password', ChangePasswordController::class);
     Route::post('/password/update', [ChangePasswordController::class, 'changePassword'])
     ->name('change.password');
+
+    Route::get('/change-name', [ChangeNameController::class, 'index'])
+    ->name('change.name');
+    Route::post('/name/update', [ChangeNameController::class, 'update'])
+    ->name('update.name');
      // export document
     Route::get('document/export/{user}', [ExaminationReportController::class, 'exportDocument'])->name('export-document');
 });
