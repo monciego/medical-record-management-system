@@ -46,7 +46,7 @@
                                     <label for="user_patient_id" class="block text-sm font-medium text-gray-700">
                                         ID</label>
                                     <input type="text" disabled name="user_patient_id" id="user_patient_id"
-                                        autocomplete="patient-id" value="{{ old('user_patient_id','-LING-') }}"
+                                        autocomplete="patient-id" value="{{ old('user_patient_id') }}"
                                         class="{{($errors->first('user_patient_id') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm rounded-md inputs cursor-no-drop">
