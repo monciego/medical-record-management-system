@@ -66,18 +66,49 @@
                                 </div>
 
 
-                                {{-- Patient first name --}}
+                                {{-- Patient Gender --}}
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_first_name"
-                                        class="block text-sm font-medium text-gray-700">First
+                                    <label for="user_patient_gender" class="block text-sm font-medium
+                                        text-gray-700">Gender</label>
+                                    <select id="user_patient_gender" disabled name="user_patient_gender"
+                                        autocomplete="gender" class="{{($errors->first('user_patient_gender') ? "
+                                        border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
+                                        border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
+                                        focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
+                                        <option selected disabled hidden>Gender</option>
+                                        <option {{ old('user_patient_gender')=='male' ? 'selected' : '' }} value="male">
+                                            Male</option>
+                                        <option {{ old('user_patient_gender')=='female' ? 'selected' : '' }}
+                                            value="female">Female
+                                        </option>
+                                    </select>
+                                    @error('user_patient_gender')
+                                    <div class="flex items-center gap-1 mt-1 ml-1">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="#cc0000">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Patient last name --}}
+                                <div class="col-span-6 sm:col-span-2">
+                                    <label for="user_patient_last_name"
+                                        class="block text-sm font-medium text-gray-700">Last
                                         Name</label>
-                                    <input type="text" disabled name="user_patient_first_name"
-                                        id="user_patient_first_name" autocomplete="first-name"
-                                        value="{{ old('user_patient_first_name') }}"
-                                        class="{{($errors->first('user_patient_first_name') ? " border-red-600"
+                                    <input type="text" disabled name="user_patient_last_name"
+                                        id="user_patient_last_name" autocomplete="last-name"
+                                        value="{{ old('user_patient_last_name') }}"
+                                        class="{{($errors->first('user_patient_last_name') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
-                                    @error('user_patient_first_name')
+                                    @error('user_patient_last_name')
                                     <div class="flex items-center gap-1 mt-1 ml-1">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
@@ -118,18 +149,18 @@
                                     @enderror
                                 </div>
 
-                                {{-- Patient last name --}}
+                                {{-- Patient first name --}}
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_last_name"
-                                        class="block text-sm font-medium text-gray-700">Last
+                                    <label for="user_patient_first_name"
+                                        class="block text-sm font-medium text-gray-700">First
                                         Name</label>
-                                    <input type="text" disabled name="user_patient_last_name"
-                                        id="user_patient_last_name" autocomplete="last-name"
-                                        value="{{ old('user_patient_last_name') }}"
-                                        class="{{($errors->first('user_patient_last_name') ? " border-red-600"
+                                    <input type="text" disabled name="user_patient_first_name"
+                                        id="user_patient_first_name" autocomplete="first-name"
+                                        value="{{ old('user_patient_first_name') }}"
+                                        class="{{($errors->first('user_patient_first_name') ? " border-red-600"
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
-                                    @error('user_patient_last_name')
+                                    @error('user_patient_first_name')
                                     <div class="flex items-center gap-1 mt-1 ml-1">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
@@ -258,37 +289,6 @@
                                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
                                         w-full shadow-sm sm:text-sm border-gray-300 rounded-md inputs cursor-no-drop">
                                     @error('user_year_department_role')
-                                    <div class="flex items-center gap-1 mt-1 ml-1">
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                                fill="#cc0000">
-                                                <path fill-rule="evenodd"
-                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <p class="text-red-700 font-medium text-xs">{{ $message }}</p>
-                                    </div>
-                                    @enderror
-                                </div>
-
-                                {{-- Patient Gender --}}
-                                <div class="col-span-6 sm:col-span-2">
-                                    <label for="user_patient_gender" class="block text-sm font-medium
-                                        text-gray-700">Gender</label>
-                                    <select id="user_patient_gender" disabled name="user_patient_gender"
-                                        autocomplete="gender" class="{{($errors->first('user_patient_gender') ? "
-                                        border-red-600" : "border-gray-300" )}} mt-1 block w-full py-2 px-3 border
-                                        border-gray-300 bg-white rounded-md shadow-sm focus:outline-none
-                                        focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm inputs cursor-no-drop">
-                                        <option selected disabled hidden>Gender</option>
-                                        <option {{ old('user_patient_gender')=='male' ? 'selected' : '' }} value="male">
-                                            Male</option>
-                                        <option {{ old('user_patient_gender')=='female' ? 'selected' : '' }}
-                                            value="female">Female
-                                        </option>
-                                    </select>
-                                    @error('user_patient_gender')
                                     <div class="flex items-center gap-1 mt-1 ml-1">
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
