@@ -54,7 +54,7 @@
                 </td>
                 <td class="p-2 ">
                     <div class="text-red-700">
-                        @if ($medicine->medicine_quantity <= 100) Citical Stock @endif </div>
+                        @if ($medicine->medicine_quantity <= 100) Critical Stock @endif </div>
                 </td>
                 <td class="p-2 ">
                     <div>
