@@ -655,17 +655,17 @@ select {
   top: 0px !important;
   bottom: 0px !important;
 }
-.left-0 {
-  left: 0px !important;
-}
-.right-0 {
-  right: 0px !important;
-}
 .top-0 {
   top: 0px !important;
 }
 .bottom-0 {
   bottom: 0px !important;
+}
+.right-0 {
+  right: 0px !important;
+}
+.left-0 {
+  left: 0px !important;
 }
 .top-2\/4 {
   top: 50% !important;
@@ -682,17 +682,17 @@ select {
 .z-\[900\] {
   z-index: 900 !important;
 }
-.z-50 {
-  z-index: 50 !important;
-}
-.z-40 {
-  z-index: 40 !important;
-}
 .z-\[500\] {
   z-index: 500 !important;
 }
 .z-\[600\] {
   z-index: 600 !important;
+}
+.z-50 {
+  z-index: 50 !important;
+}
+.z-40 {
+  z-index: 40 !important;
 }
 .z-30 {
   z-index: 30 !important;
@@ -756,20 +756,23 @@ select {
 .ml-8 {
   margin-left: 2rem !important;
 }
-.ml-1 {
-  margin-left: 0.25rem !important;
-}
-.ml-2 {
-  margin-left: 0.5rem !important;
+.mr-4 {
+  margin-right: 1rem !important;
 }
 .-mr-1 {
   margin-right: -0.25rem !important;
 }
-.mt-8 {
-  margin-top: 2rem !important;
+.ml-2 {
+  margin-left: 0.5rem !important;
 }
 .mt-2 {
   margin-top: 0.5rem !important;
+}
+.ml-1 {
+  margin-left: 0.25rem !important;
+}
+.mt-8 {
+  margin-top: 2rem !important;
 }
 .mb-2 {
   margin-bottom: 0.5rem !important;
@@ -785,9 +788,6 @@ select {
 }
 .-mt-px {
   margin-top: -1px !important;
-}
-.mr-4 {
-  margin-right: 1rem !important;
 }
 .mb-10 {
   margin-bottom: 2.5rem !important;
@@ -876,11 +876,11 @@ select {
 .h-3 {
   height: 0.75rem !important;
 }
-.max-h-56 {
-  max-height: 14rem !important;
-}
 .max-h-64 {
   max-height: 16rem !important;
+}
+.max-h-56 {
+  max-height: 14rem !important;
 }
 .max-h-44 {
   max-height: 11rem !important;
@@ -893,6 +893,9 @@ select {
 }
 .w-full {
   width: 100% !important;
+}
+.w-56 {
+  width: 14rem !important;
 }
 .w-4 {
   width: 1rem !important;
@@ -921,9 +924,6 @@ select {
 .w-64 {
   width: 16rem !important;
 }
-.w-56 {
-  width: 14rem !important;
-}
 .w-3 {
   width: 0.75rem !important;
 }
@@ -951,14 +951,14 @@ select {
 .table-auto {
   table-layout: auto !important;
 }
+.origin-top-right {
+  transform-origin: top right !important;
+}
 .origin-top-left {
   transform-origin: top left !important;
 }
 .origin-top {
   transform-origin: top !important;
-}
-.origin-top-right {
-  transform-origin: top right !important;
 }
 .-translate-x-64 {
   --tw-translate-x: -16rem !important;
@@ -1070,13 +1070,13 @@ select {
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse))) !important;
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse)) !important;
 }
-.divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1 !important;
-  border-color: rgb(241 245 249 / var(--tw-divide-opacity)) !important;
-}
 .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1 !important;
   border-color: rgb(243 244 246 / var(--tw-divide-opacity)) !important;
+}
+.divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1 !important;
+  border-color: rgb(241 245 249 / var(--tw-divide-opacity)) !important;
 }
 .overflow-hidden {
   overflow: hidden !important;
@@ -1336,6 +1336,10 @@ select {
   padding-top: 0.25rem !important;
   padding-bottom: 0.25rem !important;
 }
+.py-3 {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
 .px-1 {
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
@@ -1343,10 +1347,6 @@ select {
 .px-3 {
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
-}
-.py-3 {
-  padding-top: 0.75rem !important;
-  padding-bottom: 0.75rem !important;
 }
 .py-2\.5 {
   padding-top: 0.625rem !important;
@@ -1684,6 +1684,14 @@ select {
   --tw-border-opacity: 1 !important;
   border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
 }
+.hover\:bg-gray-50:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
+}
+.hover\:bg-slate-100:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity)) !important;
+}
 .hover\:bg-indigo-700:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(67 56 202 / var(--tw-bg-opacity)) !important;
@@ -1699,14 +1707,6 @@ select {
 .hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity)) !important;
-}
-.hover\:bg-gray-50:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
-}
-.hover\:bg-slate-100:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity)) !important;
 }
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1 !important;
@@ -1858,14 +1858,14 @@ select {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
 }
-.focus\:ring-0:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-}
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+}
+.focus\:ring-0:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
 }
 .focus\:ring-4:focus {

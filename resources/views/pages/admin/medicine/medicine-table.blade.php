@@ -20,8 +20,11 @@
                 <th class="p-2">
                     <div class="font-semibold text-left">Date of Expiration</div>
                 </th>
-                <th class="p-2">
+                {{-- <th class="p-2">
                     <div class="font-semibold text-left">Stock</div>
+                </th> --}}
+                <th class="p-2">
+                    <div class="font-semibold text-left">Stock Out</div>
                 </th>
                 <th class="p-2">
                     <div class="font-semibold text-left">Action</div>
@@ -34,7 +37,14 @@
             @foreach ($medicines as $medicine)
             <tr>
                 <td class="p-2">
-                    <div class="text-slate-800 capitalize">{{ $medicine->medicine_name }}</div>
+                    <div class="text-slate-800 capitalize">{{ $medicine->medicine_name }}
+                        @if ($medicine->medicine_quantity <= 100) <div
+                            class="text-xs text-white bg-red-600 text-center p-1">
+                            Critical Stock
+                    </div>
+                    @endif
+
+
                 </td>
                 <td class="p-2 ">
                     <div>{{ number_format($medicine->medicine_quantity) }}</div>
@@ -52,9 +62,14 @@
                         \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
                         @endif
                 </td>
-                <td class="p-2 ">
+                {{-- <td class="p-2 ">
                     <div class="text-red-700">
                         @if ($medicine->medicine_quantity <= 100) Critical Stock @endif </div>
+                </td> --}}
+                <td class="p-2 ">
+                    <div>
+                        {{ $medicine->stock_out }}
+                    </div>
                 </td>
                 <td class="p-2 ">
                     <div>
