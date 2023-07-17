@@ -264,7 +264,7 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
-                    <label for="diagnosis" class="block text-sm font-medium text-gray-700">Diagnosis</label>
+                    <label for="diagnosis" class="block text-sm font-medium text-gray-700">Action Taken</label>
                     <input type="text" name="diagnosis" id="diagnosis" autocomplete="diagnosis"
                         value="{{ old('diagnosis') }}" class="{{($errors->first('diagnosis') ? " border-red-600"
                         : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full
