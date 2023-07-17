@@ -346,9 +346,10 @@
                 <div class="col-span-6 sm:col-span-2">
                     <label for="physician_name" class="block text-sm font-medium text-gray-700">Physician/Nurse</label>
                     <input type="text" name="physician_name" id="physician_name" autocomplete="physician_name"
-                        value="{{ old('physician_name') }}" class="{{($errors->first('physician_name') ? "
-                        border-red-600" : "border-gray-300" )}} mt-1 focus:ring-indigo-500 focus:border-indigo-500 block
-                        w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        value="{{ old('physician_name', Auth::user()->name) }}"
+                        class="{{($errors->first('physician_name') ? " border-red-600" : "border-gray-300" )}} mt-1
+                        focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300
+                        rounded-md">
                     @error('physician_name')
                     <div class=" flex items-center gap-1 mt-1 ml-1">
                         <div>
