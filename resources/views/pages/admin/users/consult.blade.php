@@ -363,13 +363,13 @@
                     @enderror
                 </div>
 
-                <div class="col-span-6">
+                {{-- <div class="col-span-6">
                     <label for="patient_medical_comments"
                         class="block text-sm font-medium text-gray-700">Comments</label>
                     <textarea name="patient_medical_comments" id="patient_medical_comments"
                         autocomplete="medical-comments"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-                </div>
+                </div> --}}
 
 
             </div>
