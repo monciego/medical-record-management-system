@@ -11,46 +11,87 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden lg:block mt-6">
+            <div class="flex gap-4 items-center">
+
+                {{-- Notifcation --}}
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
+                            class="flex bg-indigo-500 hover:bg-indigo-600 p-2 rounded-full items-center text-sm font-medium text-gray-100 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-4 h-4 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                            </svg>
 
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
                         </button>
                     </x-slot>
 
-                    <x-slot name="content">
-                        <!-- Change Password -->
-                        @include('pages.admin.change-name.change-name')
-                        <!-- Change Password -->
-                        @include('auth.change-password.change-password')
-                        <!-- School Year -->
-                        @if (Auth::user()->hasRole('administrator'))
-                        @include('pages.admin.school-year.dropdown-link')
-                        @endif
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+                    <x-slot name="content" class="bg-red-500">
+                        <div class="p-2">
+                            @foreach ($medicines_global as $medicine_global)
+                            @if ($medicine_global->medicine_quantity <= 100) <p
+                                class="text-sm border-b border-b-black py-2">
+                                {{ $medicine_global->medicine_name }} is
+                                <span style="color: rgb(171, 133, 21)" class="underline">
+                                    critical stock
+                                </span>
+                                </p>
+                                @endif
+
+                                @if ($medicine_global->date_of_expiration < $currentTimeGlobal) <p
+                                    class="text-sm border-b border-b-black py-2">
+                                    {{ $medicine_global->medicine_name }} is <span class="text-red-600 underline">
+                                        expired
+                                    </span>
+                                    </p>
+                                    @endif
+                                    @endforeach
+                        </div>
                     </x-slot>
                 </x-dropdown>
-            </div>
 
+                <!-- Settings Dropdown -->
+                <div class="hidden lg:block ">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button
+                                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <div>{{ Auth::user()->name }}</div>
+
+                                <div class="ml-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <!-- Change Password -->
+                            @include('pages.admin.change-name.change-name')
+                            <!-- Change Password -->
+                            @include('auth.change-password.change-password')
+                            <!-- School Year -->
+                            @if (Auth::user()->hasRole('administrator'))
+                            @include('pages.admin.school-year.dropdown-link')
+                            @endif
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+
+            </div>
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center lg:hidden">
                 <button @click="open = ! open"

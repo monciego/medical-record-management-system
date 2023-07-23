@@ -38,13 +38,7 @@
             <tr>
                 <td class="p-2">
                     <div class="text-slate-800 capitalize">{{ $medicine->medicine_name }}
-                        @if ($medicine->medicine_quantity <= 100) <div
-                            class="text-xs text-white bg-red-600 text-center p-1">
-                            Critical Stock
                     </div>
-                    @endif
-
-
                 </td>
                 <td class="p-2 ">
                     <div>{{ number_format($medicine->medicine_quantity) }}</div>
@@ -62,10 +56,6 @@
                         \Carbon\Carbon::parse($medicine->date_of_expiration)->isoFormat('MMM D YYYY')}}
                         @endif
                 </td>
-                {{-- <td class="p-2 ">
-                    <div class="text-red-700">
-                        @if ($medicine->medicine_quantity <= 100) Critical Stock @endif </div>
-                </td> --}}
                 <td class="p-2 ">
                     <div>
                         {{ $medicine->stock_out }}
