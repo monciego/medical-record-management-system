@@ -26,9 +26,11 @@
                 <th class="p-2">
                     <div class="font-semibold text-left">Stock Out</div>
                 </th>
+                @if (Auth::user()->id === 2)
                 <th class="p-2">
                     <div class="font-semibold text-left">Action</div>
                 </th>
+                @endif
             </tr>
         </thead>
         {{-- table body --}}
@@ -61,12 +63,14 @@
                         {{ $medicine->stock_out }}
                     </div>
                 </td>
+                @if (Auth::user()->id === 2)
                 <td class="p-2 ">
                     <div>
                         @include('pages.admin.medicine.edit-medicine')
                         @include('pages.admin.medicine.delete-medicine')
                     </div>
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
