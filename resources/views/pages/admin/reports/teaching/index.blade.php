@@ -4,6 +4,7 @@
         <header class="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
             <h2 class="font-semibold text-slate-800">Teachers Records</h2>
             <div>
+                @include('pages.admin.reports.teaching.filter-diagnosis')
                 @include('pages.admin.reports.teaching.filter')
                 @include('pages.admin.reports.teaching.print')
             </div>

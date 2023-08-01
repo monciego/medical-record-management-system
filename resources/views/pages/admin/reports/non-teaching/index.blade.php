@@ -4,16 +4,9 @@
         <header class="px-5 py-4 border-b border-slate-100 flex justify-between items-center">
             <h2 class="font-semibold text-slate-800">Non-Teaching Staff Records</h2>
             <div>
+                @include('pages.admin.reports.non-teaching.filter-diagnosis')
                 @include('pages.admin.reports.non-teaching.filter')
                 @include('pages.admin.reports.non-teaching.print')
-                {{-- <p>
-                    @foreach ($school_years as $school_year)
-                <p>{{ $school_year->school_year }}</p>
-                <li>First Semester</li>
-                <li>Second Semester</li>
-                <li>Third Semester</li>
-                @endforeach
-                --}}
             </div>
 
         </header>

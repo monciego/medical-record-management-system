@@ -49,5 +49,9 @@ class Patient extends Model
         if($filters['search'] ?? false) {
               $query->where('user_patient_first_name', 'like', '%' . request('search'));
         }
+
+        if($filters['diagnosis'] ?? false) {
+              $query->where('diagnosis', 'like', '%' . request('diagnosis'));
+        }
     }
 }

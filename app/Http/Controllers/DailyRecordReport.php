@@ -27,10 +27,17 @@ class DailyRecordReport extends Controller
     public function students()
     {
         $school_years = SchoolYear::get();
-       $student_records = Patient::with('user_data')->filter(request(['clinic']))->whereHas('user_data', function ($query) {
+       $student_records = Patient::with('user_data')->filter(request(['clinic', 'diagnosis']))->whereHas('user_data', function ($query) {
             return $query->where('user_patient_role', '=', 'student');
         })->get();
-        return view('pages.admin.reports.students.index', compact('student_records', 'school_years'));
+
+        $ids = [];
+        foreach($student_records as $list){
+            array_push($ids, $list->diagnosis);
+        }
+        $diagnosis = array_unique($ids);
+
+        return view('pages.admin.reports.students.index', compact('student_records', 'school_years', 'diagnosis'));
     }
     /**
      * Display a listing of the teaching staffs.
@@ -40,10 +47,17 @@ class DailyRecordReport extends Controller
     public function teaching()
     {
         $school_years = SchoolYear::get();
-       $teaching_records = Patient::with('user_data')->filter(request(['clinic']))->whereHas('user_data', function ($query) {
+       $teaching_records = Patient::with('user_data')->filter(request(['clinic', 'diagnosis']))->whereHas('user_data', function ($query) {
             return $query->where('user_patient_role', '=', 'teaching_staff');
         })->get();
-        return view('pages.admin.reports.teaching.index', compact('teaching_records', 'school_years'));
+
+        $ids = [];
+        foreach($teaching_records as $list){
+            array_push($ids, $list->diagnosis);
+        }
+        $diagnosis = array_unique($ids);
+
+        return view('pages.admin.reports.teaching.index', compact('teaching_records', 'school_years', 'diagnosis'));
     }
     /**
      * Display a listing of the non-teaching staffs.
@@ -56,10 +70,17 @@ class DailyRecordReport extends Controller
         // $example = Patient::with('school_year', 'user_data')->where('school_year_id', 1)->where('semester', 1)->get();
 
         $school_years = SchoolYear::get();
-       $non_teaching_records = Patient::with('user_data')->filter(request(['clinic']))->whereHas('user_data', function ($query) {
+       $non_teaching_records = Patient::with('user_data')->filter(request(['clinic', 'diagnosis']))->whereHas('user_data', function ($query) {
             return $query->where('user_patient_role', '=', 'non_teaching_staff');
         })->get();
-        return view('pages.admin.reports.non-teaching.index', compact('non_teaching_records', 'school_years'));
+
+        $ids = [];
+        foreach($non_teaching_records as $list){
+            array_push($ids, $list->diagnosis);
+        }
+        $diagnosis = array_unique($ids);
+
+        return view('pages.admin.reports.non-teaching.index', compact('non_teaching_records', 'school_years', 'diagnosis'));
     }
 
     /**
