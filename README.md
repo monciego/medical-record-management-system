@@ -1,64 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Medical Management System - Pangasinan State University Infirmary
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a comprehensive Medical Management System designed for Pangasinan State University Campus. It is tailored for use by nurses, dentists, and doctors to efficiently manage patient records, treatments, medicines, and examinations.
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   [Features](#features)
+    -   [Login](#login)
+    -   [Doctor Features](#doctor-features)
+        -   [Doctor Dashboard](#doctor-dashboard)
+        -   [Create Nurse Accounts](#create-nurse-accounts)
+        -   [Search Clinical and Treatment Records](#search-clinical-and-treatment-records)
+    -   [Nurse Features](#nurse-features)
+        -   [Dashboard](#dashboard)
+        -   [Clinical Records](#clinical-records)
+        -   [Patient Records](#patient-records)
+        -   [Medicine Records](#medicine-records)
+        -   [Reports](#reports)
+        -   [Examination Record](#examination-record)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Please note that the features listed below are not an exhaustive representation of the entire functionality of the Medical Management System. The system may include additional features, optimizations, and improvements that are not covered here.**
 
-## Learning Laravel
+### Doctor Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### Doctor Dashboard
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   Doctors have access to analytics, visualized with bar graphs, showing the number of patients by month, the distribution of medical and dental cases, and the number of patients requesting examination reports.
 
-## Laravel Sponsors
+#### Create Nurse Accounts
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+-   Doctors can create accounts for nurses, facilitating the onboarding process.
 
-### Premium Partners
+#### Search Clinical and Treatment Records
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   Doctors can search clinical and treatment records using patient IDs, making it easier to access patient information quickly.
 
-## Contributing
+### Nurse Features
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Login
 
-## Code of Conduct
+-   Nurses, dentists, and doctors can log in using their credentials to access the system.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Dashboard
 
-## Security Vulnerabilities
+-   The dashboard provides an overview of the records in the system, including the number of teaching staff, non-teaching staff, and students.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Clinical Records
+
+-   Nurses can add, edit, and delete personal records of students, teachers, and non-teaching staff. These records are used for patient consultation.
+
+#### Patient Records
+
+-   After patient consultation, the records are stored in the patient records section. Here, nurses can view and manage the treatment history of patients.
+
+#### Medicine Records
+
+-   The system maintains a record of medicines available, including quantity. When medicines are used for treatment, the quantity is automatically updated.
+
+#### Reports
+
+-   Nurses can generate reports based on school year, semester, and medical/dental cases. These reports can be printed and are useful for documentation.
+
+#### Examination Record
+
+-   The system provides examination records for pre-employment, annual check-ups, and OJT purposes. Doctors are responsible for examining patients for these records.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License with the following modification:
+
+-   Users are granted permission to use, copy, and modify the software for personal and educational purposes only. Contributions to the codebase are not permitted.
+-   Users are also required to replace any institutional logos or branding used in the software with their own logos or branding.
+
+The full text of the MIT License with these modifications can be found in the [LICENSE](LICENSE) file.
